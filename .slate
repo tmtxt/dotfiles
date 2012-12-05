@@ -1,0 +1,58 @@
+#################################
+# General Config
+#################################
+config defaultToCurrentScreen true
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+config windowHintsFontColor 20;20;20;1.0
+# config windowHintsFontColor 247;127;190;1.0 #another color
+config windowHintsWidth 50
+config windowHintsHeight 50
+
+#################################
+# Abstract Position for windows management
+#################################
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY #full screen
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias rightlarge move screenOriginX;screenOriginY screenSizeX/4*3;screenSizeY
+alias leftsmall move screenOriginX+screenSizeX/4*3;screenOriginY screenSizeX/4;screenSizeY
+# Key bindings for those position
+bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
+bind 3:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
+bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
+bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
+bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
+
+#################################
+# Ultra-Fast app switching
+#################################
+# but I really don't like it, it can only focus to the application
+# cannot open the application when it is not currently open
+# and when there is one non-responding application
+# Slate becomes non-responding too
+# I think maybe it because Slate cannot determine the state of the
+# application window
+# I prefer the way QuickSilver do it on MacOS
+# but QuickSilver is now not developed anymore
+# so I commented these statements and temporarily using QuickSilver
+
+# bind f1 focus 'Firefox'			#use f1 to focus firefox/conkeror
+# bind f2 focus 'Emacs'			#use f2 to focus emacs
+# bind f3 focus 'Skype'			#use f3 to focus skype
+# bind f4 focus 'Google Chrome'	#use f4 to focus google chrome
+# bind f5 focus 'iTerm'			#use f5 to focus iterm
+
+#################################
+# Key Bindings
+#################################
+# use this for fast window switching
+# replace the built-in macOS app switching
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN
+# divvy window grid style
+# press cmd+g show a 6x2 grid on first monitor
+# and 8x3 grid on second monitor
+bind g:cmd grid padding:5 0:4,2 1:8,3
