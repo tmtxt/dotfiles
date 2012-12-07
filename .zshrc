@@ -42,15 +42,15 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # custom display
 # VIRTUAL_ENV_DISABLE_PROMPT=TRUE
 # NTA XXX: Why doesn't it work with left prompt?
-function ublt-virtualenv-info {
+function tmtxt-virtualenv-info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
 }
 
-function ublt-date {
+function tmtxt-date {
     date '+%a %Y-%m-%d %T %Z'
 }
 
-function ublt-fill-bar {
+function tmtxt-fill-bar {
     local term_width
     (( term_width = ${COLUMNS} - 1 ))
 
@@ -63,10 +63,10 @@ function ublt-fill-bar {
     local user="%n"
     local host="%M"
     local current_dir="%~"
-    local date="$(ublt-date)"
+    local date="$(tmtxt-date)"
 
     # Left prompt's left part
-    local left_left_prompt_size=${#${(%):-╭─ ${user}@${host} $(ublt-virtualenv-info) ${current_dir}}}
+    local left_left_prompt_size=${#${(%):-╭─ ${user}@${host} $(tmtxt-virtualenv-info) ${current_dir}}}
     # Left prompt's right part
     local left_right_prompt_size=${#${(%):-${date}}}
     local left_prompt_size
@@ -89,15 +89,15 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$terminfo[bold]$fg[yellow]%} °"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$terminfo[bold]$fg[green]%} ✔"
 
 local user_host='%{$terminfo[bold]$fg[green]%}%n%{$fg[black]%}@%{$fg[red]%}%M%{$reset_color%}'
-local virtual_env_info='$(ublt-virtualenv-info)'
+local virtual_env_info='$(tmtxt-virtualenv-info)'
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
-local fill_bar='$(ublt-fill-bar)'
-local date_time='%{$terminfo[bold]$fg[cyan]%}$(ublt-date)%{$reset_color%}'
+local fill_bar='$(tmtxt-fill-bar)'
+local date_time='%{$terminfo[bold]$fg[cyan]%}$(tmtxt-date)%{$reset_color%}'
 local return_code="%(?..%{$terminfo[bold]$fg[red]%}%? ↵%{$reset_color%})"
 
 PROMPT="
 ╭─ ${user_host} ${virtual_env_info} ${current_dir} ${fill_bar} ${date_time}
 ╰─%B%b "
 
-RPROMPT='${return_code} $(git_prompt_info) %l'
+RPROMPT='${return_code} $(git_prompt_info) %1'
 
