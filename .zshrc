@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -35,21 +35,69 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+# export path
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
-# new copy command using rsync
-#Show progress while file is copying
-# Rsync options are:
-# -p - preserve permissions
-# -o - preserve owner
-# -g - preserve group
-# -h - output in human-readable format
-# --progress - display progress
-# -b - instead of just overwriting an existing file, save the original
-# --backup-dir=/tmp/rsync - move backup copies to "/tmp/rsync"
-# -e /dev/null - only work on local files
-# -- - everything after this is an argument, even if it looks like an option
-alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+# custom display
+# VIRTUAL_ENV_DISABLE_PROMPT=TRUE
+# NTA XXX: Why doesn't it work with left prompt?
+function ublt-virtualenv-info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
+}
 
+function ublt-date {
+    date '+%a %Y-%m-%d %T %Z'
+}
+
+function ublt-fill-bar {
+    local term_width
+    (( term_width = ${COLUMNS} - 1 ))
+
+    local fill_bar=""
+    local pwd_len=""
+
+    # NTA TODO: Use $pwd_len & this
+    # local pwdsize=${#${(%):-%~}}
+
+    local user="%n"
+    local host="%M"
+    local current_dir="%~"
+    local date="$(ublt-date)"
+
+    # Left prompt's left part
+    local left_left_prompt_size=${#${(%):-╭─ ${user}@${host} $(ublt-virtualenv-info) ${current_dir}}}
+    # Left prompt's right part
+    local left_right_prompt_size=${#${(%):-${date}}}
+    local left_prompt_size
+    (( left_prompt_size = ${left_left_prompt_size} + ${left_right_prompt_size} ))
+
+    if [[ "$left_prompt_size" -gt $term_width ]]; then
+((pwd_len=$term_width - $left_prompt_size))
+    else
+fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
+    fi
+
+echo "%{$fg[magenta]%} ${fill_bar} %{$reset_color%}"
+}
+
+# git variables
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$terminfo[bold]$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$terminfo[bold]$fg[red]%} ✘"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$terminfo[bold]$fg[yellow]%} °"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$terminfo[bold]$fg[green]%} ✔"
+
+local user_host='%{$terminfo[bold]$fg[green]%}%n%{$fg[black]%}@%{$fg[red]%}%M%{$reset_color%}'
+local virtual_env_info='$(ublt-virtualenv-info)'
+local current_dir='%{$terminfo[bold]$fg[blue]%}%~%{$reset_color%}'
+local fill_bar='$(ublt-fill-bar)'
+local date_time='%{$terminfo[bold]$fg[cyan]%}$(ublt-date)%{$reset_color%}'
+local return_code="%(?..%{$terminfo[bold]$fg[red]%}%? ↵%{$reset_color%})"
+
+PROMPT="
+╭─ ${user_host} ${virtual_env_info} ${current_dir} ${fill_bar} ${date_time}
+╰─%B%b "
+
+RPROMPT='${return_code} $(git_prompt_info) %l'
 
