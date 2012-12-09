@@ -78,7 +78,7 @@ function tmtxt-fill-bar {
 fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
     fi
 
-echo "%{$fg[magenta]%} ${fill_bar} %{$reset_color%}"
+echo "%{$fg[white]%} ${fill_bar} %{$reset_color%}"
 }
 
 # git variables
@@ -100,4 +100,3 @@ PROMPT="
 ╰─%B%b "
 
 RPROMPT='${return_code} $(git_prompt_info) %1'
-
