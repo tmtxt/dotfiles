@@ -38,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 # export path
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/bin:$PATH
 
 # custom display
 # VIRTUAL_ENV_DISABLE_PROMPT=TRUE
@@ -100,3 +101,4 @@ PROMPT="
 ╰─%B%b "
 
 RPROMPT='${return_code} $(git_prompt_info) %1'
+
