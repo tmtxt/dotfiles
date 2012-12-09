@@ -11,6 +11,7 @@ config windowHintsFontColor 20;20;20;1.0
 # config windowHintsFontColor 247;127;190;1.0 #another color
 config windowHintsWidth 50
 config windowHintsHeight 50
+config windowHintsTopLeftY (windowSizeY/3.5)-(windowHintsHeight/2);0
 
 #################################
 # Abstract Position for windows management
