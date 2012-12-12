@@ -123,3 +123,10 @@ alias ls='ls -aCFho --color=auto'
 elif [[ $platform == "Mac" ]]; then
 alias ls='ls -aCFho -G'
 fi
+
+# some useful alias
+alias df='df -h'				# file system usage
+alias du='du -h'				# du /path/to/file - File space usage
+alias rs='rsync --progress -rv'	# inside computer
+alias rsl='rsync --progress -rv --inplace' # local
+alias rsn='rsync --progress -rvz'		   # network
