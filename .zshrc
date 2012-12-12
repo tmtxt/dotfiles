@@ -35,10 +35,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# export path
-export PATH="/usr/local/mysql/bin:$PATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/opt/bin:$PATH
 
 # custom display
 # VIRTUAL_ENV_DISABLE_PROMPT=TRUE
@@ -102,3 +98,21 @@ PROMPT="
 
 RPROMPT='${return_code} $(git_prompt_info) %1'
 
+# Determine platform
+local unamestr=$(uname)
+local platform=""
+if [[ $unamestr == "Linux" ]]; then
+platform="Linux"
+elif [[ $unamestr == "Darwin" ]]; then
+platform="Mac"
+fi
+
+# PATH
+if [[ $platform == "Linux" ]]; then
+PATH=~/bin:$PATH
+elif [[ $platform == "Mac" ]]; then
+PATH=~/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
+fi
+
+# mysql path
+export PATH="/usr/local/mysql/bin:$PATH"
