@@ -116,3 +116,10 @@ fi
 
 # mysql path
 export PATH="/usr/local/mysql/bin:$PATH"
+
+# show details for ls command
+if [[ $platform == "Linux" ]]; then
+alias ls='ls -aCFho --color=auto'
+elif [[ $platform == "Mac" ]]; then
+alias ls='ls -aCFho -G'
+fi
