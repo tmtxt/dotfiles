@@ -12,3 +12,5 @@ Home directory
 .oh-my-zsh
 ### Slate
 .slate
+### tmux
+.tmux.conf
