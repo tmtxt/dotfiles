@@ -112,10 +112,8 @@ if [[ $platform == "Linux" ]]; then
 PATH=~/bin:$PATH
 elif [[ $platform == "Mac" ]]; then
 PATH=~/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
+PATH=/usr/local/mysql/bin:$PATH	# mysql path on mac os
 fi
-
-# mysql path
-export PATH="/usr/local/mysql/bin:$PATH"
 
 # show details for ls command
 if [[ $platform == "Linux" ]]; then
