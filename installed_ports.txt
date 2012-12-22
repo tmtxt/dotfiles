@@ -23,6 +23,7 @@
   docbook-xsl @1.76.1_1 (active) platform='darwin 12' archs='noarch'
   dyld-headers @210.2.3_0 (active) platform='darwin 12' archs='noarch'
   eggdbus @0.6_1+universal (active) platform='darwin 12' archs='i386 x86_64'
+  emacs-app @24.2_1+fullscreen+inline (active) platform='darwin 12' archs='x86_64'
   expat @2.1.0_0+universal (active) platform='darwin 12' archs='i386 x86_64'
   flex @2.5.37_0+universal (active) platform='darwin 12' archs='i386 x86_64'
   fontconfig @2.9.0_1+universal (active) platform='darwin 12' archs='i386 x86_64'
