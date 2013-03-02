@@ -41,11 +41,11 @@ bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
 # but QuickSilver is now not developed anymore
 # so I commented these statements and temporarily using QuickSilver
 
-# bind f1 focus 'Firefox'			#use f1 to focus firefox/conkeror
-# bind f2 focus 'Emacs'			#use f2 to focus emacs
-# bind f3 focus 'Skype'			#use f3 to focus skype
-# bind f4 focus 'Google Chrome'	#use f4 to focus google chrome
-# bind f5 focus 'iTerm'			#use f5 to focus iterm
+bind f1 focus 'Conkeror'		#use f1 to focus conkeror
+bind f2 focus 'Emacs'			#use f2 to focus emacs
+bind f3 focus 'Skype'			#use f3 to focus skype
+bind f4 focus 'Google Chrome'	#use f4 to focus google chrome
+bind f5 focus 'iTerm'			#use f5 to focus iterm
 
 #################################
 # Key Bindings
