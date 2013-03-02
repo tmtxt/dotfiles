@@ -128,6 +128,7 @@ alias du='du -h'				# du /path/to/file - File space usage
 alias rs='rsync --progress -rv'	# inside computer
 alias rsl='rsync --progress -rv --inplace' # local
 alias rsn='rsync --progress -rvz'		   # network
+alias jks='jekyll --server'				   # jekyll server
 # specific alias for os
 if [[ $platform == "Linux" ]]; then
 
