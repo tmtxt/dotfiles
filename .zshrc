@@ -107,11 +107,11 @@ elif [[ $unamestr == "Darwin" ]]; then
 	platform="Mac"
 fi
 
-# PATH
+# some config
 if [[ $platform == "Linux" ]]; then
-	PATH=~/bin:$PATH
+	
 elif [[ $platform == "Mac" ]]; then
-	PATH=~/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
+	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
 	PATH=/usr/local/mysql/bin:$PATH	# mysql path on mac os
 fi
 
@@ -135,4 +135,10 @@ if [[ $platform == "Linux" ]]; then
 elif [[ $platform == "Mac" ]]; then
 	alias portexpt='port -qv installed >' # export installed ports in mac port
 								# to a file, usage: portexpt filename.txt
+	alias emacs="open /Applications/MacPorts/Emacs.app"
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
