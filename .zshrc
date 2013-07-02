@@ -107,38 +107,41 @@ elif [[ $unamestr == "Darwin" ]]; then
 	platform="Mac"
 fi
 
-# some config
-if [[ $platform == "Linux" ]]; then
-	
-elif [[ $platform == "Mac" ]]; then
-	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
-	PATH=/usr/local/mysql/bin:$PATH	# mysql path on mac os
-fi
-
-# show details for ls command
-if [[ $platform == "Linux" ]]; then
-	alias ls='ls -aCFho --color=auto'
-elif [[ $platform == "Mac" ]]; then
-	alias ls='ls -aCFho -G'
-fi
-
 # some useful alias
 alias df='df -h'				# file system usage
 alias du='du -h'				# du /path/to/file - File space usage
 alias rs='rsync --progress -rv'	# inside computer
 alias rsl='rsync --progress -rv --inplace' # local
 alias rsn='rsync --progress -rvz'		   # network
-alias jks='jekyll --server'				   # jekyll server
-# specific alias for os
-if [[ $platform == "Linux" ]]; then
+alias jks='jekyll serve -w'				   # jekyll server
+alias sd='sudo shutdown -h'
 
+# some config
+if [[ $platform == "Linux" ]]; then
+	# show details for ls command
+	alias ls='ls -aCFho --color=auto'
 elif [[ $platform == "Mac" ]]; then
+	# PATH for GNU stuffs
+	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
+
+	# mysql path on mac os
+	PATH=/usr/local/mysql/bin:$PATH
+	
+	# boxen
+	[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+	alias boxen='boxen --debug'
+
+	# show details for ls command
+	alias ls='ls -aCFho -G'
+
 	alias portexpt='port -qv installed >' # export installed ports in mac port
 								# to a file, usage: portexpt filename.txt
-	alias emacs="open /Applications/MacPorts/Emacs.app"
+	
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+
