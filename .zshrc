@@ -120,6 +120,9 @@ alias sd='sudo shutdown -h'
 if [[ $platform == "Linux" ]]; then
 	# show details for ls command
 	alias ls='ls -aCFho --color=auto'
+
+	# export path for dropbox
+	PATH=~/.dropbox-dist:$PATH
 elif [[ $platform == "Mac" ]]; then
 	# PATH for GNU stuffs
 	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
