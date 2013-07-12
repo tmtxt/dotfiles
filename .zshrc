@@ -131,8 +131,8 @@ elif [[ $platform == "Mac" ]]; then
 	PATH=/usr/local/mysql/bin:$PATH
 	
 	# boxen
-	[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-	alias boxen='boxen --debug'
+	# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+	# alias boxen='boxen --debug'
 
 	# show details for ls command
 	alias ls='ls -aCFho -G'
