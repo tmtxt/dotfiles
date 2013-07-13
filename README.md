@@ -1,14 +1,10 @@
-dotfiles
-========
+My personal config files.
 
-My personal config files. Just clone and create the appropriate sym links.
+# Installation
 
-Home directory
-==============
-### Oh My Zsh and Zsh
-.zshrc  
-.oh-my-zsh
-### Slate
-.slate
-### tmux
-.tmux.conf
+```console
+$ git clone git@github.com:tmtxt/dotfiles.git
+$ ln -s .zshrc ~/.zshrc
+$ ln -s .slate ~/.slate
+$ ln -s .tmux.conf ~/.tmux.conf
+```
