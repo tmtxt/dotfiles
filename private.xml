@@ -235,6 +235,19 @@
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
     </item>
+	<item>
+      <name>Control+K to Command+Shift+Right,Command+X</name>
+	  <appendix>(C-k to kill all line and put it into blackboard)</appendix>
+      <identifier>private.emacsmode_controlK</identifier>
+      <block>
+        <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}, DICTIONARY</not>
+        <autogen>__KeyToKey__ KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+      </block>
+      <block>
+        <only>DICTIONARY</only>
+        <autogen>__KeyToKey__ KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+      </block>
+    </item>
 	
   </item>
 </root>
