@@ -353,5 +353,27 @@
 		KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
 	  </autogen>
 	</item>
+	<item>
+	  <name>Control+Shift+I to Command+Option+Up</name>
+	  <appendix>(increase volume)</appendix>
+	  <identifier>private.skype_controlshiftI</identifier>
+	  <only>SKYPE</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::I, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Shift+K to Command+Option+Down</name>
+	  <appendix>(decrease volume)</appendix>
+	  <identifier>private.skype_controlshiftK</identifier>
+	  <only>SKYPE</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::K, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
   </item>
 </root>
