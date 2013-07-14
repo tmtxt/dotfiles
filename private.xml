@@ -321,5 +321,11 @@
 		KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
 	  </autogen>
 	</item>
+	<item>
+	  <name>Control+[ to Escape</name>
+	  <identifier>private.conkeror_control[</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::ESCAPE</autogen>
+	</item>
   </item>
 </root>
