@@ -268,7 +268,7 @@
     </item>
 	<item>
       <name>Option+F to Option+Right</name>
-      <identifier>option.emacsmode_optionF</identifier>
+      <identifier>private.emacsmode_optionF</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L</autogen>
     </item>
@@ -277,6 +277,18 @@
       <identifier>private.emacsmode_optionD</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::D, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::FORWARD_DELETE, ModifierFlag::OPTION_L</autogen>
+    </item>
+	<item>
+      <name>Option+&lt; to Home</name>
+      <identifier>private.emacsmode_optionLt</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::COMMA, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::HOME, ModifierFlag::OPTION_L</autogen>
+    </item>
+	<item>
+      <name>Option+&gt; to End</name>
+      <identifier>private.emacsmode_optionGt</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::DOT,   MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::END, ModifierFlag::OPTION_L</autogen>
     </item>
 	
   </item>
