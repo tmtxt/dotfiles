@@ -383,6 +383,12 @@
 	  <only>CONKEROR</only>
 	  <autogen>__KeyToKey__ KeyCode::N, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
 	</item>
+	<item>
+      <name>Control+M to Return</name>
+      <identifier>private.conkeror_controlM</identifier>
+      <only>CONKEROR</only>
+      <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN</autogen>
+    </item>
   </item>
 
   <item>
