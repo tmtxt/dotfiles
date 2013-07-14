@@ -281,11 +281,13 @@
       <name>Option+&lt; to Home</name>
       <identifier>private.emacsmode_optionLt</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <not>FINDER</not>
       <autogen>__KeyToKey__ KeyCode::COMMA, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::HOME, ModifierFlag::OPTION_L</autogen>
     </item>
 	<item>
       <name>Option+&gt; to End</name>
       <identifier>private.emacsmode_optionGt</identifier>
+	  <not>FINDER</not>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::DOT,   MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::END, ModifierFlag::OPTION_L</autogen>
     </item>
@@ -437,6 +439,35 @@
 		KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
 	  </autogen>
 	</item>
+  </item>
+
+  <!-- behaviour in finder -->
+  <item>
+	<name>Tmtxt Behaviour in Finder</name>
+	<item>
+	  <name>Option+&lt; to Option+Up</name>
+      <identifier>private.finder_optionLt</identifier>
+      <only>FINDER</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::COMMA,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_UP,
+		ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
+	<item>
+      <name>Option+&gt; to Option+Down</name>
+      <identifier>private.finder_optionGt</identifier>
+	  <only>FINDER</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::DOT,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_DOWN,
+		ModifierFlag::OPTION_L
+	  </autogen>
+    </item>
   </item>
 
   <!-- misc -->
