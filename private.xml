@@ -134,4 +134,11 @@
 	<appname>UTORRENT</appname>
 	<equal>com.bittorrent.uTorrent</equal>
   </appdef>
+  <appdef>
+    <appname>X11</appname>
+    <equal>org.x.X11</equal>
+    <equal>com.apple.x11</equal>
+    <equal>org.macosforge.xquartz.X11</equal>
+    <equal>org.macports.X11</equal>
+  </appdef>
 </root>
