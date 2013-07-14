@@ -294,7 +294,51 @@
       <identifier>private.emacsmode_controlSlash</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::SLASH, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
-    </item>	
+    </item>
+	<item>
+      <name>Shift+Control+P to Shift+Up</name>
+      <identifier>private.emacsmode_shiftcontrolP</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::P,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_UP, ModifierFlag::SHIFT_L
+	  </autogen>
+    </item>
+	<item>
+      <name>Shift+Control+N to Shift+Down</name>
+      <identifier>private.emacsmode_shiftcontrolN</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::N,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_DOWN, ModifierFlag::SHIFT_L
+	  </autogen>
+    </item>
+	<item>
+      <name>Shift+Control+B to Shift+Left</name>
+      <identifier>private.emacsmode_shiftcontrolB</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::B,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_LEFT, ModifierFlag::SHIFT_L
+	  </autogen>
+    </item>
+	<item>
+      <name>Shift+Control+F to Shift+Right</name>
+      <identifier>private.emacsmode_shiftcontrolF</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::F,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_RIGHT, ModifierFlag::SHIFT_L
+	  </autogen>
+    </item>
   </item>
 
   <!-- behaviour for conkeror -->
