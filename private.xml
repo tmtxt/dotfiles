@@ -371,6 +371,18 @@
 	  <only>CONKEROR</only>
 	  <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::ESCAPE</autogen>
 	</item>
+	<item>
+	  <name>Control+P to Up</name>
+	  <identifier>private.conkeror_controlP</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>__KeyToKey__ KeyCode::P, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+	</item>
+	<item>
+	  <name>Control+N to Down</name>
+	  <identifier>private.conkeror_controlN</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>__KeyToKey__ KeyCode::N, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+	</item>
   </item>
 
   <item>
