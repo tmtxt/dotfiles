@@ -73,4 +73,56 @@
 	<appname>CONTACT</appname>
 	<equal>com.apple.AddressBook</equal>
   </appdef>
+  <appdef>
+	<appname>FIREFOX</appname>
+	<equal>org.mozilla.firefox</equal>
+  </appdef>
+  <appdef>
+	<appname>IPHOTO</appname>
+	<equal>com.apple.iPhoto</equal>
+  </appdef>
+  <appdef>
+	<appname>PHOTOBOOTH</appname>
+	<equal>com.apple.PhotoBooth</equal>
+  </appdef>
+  <appdef>
+	<appname>PREVIEW</appname>
+	<equal>com.apple.Preview</equal>
+  </appdef>
+  <appdef>
+	<appname>PROXIFIER</appname>
+	<equal>com.initex.proxifier.macosx</equal>
+  </appdef>
+  <appdef>
+	<appname>SAFARI</appname>
+	<equal>com.apple.Safari</equal>
+  </appdef>
+  <appdef>
+	<appname>SYSTEM-PREFERENCES</appname>
+	<equal>com.apple.systempreferences</equal>
+  </appdef>
+  <appdef>
+	<appname>TEXTEDIT</appname>
+	<equal>com.apple.TextEdit</equal>
+  </appdef>
+  <appdef>
+	<appname>WAKE-UP-TIME</appname>
+	<equal>com.rockysandstudio.WakeUpTime</equal>
+  </appdef>
+  <appdef>
+	<appname>CYBERDUCK</appname>
+	<equal>ch.sudo.cyberduck</equal>
+  </appdef>
+  <appdef>
+	<appname>MAX</appname>
+	<equal>org.sbooth.Max</equal>
+  </appdef>
+  <appdef>
+	<appname>VLC</appname>
+	<equal>org.videolan.vlc</equal>
+  </appdef>
+  <appdef>
+	<appname>UTORRENT</appname>
+	<equal>com.bittorrent.uTorrent</equal>
+  </appdef>
 </root>
