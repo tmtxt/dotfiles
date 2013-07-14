@@ -217,6 +217,12 @@
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::PAGEUP</autogen>
     </item>
+	<item>
+      <name>Control+Y to Command+V</name>
+      <identifier>private.emacsmode_controlY</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::Y, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+    </item>
 	
   </item>
 </root>
