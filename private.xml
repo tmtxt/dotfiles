@@ -205,6 +205,18 @@
 	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
 	  <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
 	</item>
+	<item>
+      <name>Control+V to PageDown</name>
+      <identifier>private.emacsmode_controlV</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+    </item>
+    <item>
+      <name>Option+V to PageUp</name>
+      <identifier>private.emacsmode_optionV</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::PAGEUP</autogen>
+    </item>
 	
   </item>
 </root>
