@@ -8,14 +8,15 @@
   <appdef>
     <appname>EMACS</appname>
     <equal>org.gnu.Emacs</equal>
-  </appdef>
-  <appdef>
-	<appname>ITERM</appname>>
-	<equal>com.googlecode.iterm2</equal>
+    <equal>org.gnu.AquamacsEmacs</equal>
+    <equal>org.gnu.Aquamacs</equal>
   </appdef>
   <appdef>
 	<appname>TERMINAL</appname>
 	<equal>com.apple.Terminal</equal>
+    <equal>iTerm</equal>
+    <equal>net.sourceforge.iTerm</equal>
+    <equal>com.googlecode.iterm2</equal>
   </appdef>
   <appdef>
 	<appname>GOOGLE-CHROME</appname>
@@ -50,8 +51,14 @@
 	<equal>com.apple.iCal</equal>
   </appdef>
   <appdef>
-	<appname>VIRTUALBOX</appname>
-	<equal>org.virtualbox.app.VirtualBoxVM</equal>
+    <appname>VIRTUALMACHINE</appname>
+    <equal>com.vmware.fusion</equal>
+    <equal>com.parallels.desktop</equal>
+    <equal>com.parallels.vm</equal>
+    <equal>com.parallels.desktop.console</equal>
+    <equal>org.virtualbox.app.VirtualBoxVM</equal>
+    <prefix>com.vmware.proxyApp.</prefix>
+    <prefix>com.parallels.winapp.</prefix>
   </appdef>
   <appdef>
 	<appname>ACTIVITY-MONITOR</appname>
@@ -74,8 +81,10 @@
 	<equal>com.apple.AddressBook</equal>
   </appdef>
   <appdef>
-	<appname>FIREFOX</appname>
-	<equal>org.mozilla.firefox</equal>
+    <appname>FIREFOX</appname>
+    <equal>org.mozilla.firefox</equal>
+    <equal>org.mozilla.aurora</equal>
+    <equal>org.mozilla.nightly</equal>
   </appdef>
   <appdef>
 	<appname>IPHOTO</appname>
