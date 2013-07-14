@@ -141,4 +141,17 @@
     <equal>org.macosforge.xquartz.X11</equal>
     <equal>org.macports.X11</equal>
   </appdef>
+
+  <!-- replacement string -->
+  <replacementdef>
+    <replacementname>EMACS_MODE_IGNORE_APPS</replacementname>
+    <replacementvalue>
+	  EMACS,
+	  CONKEROR,
+	  TERMINAL,
+	  VIRTUALMACHINE,
+	  X11,
+	</replacementvalue>
+  </replacementdef>
+  
 </root>
