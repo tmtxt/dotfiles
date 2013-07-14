@@ -144,7 +144,7 @@
 
   <!-- replacement string -->
   <replacementdef>
-    <replacementname>EMACS_MODE_IGNORE_APPS</replacementname>
+    <replacementname>TMTXT_EMACS_MODE_IGNORE_APPS</replacementname>
     <replacementvalue>
 	  EMACS,
 	  CONKEROR,
@@ -154,4 +154,23 @@
 	</replacementvalue>
   </replacementdef>
   
+  <item>
+
+	<!-- emacs mode -->
+	<name>Tmtxt Emacs Mode</name>
+	<item>
+      <name>Control+D to Forward Delete</name>
+      <identifier>private.emacsmode_controlD</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::D, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::FORWARD_DELETE</autogen>
+    </item>
+	<item>
+      <name>Control+D to Forward Delete</name>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.emacsmode_controlD_nomodifiers</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::D, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::FORWARD_DELETE</autogen>
+    </item>
+	
+  </item>
 </root>
