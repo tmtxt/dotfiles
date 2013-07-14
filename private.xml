@@ -223,6 +223,18 @@
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::Y, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
     </item>
+	<item>
+      <name>Control+A to Command+Left</name>
+      <identifier>private.emacsmode_controlA</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>      
+    </item>
+	<item>
+      <name>Control+E to Command+Right</name>
+      <identifier>private.emacsmode_controlE</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+    </item>
 	
   </item>
 </root>
