@@ -198,6 +198,13 @@
 	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
 	  <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
 	</item>
+	<item>
+	  <name>Control+F to Right</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_controlF</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+	</item>
 	
   </item>
 </root>
