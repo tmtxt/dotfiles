@@ -376,4 +376,23 @@
 	  </autogen>
 	</item>
   </item>
+
+  <!-- misc -->
+  <item>
+	<name>Tmtxt Misc</name>
+	<item>
+	  <name>Switch profile by Control-Shift-Fx</name>
+	  <identifier>private.misc_controlshiftFx</identifier>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F1, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile0
+	  </autogen>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F2, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile1
+	  </autogen>
+	</item>
+  </item>
 </root>
