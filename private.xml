@@ -155,7 +155,6 @@
   </replacementdef>
   
   <item>
-
 	<!-- emacs mode -->
 	<name>Tmtxt Emacs Mode</name>
 	<item>
@@ -295,7 +294,32 @@
       <identifier>private.emacsmode_controlSlash</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
       <autogen>__KeyToKey__ KeyCode::SLASH, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
-    </item>
-	
+    </item>	
+  </item>
+
+  <!-- behaviour for conkeror -->
+  <item>
+	<name>Tmtxt Behavious in Conkeror</name>
+	<appendix>(to fix dead key in Conkeror)</appendix>
+	<item>
+	  <name>Option+B to Option+Left</name>
+	  <identifier>private.conkeror_optionB</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::B, ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+F to Option+Right</name>
+	  <identifier>private.conkeror_optionF</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F, ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
   </item>
 </root>
