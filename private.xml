@@ -191,6 +191,13 @@
 	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
 	  <autogen>__KeyToKey__ KeyCode::N, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
 	</item>
+	<item>
+	  <name>Control+B to Left</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_controlB</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+	</item>
 	
   </item>
 </root>
