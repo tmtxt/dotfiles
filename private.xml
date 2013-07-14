@@ -456,5 +456,29 @@
 		KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile1
 	  </autogen>
 	</item>
+	<item>
+	  <name>Control+Option+Command+F12 to Control+Option+Command+Eject</name>
+	  <appendix>(to shutdown computer)</appendix>
+	  <identifier>private.misc_controloptioncommandF12</identifier>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F12,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L,
+		KeyCode::VK_CONSUMERKEY_EJECT,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Command+F12 to Control+Command+Eject</name>
+	  <appendix>(to restart computer)</appendix>
+	  <identifier>private.misc_controlcommandF12</identifier>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F12,
+		ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+		KeyCode::VK_CONSUMERKEY_EJECT,
+		ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L
+	  </autogen>
+	</item>
   </item>
 </root>
