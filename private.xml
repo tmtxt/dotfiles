@@ -511,5 +511,12 @@
 		ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L
 	  </autogen>
 	</item>
+	<item>
+      <name>Disable Power Key</name>
+      <appendix>(+ Fn+Power to Power)</appendix>
+      <identifier>private.misc_droppower</identifier>
+      <modifier_not>ModifierFlag::FN</modifier_not>
+      <autogen>__ConsumerToKey__ ConsumerKeyCode::POWER, KeyCode::VK_NONE</autogen>
+    </item>
   </item>
 </root>
