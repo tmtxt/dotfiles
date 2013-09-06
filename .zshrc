@@ -126,13 +126,14 @@ if [[ $platform == "Linux" ]]; then
 elif [[ $platform == "Mac" ]]; then
 	# PATH for GNU stuffs
 	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
-
+	
 	# mysql path on mac os
 	PATH=/usr/local/mysql/bin:$PATH
 	
 	# boxen
 	# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 	# alias boxen='boxen --debug'
+	PATH=/Volumes/tmtxt/.rvm/gems/ruby-1.9.3-p448/bin:$PATH
 
 	# show details for ls command
 	alias ls='ls -aCFho -G'
@@ -146,5 +147,3 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-
