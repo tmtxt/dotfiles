@@ -1,0 +1,51 @@
+# emacs-style config file for vimium
+# usage: install google chrome, install vimium extension for google chrome
+# usage: copy and paste the whole file content into vimium's options
+
+# unmap all keys
+unmapAll
+
+# follow link in new tab
+map q LinkHints.activateModeToOpenInNewTab
+
+# follow a link in current tab
+map f LinkHints.activateMode
+
+# kill current tab
+map w removeTab
+
+# copy current URL to the clipboard
+map c0 copyCurrentUrl
+
+# copy link
+map cc LinkHints.activateModeToCopyLinkUrl
+
+# reload page
+map r reload
+
+# open clipboard URL in new tab
+map V openCopiedUrlInNewTab
+
+# enter insert mode
+map i enterInsertMode
+
+# open URL in current tab
+map g Vomnibar.activate
+
+# open URL in new tab
+map <c-t> Vomnibar.activateInNewTab
+
+# search forward mode
+map <c-s> enterFindMode
+
+# go back in history
+map B goBack
+
+# go forward in history
+map F goForward
+
+# next tab
+map <c-l> nextTab
+
+# previous tab
+map <c-j> previousTab
