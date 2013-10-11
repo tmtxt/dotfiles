@@ -1,4 +1,4 @@
-# emacs-style config file for vimium
+# emacs-style + vim style config file for vimium
 # usage: install google chrome, install vimium extension for google chrome
 # usage: copy and paste the whole file content into vimium's options
 
@@ -49,3 +49,27 @@ map <c-l> nextTab
 
 # previous tab
 map <c-j> previousTab
+
+# scroll down
+map j scrollDown
+map <c-n> scrollDown
+
+# scroll up
+map k scrollUp
+map <c-p> scrollUp
+
+# scroll left
+map h scrollLeft
+map <c-b> scrollLeft
+
+# scroll right
+map l scrollRight
+map <c-f> scrollRight
+
+# scroll to top
+map gg scrollToTop
+map <m-<> scrollToTop
+
+# scrool to bottom
+map G scrollToBottom
+map <m->> scrollToBottom
