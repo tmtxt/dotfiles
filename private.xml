@@ -422,6 +422,12 @@
       <only>CONKEROR</only>
       <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN</autogen>
     </item>
+	<item>
+      <name>Option+W to Command+C</name>
+      <identifier>private.conkeror_optionW</identifier>
+      <only>CONKEROR</only>
+      <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+    </item>
   </item>
 
   <item>
