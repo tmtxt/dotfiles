@@ -33,7 +33,7 @@ map i enterInsertMode
 map g Vomnibar.activate
 
 # open URL in new tab
-map <c-t> Vomnibar.activateInNewTab
+map o Vomnibar.activateInNewTab
 
 # search forward mode
 map <c-s> enterFindMode
