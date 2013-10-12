@@ -6,7 +6,7 @@
 unmapAll
 
 # follow link in new tab
-map q LinkHints.activateModeToOpenInNewTab
+map F LinkHints.activateModeToOpenInNewTab
 
 # follow a link in current tab
 map f LinkHints.activateMode
@@ -39,10 +39,10 @@ map <c-t> Vomnibar.activateInNewTab
 map <c-s> enterFindMode
 
 # go back in history
-map B goBack
+map H goBack
 
 # go forward in history
-map F goForward
+map L goForward
 
 # next tab
 map <c-l> nextTab
