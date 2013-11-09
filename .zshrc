@@ -7,11 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME=""
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mygcc="gcc -Wall -ansi -pedantic"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -115,36 +110,36 @@ alias rsl='rsync --progress -rv --inplace' # local
 alias rsn='rsync --progress -rvz'		   # network
 alias jks='jekyll serve -w'				   # jekyll server
 alias sd='sudo shutdown -h'
+alias mygcc="gcc -Wall -ansi -pedantic"
+
+# PATH
+PATH=$HOME/bin:$PATH	  # my personal stuff
+PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
+PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
 
 # some config
 if [[ $platform == "Linux" ]]; then
+	# export path for dropbox
+	PATH=$HOME/.dropbox-dist:$PATH
+	
 	# show details for ls command
 	alias ls='ls -aCFho --color=auto'
-
-	# export path for dropbox
-	PATH=~/.dropbox-dist:$PATH
+	
 elif [[ $platform == "Mac" ]]; then
-	# PATH for GNU stuffs
-	PATH=/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin:/opt/bin:$PATH
-	
-	# mysql path on mac os
-	PATH=/usr/local/mysql/bin:$PATH
-	
-	# boxen
-	# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-	# alias boxen='boxen --debug'
-	PATH=/Volumes/tmtxt/.rvm/gems/ruby-1.9.3-p448/bin:$PATH
+	# macports-home path
+	PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
+	PATH=$HOME/bin/macports/libexec/gnubin:$PATH
+	PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
-	# show details for ls command
-	alias ls='ls -aCFho -G'
+	# macports-system path
+	PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
-	alias portexpt='port -qv installed >' # export installed ports in mac port
-								# to a file, usage: portexpt filename.txt
-	
+	# some useful alias
+	alias port-home='$HOME/bin/macports/bin/port'
+	alias port-system='/opt/local/bin/port'
+	alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
+	alias ls='ls -aCFho -G'		# show details for ls command
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/bin	  # my personal stuff
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
