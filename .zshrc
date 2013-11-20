@@ -111,11 +111,13 @@ alias rsn='rsync --progress -rvz'		   # network
 alias jks='jekyll serve -w'				   # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
+alias myaria2='aria2c --enable-rpc --rpc-listen-all --save-session=session.txt -isession.txt'
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
 PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
 PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
+PATH=/usr/local/mysql/bin:$PATH # mysql path
 
 # some config
 if [[ $platform == "Linux" ]]; then
@@ -136,7 +138,7 @@ elif [[ $platform == "Mac" ]]; then
 
 	# some useful alias
 	alias port-home='$HOME/bin/macports/bin/port'
-	alias port-system='/opt/local/bin/port'
+	alias port-system='sudo /opt/local/bin/port'
 	alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
 	alias ls='ls -aCFho -G'		# show details for ls command
 fi
