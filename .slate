@@ -21,39 +21,37 @@ alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias rightlarge move screenOriginX;screenOriginY screenSizeX/4*3;screenSizeY
 alias leftsmall move screenOriginX+screenSizeX/4*3;screenOriginY screenSizeX/4;screenSizeY
+alias moveRight move windowTopLeftX+screenSizeX/8;windowTopLeftY windowSizeX;windowSizeY
+alias moveLeft move windowTopLeftX-screenSizeX/8;windowTopLeftY windowSizeX;windowSizeY
+alias moveUp move windowTopLeftX;windowTopLeftY-screenSizeY/8 windowSizeX;windowSizeY
+alias moveDown move windowTopLeftX;windowTopLeftY+screenSizeY/8 windowSizeX;windowSizeY
+alias moreX move windowTopLeftX;windowTopLeftY windowSizeX+screenSizeX/8;windowSizeY
+alias lessX move windowTopLeftX;windowTopLeftY windowSizeX-screenSizeX/8;windowSizeY
+alias moreY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY+screenSizeX/8
+alias lessY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY-screenSizeX/8
+
 # Key bindings for those position
 bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
 bind 3:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
 bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
 bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
 bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
-
-#################################
-# Ultra-Fast app switching
-#################################
-# but I really don't like it, it can only focus to the application
-# cannot open the application when it is not currently open
-# and when there is one non-responding application
-# Slate becomes non-responding too
-# I think maybe it because Slate cannot determine the state of the
-# application window
-# I prefer the way QuickSilver do it on MacOS
-# but QuickSilver is now not developed anymore
-# so I commented these statements and temporarily using QuickSilver
-
-bind f1 focus 'Conkeror'		#use f1 to focus conkeror
-bind f2 focus 'Emacs'			#use f2 to focus emacs
-bind f3 focus 'Skype'			#use f3 to focus skype
-bind f4 focus 'Google Chrome'	#use f4 to focus google chrome
-bind f5 focus 'iTerm'			#use f5 to focus iterm
+bind l:ctrl;alt;shift ${moveRight} #ctrl+alt+shift+0 for move the current window right
+bind j:ctrl;alt;shift ${moveLeft} #ctrl+alt+shift+7 for move the current window left
+bind k:ctrl;alt;shift ${moveDown}	  #ctrl+alt+shift+8 for move the current window down
+bind i:ctrl;alt;shift ${moveUp}	  #ctrl+alt+shift+9 for move the current window up
+bind d:ctrl;alt;shift ${moreX}
+bind a:ctrl;alt;shift ${lessX}
+bind s:ctrl;alt;shift ${moreY}
+bind w:ctrl;alt;shift ${lessY}
 
 #################################
 # Key Bindings
 #################################
 # use this for fast window switching
 # replace the built-in macOS app switching
-bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN
+# bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN
 # divvy window grid style
 # press cmd+g show a 6x2 grid on first monitor
 # and 8x3 grid on second monitor
-bind g:cmd grid padding:5 0:4,2 1:8,3
+# bind g:cmd grid padding:5 0:4,2 1:8,3
