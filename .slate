@@ -17,6 +17,7 @@ config windowHintsTopLeftY (windowSizeY/3.5)-(windowHintsHeight/2);0
 # Abstract Position for windows management
 #################################
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY #full screen
+alias fullNoToolbar move screenOriginX;screenOriginY-24 screenSizeX;screenSizeY+24 #full screen
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias rightlarge move screenOriginX;screenOriginY screenSizeX/4*3;screenSizeY
@@ -29,6 +30,8 @@ alias moreX move windowTopLeftX;windowTopLeftY windowSizeX+screenSizeX/8;windowS
 alias lessX move windowTopLeftX;windowTopLeftY windowSizeX-screenSizeX/8;windowSizeY
 alias moreY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY+screenSizeX/8
 alias lessY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY-screenSizeX/8
+alias emacsLeft move screenOriginX;screenOriginY screenSizeX/6;screenSizeY
+alias emacsRight move screenOriginX+screenSizeX/6;screenOriginY screenSizeX/6*5;screenSizeY
 
 # Key bindings for those position
 bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
@@ -36,6 +39,7 @@ bind 3:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
 bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
 bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
 bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
+bind 5:ctrl;alt;cmd ${fullNoToolbar}
 bind l:ctrl;alt;shift ${moveRight} #ctrl+alt+shift+0 for move the current window right
 bind j:ctrl;alt;shift ${moveLeft} #ctrl+alt+shift+7 for move the current window left
 bind k:ctrl;alt;shift ${moveDown}	  #ctrl+alt+shift+8 for move the current window down
@@ -44,6 +48,8 @@ bind d:ctrl;alt;shift ${moreX}
 bind a:ctrl;alt;shift ${lessX}
 bind s:ctrl;alt;shift ${moreY}
 bind w:ctrl;alt;shift ${lessY}
+bind y:ctrl;alt;shift ${emacsLeft}
+bind u:ctrl;alt;shift ${emacsRight}
 
 #################################
 # Key Bindings
