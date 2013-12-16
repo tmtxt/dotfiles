@@ -19,7 +19,8 @@ ZSH_THEME=""
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment following line if you want red dots to be displayed while waiting   
+# for completion
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -118,6 +119,7 @@ PATH=$HOME/bin:$PATH	  # my personal stuff
 PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
 PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
 PATH=/usr/local/mysql/bin:$PATH # mysql path
+PATH=$HOME/bin/aria2:$PATH
 
 # some config
 if [[ $platform == "Linux" ]]; then
@@ -141,7 +143,18 @@ elif [[ $platform == "Mac" ]]; then
 	alias port-system='sudo /opt/local/bin/port'
 	alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
 	alias ls='ls -aCFho -G'		# show details for ls command
+
+	# autojump with macports
+	export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
+	if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
+		. $HOME/bin/macports/etc/profile.d/autojump.zsh
+	fi
+	autoload -U compinit
+	compinit
 fi
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+export MAVEN_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
+export DHIS2_HOME="/Volumes/tmtxt/dhis2"
