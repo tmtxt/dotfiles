@@ -564,6 +564,159 @@
 	</item>
   </item>
 
+  <!-- behaviour in apple calendar -->
+  <item>
+	<name>Tmtxt Behaviour in Apple Calendar</name>
+	<item>
+	  <name>Control+Shift+I to Control-Option+Up</name>
+	  <appendix>(move selected event earlier)</appendix>
+      <identifier>private.ical_controlshiftI</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_UP,
+		ModifierFlag::CONTROL_R | ModifierFlag::OPTION_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Shift+K to Control-Option+Down</name>
+	  <appendix>(move selected event later)</appendix>
+      <identifier>private.ical_controlshiftK</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_DOWN,
+		ModifierFlag::CONTROL_R | ModifierFlag::OPTION_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Shift+J to Shift+Control+Left</name>
+	  <appendix>(move selected event to previous)</appendix>
+      <identifier>private.ical_controlshiftJ</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_LEFT,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Shift+L to Shift+Control+Right</name>
+	  <appendix>(move selected event to next)</appendix>
+      <identifier>private.ical_controlshiftL</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::CURSOR_RIGHT,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Option+I to Shift+Control+Up</name>
+	  <appendix>(make selected event end earlier)</appendix>
+      <identifier>private.ical_controloptionI</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_UP,
+		ModifierFlag::CONTROL_R | ModifierFlag::SHIFT_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Option+K to Shift+Control+Down</name>
+	  <appendix>(make selected event end later)</appendix>
+      <identifier>private.ical_controloptionK</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_DOWN,
+		ModifierFlag::CONTROL_R | ModifierFlag::SHIFT_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Option+L to Command+Right</name>
+	  <appendix>(go to next)</appendix>
+      <identifier>private.ical_controloptionL</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_RIGHT,
+		ModifierFlag::COMMAND_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Control+Option+J to Command+Left</name>
+	  <appendix>(go to previous)</appendix>
+      <identifier>private.ical_controloptionJ</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_LEFT,
+		ModifierFlag::COMMAND_R
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+I to Up</name>
+      <identifier>private.ical_optionI</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_UP
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+K to Down</name>
+      <identifier>private.ical_optionK</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_DOWN
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+L to Right</name>
+      <identifier>private.ical_optionL</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_RIGHT
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+J to Left</name>
+      <identifier>private.ical_optionJ</identifier>
+      <only>APPLE-CALENDAR</only>
+      <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		ModifierFlag::OPTION_L,
+		KeyCode::CURSOR_LEFT
+	  </autogen>
+	</item>
+  </item>
+
   <!-- misc -->
   <item>
 	<name>Tmtxt Misc</name>
