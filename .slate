@@ -18,6 +18,8 @@ config windowHintsTopLeftY (windowSizeY/3.5)-(windowHintsHeight/2);0
 #################################
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY #full screen
 alias fullNoToolbar move screenOriginX;screenOriginY-24 screenSizeX;screenSizeY+24 #full screen
+alias moveEmacsThreePixelsLeft move screenOriginX-3;screenOriginY-24 screenSizeX+3;screenSizeY+24
+alias moveEmacsThreePixelsRight move screenOriginX;screenOriginY-24 windowSizeX;windowSizeY
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias rightlarge move screenOriginX;screenOriginY screenSizeX/4*3;screenSizeY
@@ -40,6 +42,7 @@ bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
 bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
 bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
 bind 5:ctrl;alt;cmd ${fullNoToolbar}
+bind 6:ctrl;alt;cmd sequence ${moveEmacsThreePixelsLeft} | ${moveEmacsThreePixelsRight}
 bind l:ctrl;alt;shift ${moveRight} #ctrl+alt+shift+0 for move the current window right
 bind j:ctrl;alt;shift ${moveLeft} #ctrl+alt+shift+7 for move the current window left
 bind k:ctrl;alt;shift ${moveDown}	  #ctrl+alt+shift+8 for move the current window down
