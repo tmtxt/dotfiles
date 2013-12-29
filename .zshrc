@@ -158,3 +158,7 @@ export LANG=en_US.UTF-8
 
 export MAVEN_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
 export DHIS2_HOME="/Volumes/tmtxt/dhis2"
+
+# minecraft server
+alias mcs="java -Xms512M -Xmx512M  -jar minecraft_server.1.7.4.jar"
+alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
