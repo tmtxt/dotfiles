@@ -2,7 +2,7 @@
 
 rsync -arvz --progress --delete ~/minecraft /Volumes/ramdisk/
 cd /Volumes/ramdisk/minecraft
-java -Xms512M -Xmx512M  -jar minecraft_server.1.7.4.jar
+java -Xms512M -Xmx512M  -jar minecraft_server.1.7.4.jar nogui
 rsync -arvz --progress --delete /Volumes/ramdisk/minecraft ~/
 
 
