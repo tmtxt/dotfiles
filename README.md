@@ -9,4 +9,6 @@ $ ln -s .slate ~/.slate
 $ ln -s .tmux.conf ~/.tmux.conf
 $ ln -s private.xml ~/Library/Application Support/KeyRemap4MacBook/private.xml
 $ ln -s .wgetrc ~/.wgetrc
+$ ln -s conkeror-session-backup.sh ~/bin/conkeror-session-backup.sh
+$ ln -s minecraft-server.sh ~/minecraft-server.sh
 ```
