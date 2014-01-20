@@ -376,8 +376,7 @@
 
   <!-- behaviour for conkeror -->
   <item>
-	<name>Tmtxt Behaviours in Conkeror normal</name>
-	<appendix>(to fix dead key in Conkeror)</appendix>
+	<name>Tmtxt Behaviours in Conkeror</name>
 	<item>
 	  <name>Option+B to Option+Left</name>
 	  <identifier>private.conkeror_optionB</identifier>
@@ -404,18 +403,53 @@
 	  <only>CONKEROR</only>
 	  <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::ESCAPE</autogen>
 	</item>
+
+	<!-- ergonomic layout -->
 	<item>
-	  <name>Control+P to Up</name>
-	  <identifier>private.conkeror_controlP</identifier>
+	  <name>Option+I to Up</name>
+	  <identifier>private.conkeror_optionI</identifier>
 	  <only>CONKEROR</only>
-	  <autogen>__KeyToKey__ KeyCode::P, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+	  <autogen>__KeyToKey__ KeyCode::I, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
 	</item>
 	<item>
-	  <name>Control+N to Down</name>
-	  <identifier>private.conkeror_controlN</identifier>
+	  <name>Option+K to Down</name>
+	  <identifier>private.conkeror_optionK</identifier>
 	  <only>CONKEROR</only>
-	  <autogen>__KeyToKey__ KeyCode::N, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+	  <autogen>__KeyToKey__ KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
 	</item>
+	<item>
+	  <name>Option+J to Left</name>
+	  <identifier>private.conkeror_optionJ</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>__KeyToKey__ KeyCode::J, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+	</item>
+	<item>
+	  <name>Option+L to Right</name>
+	  <identifier>private.conkeror_optionL</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>__KeyToKey__ KeyCode::L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+	</item>
+	<item>
+	  <name>Option+Shift+I to Page Up</name>
+	  <identifier>private.conkeror_optionshiftI</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::I, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::PAGEUP
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+Shift+K to Page Down</name>
+	  <identifier>private.conkeror_optionshiftK</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::PAGEDOWN
+	  </autogen>
+	</item>
+	
 	<item>
       <name>Control+M to Return</name>
       <identifier>private.conkeror_controlM</identifier>
