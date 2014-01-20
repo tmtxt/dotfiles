@@ -449,6 +449,26 @@
 		KeyCode::PAGEDOWN
 	  </autogen>
 	</item>
+	<item>
+	  <name>Option+Shift+J to Control+A</name>
+	  <identifier>private.conkeror_optionshiftJ</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::J, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+Shift+L to Control+E</name>
+	  <identifier>private.conkeror_optionshiftL</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL
+	  </autogen>
+	</item>
 	
 	<item>
       <name>Control+M to Return</name>
