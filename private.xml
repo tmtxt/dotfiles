@@ -469,6 +469,26 @@
 		KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL
 	  </autogen>
 	</item>
+	<item>
+	  <name>Option+U to Option+Left</name>
+	  <identifier>private.conkeror_optionU</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::U, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		KeyCode::CURSOR_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+	  </autogen>
+	</item>
+	<item>
+	  <name>Option+O to Option+Right</name>
+	  <identifier>private.conkeror_optionO</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::O, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+	  </autogen>
+	</item>
 	
 	<item>
       <name>Control+M to Return</name>
