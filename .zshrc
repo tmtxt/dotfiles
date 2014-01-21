@@ -151,6 +151,8 @@ elif [[ $platform == "Mac" ]]; then
 	alias ckr="open -n ~/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
 	alias cwd="pwd | pbcopy"	# copy working directory
 	alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
+	alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
+	alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
 
 	# autojump with macports
 	export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
