@@ -1,0 +1,127 @@
+<item>
+  <item>
+	<name>Control+[ to Escape</name>
+	<identifier>private.conkeror_control[</identifier>
+	<only>CONKEROR</only>
+	<autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::ESCAPE</autogen>
+  </item>
+
+  <!-- ergonomic layout -->
+  <item>
+	<name>Option+I to Up</name>
+	<identifier>private.conkeror_optionI</identifier>
+	<only>CONKEROR</only>
+	<autogen>__KeyToKey__ KeyCode::I, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+  </item>
+  <item>
+	<name>Option+K to Down</name>
+	<identifier>private.conkeror_optionK</identifier>
+	<only>CONKEROR</only>
+	<autogen>__KeyToKey__ KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+  </item>
+  <item>
+	<name>Option+J to Left</name>
+	<identifier>private.conkeror_optionJ</identifier>
+	<only>CONKEROR</only>
+	<autogen>__KeyToKey__ KeyCode::J, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+  </item>
+  <item>
+	<name>Option+L to Right</name>
+	<identifier>private.conkeror_optionL</identifier>
+	<only>CONKEROR</only>
+	<autogen>__KeyToKey__ KeyCode::L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+  <item>
+	<name>Option+Shift+I to Page Up</name>
+	<identifier>private.conkeror_optionshiftI</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::I, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::PAGEUP
+	</autogen>
+  </item>
+  <item>
+	<name>Option+Shift+K to Page Down</name>
+	<identifier>private.conkeror_optionshiftK</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::K, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::PAGEDOWN
+	</autogen>
+  </item>
+  <item>
+	<name>Option+Shift+J to Control+A</name>
+	<identifier>private.conkeror_optionshiftJ</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::J, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL
+	</autogen>
+  </item>
+  <item>
+	<name>Option+Shift+L to Control+E</name>
+	<identifier>private.conkeror_optionshiftL</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL
+	</autogen>
+  </item>
+  <item>
+	<name>Option+U to Option+Left</name>
+	<identifier>private.conkeror_optionU</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::U, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+	  KeyCode::CURSOR_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+	</autogen>
+  </item>
+  <item>
+	<name>Option+O to Option+Right</name>
+	<identifier>private.conkeror_optionO</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::O, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+	  KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+	</autogen>
+  </item>
+  <item>
+	<name>Option+N to Command+Up</name>
+	<identifier>private.conkeror_optionN</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::N, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+	  KeyCode::CURSOR_UP, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+	</autogen>
+  </item>
+  <!-- <item>
+  <name>Option+Shift+N to Command+Down</name>
+  <identifier>private.conkeror_optionshiftN</identifier>
+  <only>CONKEROR</only>
+  <autogen>
+  __KeyToKey__
+  KeyCode::N, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L,
+  KeyCode::CURSOR_DOWN, ModifierFlag::CONTROL_L
+  </autogen>
+  </item> -->
+  
+  <item>
+    <name>Control+M to Return</name>
+    <identifier>private.conkeror_controlM</identifier>
+    <only>CONKEROR</only>
+    <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN</autogen>
+  </item>
+  <item>
+    <name>Option+W to Command+C</name>
+    <identifier>private.conkeror_optionW</identifier>
+    <only>CONKEROR</only>
+    <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+  </item>
+</item>

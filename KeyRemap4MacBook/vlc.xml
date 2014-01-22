@@ -1,0 +1,55 @@
+<item>
+  
+  <item>
+	<name>Control+Shift+I to Command+Up</name>
+	<appendix>(volume up)</appendix>
+    <identifier>private.vlc_controlshiftI</identifier>
+    <only>VLC</only>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::I,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::CURSOR_UP,
+	  ModifierFlag::COMMAND_R
+	</autogen>
+  </item>
+  <item>
+	<name>Control+Shift+K to Command+Down</name>
+	<appendix>(volume down)</appendix>
+    <identifier>private.vlc_controlshiftK</identifier>
+    <only>VLC</only>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::K,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::CURSOR_DOWN,
+	  ModifierFlag::COMMAND_R
+	</autogen>
+  </item>
+  <item>
+	<name>Control+Shift+L to Command+Right</name>
+	<appendix>(next)</appendix>
+    <identifier>private.vlc_controlshiftL</identifier>
+    <only>VLC</only>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::L,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::CURSOR_RIGHT,
+	  ModifierFlag::COMMAND_R
+	</autogen>
+  </item>
+  <item>
+	<name>Control+Shift+J to Command+Left</name>
+	<appendix>(previous)</appendix>
+    <identifier>private.vlc_controlshiftJ</identifier>
+    <only>VLC</only>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::J,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::CURSOR_LEFT,
+	  ModifierFlag::COMMAND_R
+	</autogen>
+  </item>
+</item>

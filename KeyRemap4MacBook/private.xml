@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<root>
+  <!-- define some applications here -->
+  <appdef>
+    <appname>CONKEROR</appname>
+    <equal>org.mozdev.conkeror</equal>
+  </appdef>
+  <appdef>
+    <appname>EMACS</appname>
+    <equal>org.gnu.Emacs</equal>
+    <equal>org.gnu.AquamacsEmacs</equal>
+    <equal>org.gnu.Aquamacs</equal>
+  </appdef>
+  <appdef>
+	<appname>TERMINAL</appname>
+	<equal>com.apple.Terminal</equal>
+    <equal>iTerm</equal>
+    <equal>net.sourceforge.iTerm</equal>
+    <equal>com.googlecode.iterm2</equal>
+  </appdef>
+  <appdef>
+	<appname>GOOGLE-CHROME</appname>
+	<equal>com.google.Chrome</equal>
+  </appdef>
+  <appdef>
+	<appname>SKYPE</appname>
+	<equal>com.skype.skype</equal>
+  </appdef>
+  <appdef>
+	<appname>ITUNES</appname>
+	<equal>com.apple.iTunes</equal>
+  </appdef>
+  <appdef>
+	<appname>FINDER</appname>
+	<equal>com.apple.finder</equal>
+  </appdef>
+  <appdef>
+	<appname>APPLE-MAIL</appname>
+	<equal>com.apple.mail</equal>
+  </appdef>
+  <appdef>
+	<appname>VIBER</appname>
+	<equal>com.viber.osx</equal>
+  </appdef>
+  <appdef>
+	<appname>FOLX</appname>
+	<equal>com.eltima.Folx</equal>
+  </appdef>
+  <appdef>
+	<appname>APPLE-CALENDAR</appname>
+	<equal>com.apple.iCal</equal>
+  </appdef>
+  <appdef>
+    <appname>VIRTUALMACHINE</appname>
+    <equal>com.vmware.fusion</equal>
+    <equal>com.parallels.desktop</equal>
+    <equal>com.parallels.vm</equal>
+    <equal>com.parallels.desktop.console</equal>
+    <equal>org.virtualbox.app.VirtualBoxVM</equal>
+    <prefix>com.vmware.proxyApp.</prefix>
+    <prefix>com.parallels.winapp.</prefix>
+  </appdef>
+  <appdef>
+	<appname>ACTIVITY-MONITOR</appname>
+	<equal>com.apple.ActivityMonitor</equal>
+  </appdef>
+  <appdef>
+	<appname>APPSTORE</appname>
+	<equal>com.apple.appstore</equal>
+  </appdef>
+  <appdef>
+	<appname>AUTOMATOR</appname>
+	<equal>com.apple.Automator</equal>
+  </appdef>
+  <appdef>
+	<appname>CALCULATOR</appname>
+	<equal>com.apple.calculator</equal>
+  </appdef>
+  <appdef>
+	<appname>CONTACT</appname>
+	<equal>com.apple.AddressBook</equal>
+  </appdef>
+  <appdef>
+    <appname>FIREFOX</appname>
+    <equal>org.mozilla.firefox</equal>
+    <equal>org.mozilla.aurora</equal>
+    <equal>org.mozilla.nightly</equal>
+  </appdef>
+  <appdef>
+	<appname>IPHOTO</appname>
+	<equal>com.apple.iPhoto</equal>
+  </appdef>
+  <appdef>
+	<appname>PHOTOBOOTH</appname>
+	<equal>com.apple.PhotoBooth</equal>
+  </appdef>
+  <appdef>
+	<appname>PREVIEW</appname>
+	<equal>com.apple.Preview</equal>
+  </appdef>
+  <appdef>
+	<appname>PROXIFIER</appname>
+	<equal>com.initex.proxifier.macosx</equal>
+  </appdef>
+  <appdef>
+	<appname>SAFARI</appname>
+	<equal>com.apple.Safari</equal>
+  </appdef>
+  <appdef>
+	<appname>SYSTEM-PREFERENCES</appname>
+	<equal>com.apple.systempreferences</equal>
+  </appdef>
+  <appdef>
+	<appname>TEXTEDIT</appname>
+	<equal>com.apple.TextEdit</equal>
+  </appdef>
+  <appdef>
+	<appname>WAKE-UP-TIME</appname>
+	<equal>com.rockysandstudio.WakeUpTime</equal>
+  </appdef>
+  <appdef>
+	<appname>CYBERDUCK</appname>
+	<equal>ch.sudo.cyberduck</equal>
+  </appdef>
+  <appdef>
+	<appname>MAX</appname>
+	<equal>org.sbooth.Max</equal>
+  </appdef>
+  <appdef>
+	<appname>VLC</appname>
+	<equal>org.videolan.vlc</equal>
+  </appdef>
+  <appdef>
+	<appname>UTORRENT</appname>
+	<equal>com.bittorrent.uTorrent</equal>
+  </appdef>
+  <appdef>
+    <appname>X11</appname>
+    <equal>org.x.X11</equal>
+    <equal>com.apple.x11</equal>
+    <equal>org.macosforge.xquartz.X11</equal>
+    <equal>org.macports.X11</equal>
+  </appdef>
+
+  <!-- replacement string -->
+  <replacementdef>
+    <replacementname>TMTXT_EMACS_MODE_IGNORE_APPS</replacementname>
+    <replacementvalue>
+	  EMACS,
+	  CONKEROR,
+	  TERMINAL,
+	  VIRTUALMACHINE,
+	  X11,
+	</replacementvalue>
+  </replacementdef>
+  
+  <item>
+	<name>Tmtxt Emacs Mode</name>
+	<include path="emacs-mode.xml"></include>
+  </item>
+
+  <item>
+	<name>Tmtxt Behaviours in Google Chrome</name>
+	<include path="chrome.xml"></include>
+  </item>
+
+  <item>
+	<name>Tmtxt Behaviours in Conkeror</name>
+	<include path="conkeror.xml"></include>
+  </item>
+  
+  <item>
+	<name>Tmtxt Behaviours in Skype</name>
+	<include path="skype.xml"></include>
+  </item>
+
+  <item>
+	<name>Tmtxt Behaviours in Finder</name>
+	<include path="finder.xml"></include>
+  </item>
+
+  <item>
+	<name>Tmtxt Behaviour in VLC</name>
+	<include path="vlc.xml"></include>
+  </item>
+
+  <item>
+	<name>Tmtxt Behaviour in Apple Calendar</name>
+	<include path="calendar.xml"></include>
+  </item>
+
+  <!-- misc -->
+  <item>
+	<name>Tmtxt Misc</name>
+	<item>
+	  <name>Switch profile by Control-Shift-Fx</name>
+	  <identifier>private.misc_controlshiftFx</identifier>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F1, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile0
+	  </autogen>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::F2, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+		KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile1
+	  </autogen>
+	</item>
+	
+	<item>
+      <name>Disable Power Key</name>
+      <appendix>(+ Fn+Power to Power)</appendix>
+      <identifier>private.misc_droppower</identifier>
+      <modifier_not>ModifierFlag::FN</modifier_not>
+      <autogen>__ConsumerToKey__ ConsumerKeyCode::POWER, KeyCode::VK_NONE</autogen>
+    </item>
+	<item>
+      <name>Eject to F13</name>
+      <appendix>(Fn+Eject to Eject)</appendix>
+      <identifier>private.eject2f13</identifier>
+      <autogen>__ConsumerToConsumer__ ConsumerKeyCode::EJECT, ModifierFlag::FN, ConsumerKeyCode::EJECT</autogen>
+      <autogen>__ConsumerToKey__ ConsumerKeyCode::EJECT, KeyCode::F13</autogen>
+    </item>
+  </item>
+</root>

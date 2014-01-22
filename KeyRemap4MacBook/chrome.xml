@@ -1,0 +1,26 @@
+<item>
+  <item>
+	<name>Control+G to Esc</name>
+	<identifier>private.chrome_controlG</identifier>
+	<only>GOOGLE-CHROME</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::G,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+	  KeyCode::ESCAPE
+	</autogen>
+  </item>
+  <item>
+	<name>Control+S to Command+F</name>
+	<appendix>Search</appendix>
+	<identifier>private.chrome_controlS</identifier>
+	<only>GOOGLE-CHROME</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::S,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+	  KeyCode::F,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+	</autogen>
+  </item>
+</item>
