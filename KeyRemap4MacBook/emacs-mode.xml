@@ -21,89 +21,129 @@
     <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN</autogen>
   </item>
 
+  <!-- -------------------------------------------------- -->
+  <item>
+	<name>Ergonomic Emacs navigation</name>
+	
+	<item>
+	  <name>Option+I to Up</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_optionI</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		KeyCode::CURSOR_UP</autogen>
+	</item>
+	
+	<item>
+	  <name>Option+K to Down</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_optionK</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		KeyCode::CURSOR_DOWN</autogen>
+	</item>
+
+	<item>
+	  <name>Option+J to Left</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_optionJ</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		KeyCode::CURSOR_LEFT</autogen>
+	</item>
+
+	<item>
+	  <name>Option+L to Right</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.emacsmode_optionL</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		KeyCode::CURSOR_RIGHT</autogen>
+	</item>
+
+	<item>
+      <name>Option+Shift+K to PageDown</name>
+      <identifier>private.emacsmode_optionshiftK</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::PAGEDOWN</autogen>
+	</item>
+
+	<item>
+      <name>Option+Shift+I to PageUp</name>
+      <identifier>private.emacsmode_optionshiftI</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		KeyCode::PAGEUP</autogen>
+	</item>
+
+	<item>
+      <name>Control+A to Command+Left</name>
+      <identifier>private.emacsmode_controlA</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>      
+	</item>
+
+	<item>
+      <name>Control+E to Command+Right</name>
+      <identifier>private.emacsmode_controlE</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>__KeyToKey__ KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+	</item>
+
+	<item>
+      <name>Option+Shift+J to Command+Left</name>
+      <identifier>private.emacsmode_optionshiftJ</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+		KeyCode::CURSOR_LEFT,
+		ModifierFlag::COMMAND_L</autogen>      
+	</item>
+
+	<item>
+      <name>Option+Shift+L to Command+Right</name>
+      <identifier>private.emacsmode_optionshiftL</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+		KeyCode::CURSOR_RIGHT,
+		ModifierFlag::COMMAND_L</autogen>      
+	</item>
+  </item>
   
-  <item>
-	<name>Option+I to Up</name>
-	<appendix>(when there are no other modifiers)</appendix>
-	<identifier>private.emacsmode_optionI</identifier>
-	<not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-	<autogen>
-	  __KeyToKey__
-	  KeyCode::I,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
-	  KeyCode::CURSOR_UP</autogen>
-  </item>
-  <item>
-	<name>Option+K to Down</name>
-	<appendix>(when there are no other modifiers)</appendix>
-	<identifier>private.emacsmode_optionK</identifier>
-	<not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-	<autogen>
-	  __KeyToKey__
-	  KeyCode::K,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
-	  KeyCode::CURSOR_DOWN</autogen>
-  </item>
-  <item>
-	<name>Option+J to Left</name>
-	<appendix>(when there are no other modifiers)</appendix>
-	<identifier>private.emacsmode_optionJ</identifier>
-	<not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-	<autogen>
-	  __KeyToKey__
-	  KeyCode::J,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
-	  KeyCode::CURSOR_LEFT</autogen>
-  </item>
-  <item>
-	<name>Option+L to Right</name>
-	<appendix>(when there are no other modifiers)</appendix>
-	<identifier>private.emacsmode_optionL</identifier>
-	<not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-	<autogen>
-	  __KeyToKey__
-	  KeyCode::L,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
-	  KeyCode::CURSOR_RIGHT</autogen>
-  </item>
-  <item>
-    <name>Option+Shift+K to PageDown</name>
-    <identifier>private.emacsmode_optionshiftK</identifier>
-    <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>
-	  __KeyToKey__
-	  KeyCode::K,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
-	  KeyCode::PAGEDOWN</autogen>
-  </item>
-  <item>
-    <name>Option+Shift+I to PageUp</name>
-    <identifier>private.emacsmode_optionshiftI</identifier>
-    <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>
-	  __KeyToKey__
-	  KeyCode::I,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
-	  KeyCode::PAGEUP</autogen>
-  </item>
+  
+  
   <item>
     <name>Control+Y to Command+V</name>
     <identifier>private.emacsmode_controlY</identifier>
     <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
     <autogen>__KeyToKey__ KeyCode::Y, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::V, ModifierFlag::COMMAND_L</autogen>
   </item>
-  <item>
-    <name>Control+A to Command+Left</name>
-    <identifier>private.emacsmode_controlA</identifier>
-    <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>      
-  </item>
-  <item>
-    <name>Control+E to Command+Right</name>
-    <identifier>private.emacsmode_controlE</identifier>
-    <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>__KeyToKey__ KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
-  </item>
+  
+  
   <item>
     <name>Control+K to Command+Shift+Right,Command+X</name>
 	<appendix>(C-k to kill all line and put it into blackboard)</appendix>
