@@ -132,6 +132,31 @@
 		KeyCode::CURSOR_RIGHT,
 		ModifierFlag::COMMAND_L</autogen>      
 	</item>
+
+	<item>
+      <name>Option+U to Option+Left</name>
+      <identifier>private.emacsmode_optionU</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::U,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		KeyCode::CURSOR_LEFT,
+		ModifierFlag::OPTION_L</autogen>
+	</item>
+	
+	<item>
+      <name>Option+O to Option+Right</name>
+      <identifier>private.emacsmode_optionO</identifier>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <autogen>
+		__KeyToKey__
+		KeyCode::O,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		KeyCode::CURSOR_RIGHT,
+		ModifierFlag::OPTION_L</autogen>
+	</item>
+	
   </item>
   
   
