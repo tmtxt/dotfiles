@@ -43,16 +43,16 @@ bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
 bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
 bind 5:ctrl;alt;cmd ${fullNoToolbar}
 bind 6:ctrl;alt;cmd sequence ${moveEmacsThreePixelsLeft} | ${moveEmacsThreePixelsRight}
-bind l:ctrl;alt;shift ${moveRight} #ctrl+alt+shift+0 for move the current window right
-bind j:ctrl;alt;shift ${moveLeft} #ctrl+alt+shift+7 for move the current window left
-bind k:ctrl;alt;shift ${moveDown}	  #ctrl+alt+shift+8 for move the current window down
-bind i:ctrl;alt;shift ${moveUp}	  #ctrl+alt+shift+9 for move the current window up
-bind d:ctrl;alt;shift ${moreX}
-bind a:ctrl;alt;shift ${lessX}
-bind s:ctrl;alt;shift ${moreY}
-bind w:ctrl;alt;shift ${lessY}
-bind y:ctrl;alt;shift ${emacsLeft}
-bind u:ctrl;alt;shift ${emacsRight}
+bind right:ctrl;alt;shift ${moveRight}
+bind left:ctrl;alt;shift ${moveLeft}
+bind down:ctrl;alt;shift ${moveDown}
+bind up:ctrl;alt;shift ${moveUp}
+bind right:ctrl;shift ${moreX}
+bind left:ctrl;shift ${lessX}
+bind down:ctrl;shift ${moreY}
+bind up:ctrl;shift ${lessY}
+# bind y:ctrl;alt;shift ${emacsLeft}
+# bind u:ctrl;alt;shift ${emacsRight}
 
 #################################
 # Key Bindings
