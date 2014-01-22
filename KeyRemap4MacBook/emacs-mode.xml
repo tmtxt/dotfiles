@@ -67,16 +67,24 @@
 	  KeyCode::CURSOR_RIGHT</autogen>
   </item>
   <item>
-    <name>Control+V to PageDown</name>
-    <identifier>private.emacsmode_controlV</identifier>
+    <name>Option+Shift+K to PageDown</name>
+    <identifier>private.emacsmode_optionshiftK</identifier>
     <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::K,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::PAGEDOWN</autogen>
   </item>
   <item>
-    <name>Option+V to PageUp</name>
-    <identifier>private.emacsmode_optionV</identifier>
+    <name>Option+Shift+I to PageUp</name>
+    <identifier>private.emacsmode_optionshiftI</identifier>
     <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>__KeyToKey__ KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::PAGEUP</autogen>
+    <autogen>
+	  __KeyToKey__
+	  KeyCode::I,
+	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	  KeyCode::PAGEUP</autogen>
   </item>
   <item>
     <name>Control+Y to Command+V</name>
