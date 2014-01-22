@@ -231,7 +231,7 @@
       <autogen>
 		__KeyToKey__
 		KeyCode::U,
-		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
 		KeyCode::CURSOR_LEFT,
 		ModifierFlag::OPTION_L</autogen>
 	</item>
@@ -243,7 +243,7 @@
       <autogen>
 		__KeyToKey__
 		KeyCode::O,
-		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
 		KeyCode::CURSOR_RIGHT,
 		ModifierFlag::OPTION_L</autogen>
 	</item>
@@ -368,6 +368,32 @@
 		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
 		KeyCode::PAGEDOWN,
 		ModifierFlag::SHIFT_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Option+U to Shift+Option+Left</name>
+	  <identifier>private.emacsmode_controloptionU</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::U,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_LEFT,
+		ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Option+O to Shift+Option+Right</name>
+	  <identifier>private.emacsmode_controloptionO</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::O,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_RIGHT,
+		ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L
 	  </autogen>
 	</item>
 	
