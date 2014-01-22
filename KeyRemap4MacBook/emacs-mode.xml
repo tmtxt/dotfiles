@@ -396,6 +396,32 @@
 		ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L
 	  </autogen>
 	</item>
+
+	<item>
+	  <name>Control+Option+N to Shift+Command+Up</name>
+	  <identifier>private.emacsmode_controloptionN</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::N,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_UP,
+		ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Option+Shift+N to Shift+Command+Down</name>
+	  <identifier>private.emacsmode_controloptionshiftN</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::N,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_DOWN,
+		ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L
+	  </autogen>
+	</item>
 	
   </item>
   
