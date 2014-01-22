@@ -171,7 +171,7 @@
       <autogen>
 		__KeyToKey__
 		KeyCode::K,
-		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
 		KeyCode::PAGEDOWN</autogen>
 	</item>
 
@@ -182,7 +182,7 @@
       <autogen>
 		__KeyToKey__
 		KeyCode::I,
-		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
 		KeyCode::PAGEUP</autogen>
 	</item>
 
@@ -316,6 +316,58 @@
 		KeyCode::L,
 		MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE,
 		KeyCode::CURSOR_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Shift+Option+L to Shift+Command+Right</name>
+	  <identifier>private.emacsmode_controloptionshiftL</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::L,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_RIGHT,
+		ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Shift+Option+J to Shift+Command+Left</name>
+	  <identifier>private.emacsmode_controloptionshiftJ</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::J,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+		KeyCode::CURSOR_LEFT,
+		ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Shift+Option+I to Shift+PageUp</name>
+	  <identifier>private.emacsmode_controloptionshiftI</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::I,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+		KeyCode::PAGEUP,
+		ModifierFlag::SHIFT_L
+	  </autogen>
+	</item>
+
+	<item>
+	  <name>Control+Shift+Option+K to Shift+PageDown</name>
+	  <identifier>private.emacsmode_controloptionshiftK</identifier>
+	  <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+	  <autogen>
+		__KeyToKey__
+		KeyCode::K,
+		ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+		KeyCode::PAGEDOWN,
+		ModifierFlag::SHIFT_L
 	  </autogen>
 	</item>
 	
