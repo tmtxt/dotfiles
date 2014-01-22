@@ -113,7 +113,6 @@ alias jks='jekyll serve -w'				   # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias myaria2='aria2c --enable-rpc --rpc-listen-all --save-session=session.txt -isession.txt'
-alias mcs="java -Xms512M -Xmx512M  -jar minecraft_server.1.7.4.jar"
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
@@ -153,6 +152,8 @@ elif [[ $platform == "Mac" ]]; then
 	alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
 	alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
 	alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
+	alias rcs="~/bin/reset-conkeror-session.sh"
+	alias mcs="~/bin/minecraft-server.sh"
 
 	# autojump with macports
 	export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
