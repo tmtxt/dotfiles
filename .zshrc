@@ -66,12 +66,12 @@ function tmtxt-fill-bar {
     (( left_prompt_size = ${left_left_prompt_size} + ${left_right_prompt_size} ))
 
     if [[ "$left_prompt_size" -gt $term_width ]]; then
-((pwd_len=$term_width - $left_prompt_size))
+				((pwd_len=$term_width - $left_prompt_size))
     else
-fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
+				fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
     fi
 
-echo "%{$fg[white]%} ${fill_bar} %{$reset_color%}"
+		echo "%{$fg[white]%} ${fill_bar} %{$reset_color%}"
 }
 
 # git variables
@@ -98,9 +98,9 @@ RPROMPT='${return_code} $(git_prompt_info) %1'
 local unamestr=$(uname)
 local platform=""
 if [[ $unamestr == "Linux" ]]; then
-	platform="Linux"
+		platform="Linux"
 elif [[ $unamestr == "Darwin" ]]; then
-	platform="Mac"
+		platform="Mac"
 fi
 
 # some useful alias
@@ -127,39 +127,51 @@ export LANG=en_US.UTF-8
 
 # some config
 if [[ $platform == "Linux" ]]; then
-	# export path for dropbox
-	PATH=$HOME/.dropbox-dist:$PATH
-	
-	# show details for ls command
-	alias ls='ls -aCFho --color=auto'
-	
+		# export path for dropbox
+		PATH=$HOME/.dropbox-dist:$PATH
+		
+		# show details for ls command
+		alias ls='ls -aCFho --color=auto'
+		
 elif [[ $platform == "Mac" ]]; then
-	# macports-home path
-	PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
-	PATH=$HOME/bin/macports/libexec/gnubin:$PATH
-	PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
+		# macports-home path
+		PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
+		PATH=$HOME/bin/macports/libexec/gnubin:$PATH
+		PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+		PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
-	# macports-system path
-	PATH=$PATH:/opt/local/bin:/opt/local/sbin
+		# macports-system path
+		PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
-	# some useful alias
-	alias port-home='$HOME/bin/macports/bin/port'
-	alias port-system='sudo /opt/local/bin/port'
-	alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
-	alias ls='ls -aCFho -G'		# show details for ls command
-	alias ckr="open -n ~/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
-	alias cwd="pwd | pbcopy"	# copy working directory
-	alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
-	alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
-	alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
-	alias rcs="~/bin/reset-conkeror-session.sh"
-	alias mcs="~/bin/minecraft-server.sh"
+		# postgresql
+		export PATH=/Library/PostgreSQL/9.3/bin:$PATH
+		export PGDATA=/Library/PostgreSQL/9.3/data
+		export PGDATABASE=postgres
+		export PGUSER=postgres
+		export PGPORT=5432
+		export PGLOCALEDIR=/Library/PostgreSQL/9.3/share/locale
+		export MANPATH=$MANPATH:/Library/PostgreSQL/9.3/share/man
 
-	# autojump with macports
-	export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
-	if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
-		. $HOME/bin/macports/etc/profile.d/autojump.zsh
-	fi
-	autoload -U compinit
-	compinit
+		# some useful alias
+		alias port-home='$HOME/bin/macports/bin/port'
+		alias port-system='sudo /opt/local/bin/port'
+		alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
+		alias ls='ls -aCFho -G'		# show details for ls command
+		alias ckr="open -n ~/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
+		alias cwd="pwd | pbcopy"	# copy working directory
+		alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
+		alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
+		alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
+		alias rcs="~/bin/reset-conkeror-session.sh"
+		alias mcs="~/bin/minecraft-server.sh"
+
+		# autojump with macports
+		export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
+		if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
+				. $HOME/bin/macports/etc/profile.d/autojump.zsh
+		fi
+		autoload -U compinit
+		compinit
 fi
+
+source ~/.nvm/nvm.sh
