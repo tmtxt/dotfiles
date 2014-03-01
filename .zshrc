@@ -113,6 +113,9 @@ alias jks='jekyll serve -w'				   # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias myaria2='aria2c --enable-rpc --rpc-listen-all --save-session=session.txt -isession.txt'
+alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
+alias pg_start='su postgres -c "pg_ctl start"'
+alias pg_restart='su postgres -c "pg_ctl restart"'
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
