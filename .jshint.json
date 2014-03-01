@@ -1,0 +1,18 @@
+{
+  "jquery": false,
+  "eqeqeq": true, // ===
+  "indent": 2,
+  "immed": true, // immediate ex. functions must be wrapped
+  "undef": true,
+  "bitwise": true,
+  "forin": true,
+  "newcap": true,
+  "noarg": true,
+  "nonew": true,
+  "plusplus": true,
+  "regexp": true,
+  "unused": true,
+  "strict": false,
+
+  "esnext": true
+}
