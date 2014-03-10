@@ -11,8 +11,7 @@
   "nonew": true,
   "plusplus": true,
   "regexp": true,
-  "unused": true,
+  "unused": false,
   "strict": false,
-
   "esnext": true
 }
