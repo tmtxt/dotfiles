@@ -102,14 +102,34 @@
 	</autogen>
   </item>
   <item>
-  <name>Option+Shift+N to Command+Down</name>
-  <identifier>private.conkeror_optionshiftN</identifier>
-  <only>CONKEROR</only>
-  <autogen>
-  __KeyToKey__
-  KeyCode::N, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L | ModifierFlag::NONE,
-  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L
-  </autogen>
+	<name>Option+Shift+N to Command+Down</name>
+	<identifier>private.conkeror_optionshiftN</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::N, ModifierFlag::SHIFT_L | ModifierFlag::OPTION_L | ModifierFlag::NONE,
+	  KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L
+	</autogen>
+  </item>
+  <item>
+	<name>Option+D to Forward Delete</name>
+	<identifier>private.conkeror_optionD</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::D, ModifierFlag::OPTION_L,
+	  KeyCode::FORWARD_DELETE
+	</autogen>
+  </item>
+  <item>
+	<name>Option+F to Delete</name>
+	<identifier>private.conkeror_optionF</identifier>
+	<only>CONKEROR</only>
+	<autogen>
+	  __KeyToKey__
+	  KeyCode::F, ModifierFlag::OPTION_L,
+	  KeyCode::DELETE
+	</autogen>
   </item>
   
   <item>
