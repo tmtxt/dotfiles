@@ -12,4 +12,5 @@ $ ln -s .wgetrc ~/.wgetrc
 $ ln -s conkeror-session-backup.sh ~/bin/conkeror-session-backup.sh
 $ ln -s minecraft-server.sh ~/minecraft-server.sh
 $ ln -s .jshint.json ~/.jshint.json
+$ ln -s aria2/aria2-download-complete-mac.sh ~/bin/aria2-download-complete.sh
 ```
