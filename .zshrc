@@ -112,10 +112,13 @@ alias rsn='rsync --progress -rvz'		   # network
 alias jks='jekyll serve -w'				   # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
-alias myaria2='aria2c --enable-rpc --rpc-listen-all --save-session=session.txt -isession.txt'
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
 alias pg_start='su postgres -c "pg_ctl start"'
 alias pg_restart='su postgres -c "pg_ctl restart"'
+alias nda='nodemon app.js'
+alias aria2='touch $HOME/Downloads/session.txt && aria2c --enable-rpc --rpc-listen-all --save-session=$HOME/Downloads/session.txt --input-file=$HOME/Downloads/session.txt -x16 -s16 -k1M --dir=$HOME/Downloads --daemon --on-download-complete $HOME/bin/aria2-download-complete.sh'
+alias sshublt="ssh tmtxt@ubolonton.org"
+alias nma="nodemon app.js"
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
@@ -160,13 +163,17 @@ elif [[ $platform == "Mac" ]]; then
 		alias port-system='sudo /opt/local/bin/port'
 		alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
 		alias ls='ls -aCFho -G'		# show details for ls command
-		alias ckr="open -n ~/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
+		alias ckr="open -n $HOME/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
 		alias cwd="pwd | pbcopy"	# copy working directory
 		alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
 		alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
 		alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
-		alias rcs="~/bin/reset-conkeror-session.sh"
+		alias rcs="$HOME/bin/reset-conkeror-session.sh"
 		alias mcs="~/bin/minecraft-server.sh"
+    alias wifion="networksetup -setairportpower en1 on"
+    alias wifioff="networksetup -setairportpower en1 off"
+    alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
+    alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
 
 		# autojump with macports
 		export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
