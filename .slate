@@ -51,8 +51,6 @@ bind right:ctrl;shift ${moreX}
 bind left:ctrl;shift ${lessX}
 bind down:ctrl;shift ${moreY}
 bind up:ctrl;shift ${lessY}
-# bind y:ctrl;alt;shift ${emacsLeft}
-# bind u:ctrl;alt;shift ${emacsRight}
 
 #################################
 # Key Bindings
@@ -64,3 +62,8 @@ bind up:ctrl;shift ${lessY}
 # press cmd+g show a 6x2 grid on first monitor
 # and 8x3 grid on second monitor
 # bind g:cmd grid padding:5 0:4,2 1:8,3
+
+bind right:ctrl;cmd throw right resize
+bind left:ctrl;cmd throw left resize
+bind up:ctrl;cmd throw up resize
+bind down:ctrl;cmd throw down resize
