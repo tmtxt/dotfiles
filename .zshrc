@@ -26,7 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git pass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,9 +116,15 @@ alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
 alias pg_start='su postgres -c "pg_ctl start"'
 alias pg_restart='su postgres -c "pg_ctl restart"'
 alias nda='nodemon app.js'
-alias aria2='touch $HOME/Downloads/session.txt && aria2c --enable-rpc --rpc-listen-all --save-session=$HOME/Downloads/session.txt --input-file=$HOME/Downloads/session.txt -x16 -s16 -k1M --dir=$HOME/Downloads --daemon --on-download-complete $HOME/bin/aria2-download-complete.sh'
+alias aria2='touch $HOME/Downloads/session.txt && aria2c --enable-rpc --rpc-listen-all --save-session=$HOME/Downloads/session.txt --input-file=$HOME/Downloads/session.txt -x16 -s16 -k1M --dir=$HOME/Downloads --daemon --on-download-complete=$HOME/bin/aria2-download-complete.sh'
 alias sshublt="ssh tmtxt@ubolonton.org"
 alias nma="nodemon app.js"
+alias passc="pass -c"
+alias passs="pass show"
+alias passi="pass insert"
+alias passm="pass insert -m"
+alias passe="pass edit"
+alias passr="pass rm"
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
@@ -180,8 +186,8 @@ elif [[ $platform == "Mac" ]]; then
 		if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
 				. $HOME/bin/macports/etc/profile.d/autojump.zsh
 		fi
+    
 		autoload -U compinit
 		compinit
 fi
-
 source ~/.nvm/nvm.sh
