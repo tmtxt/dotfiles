@@ -167,8 +167,7 @@ elif [[ $platform == "Mac" ]]; then
 		# some useful alias
 		alias port-home='$HOME/bin/macports/bin/port'
 		alias port-system='sudo /opt/local/bin/port'
-		alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
-		alias ls='ls -aCFho -G'		# show details for ls command
+		alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports		
 		alias ckr="open -n $HOME/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
 		alias cwd="pwd | pbcopy"	# copy working directory
 		alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
@@ -181,6 +180,13 @@ elif [[ $platform == "Mac" ]]; then
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
 
+    # ls alias when macports and no macports
+    if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
+        alias ls='ls -aCFho --color=auto'
+    else
+        alias ls='ls -aCFho -G'
+    fi
+    
 		# autojump with macports
 		export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
 		if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
