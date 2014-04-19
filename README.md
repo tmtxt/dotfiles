@@ -16,4 +16,5 @@ $ ln -s aria2/aria2-download-complete-mac.sh ~/bin/aria2-download-complete.sh
 $ ln -s custom_chrome.sh ~/bin/custom_chrome.sh
 $ ln -s .aspell.en.prepl ~/.aspell.en.prepl
 $ ln -s .aspell.en.pws ~/.aspell.en.pws
+$ ln -s Thunderbird/prefs.js ~/Library/Thunderbird/Profiles/profile.name/prefs.js
 ```
