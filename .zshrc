@@ -145,6 +145,9 @@ elif [[ $platform == "Mac" ]]; then
 		PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
 		PATH=$HOME/bin/macports/libexec/gnubin:$PATH
 		PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+    PATH=$HOME/bin/macports/libexec/perl5.12:$PATH
+    PATH=$HOME/bin/boot2docker:$PATH
+    PATH=$HOME/Sites/yii/framework:$PATH
 		PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
 		# macports-system path
@@ -174,6 +177,7 @@ elif [[ $platform == "Mac" ]]; then
     alias wifioff="networksetup -setairportpower en1 off"
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
+    alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
 
     # ls alias when macports and no macports
     if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
@@ -191,4 +195,16 @@ elif [[ $platform == "Mac" ]]; then
 		autoload -U compinit
 		compinit
 fi
-source ~/.nvm/nvm.sh
+
+# PATH
+PATH=$HOME/bin:$PATH	  # my personal stuff
+PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
+PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
+PATH=/usr/local/mysql/bin:$PATH # mysql path
+PATH=$HOME/bin/aria2:$PATH
+PATH=$HOME/bin/google_appengine:$PATH
+source ~/.nvm/nvm.sh            # nvm
+source /Volumes/tmtxt/.gvm/scripts/gvm # gvm
+
+# vagrant, disable live reload in vagrant
+export VAGRANT_LIVE_RELOAD="0"
