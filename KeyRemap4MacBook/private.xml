@@ -157,37 +157,37 @@
   
   
   <item>
-	  <name>Tmtxt Emacs Mode</name>
-	  <include path="emacs-mode.xml"></include>
+	  <name>My Ergonomic Mode</name>
+	  <include path="ergonomic-mode.xml"></include>
   </item>
 
   <item>
-	  <name>Tmtxt Behaviours in Google Chrome</name>
+	  <name>My Behaviours in Google Chrome</name>
 	  <include path="chrome.xml"></include>
   </item>
 
   <item>
-	  <name>Tmtxt Behaviours in Conkeror</name>
+	  <name>My Behaviours in Conkeror</name>
 	  <include path="conkeror.xml"></include>
   </item>
   
   <item>
-	  <name>Tmtxt Behaviours in Skype</name>
+	  <name>My Behaviours in Skype</name>
 	  <include path="skype.xml"></include>
   </item>
 
   <item>
-	  <name>Tmtxt Behaviours in Finder</name>
+	  <name>My Behaviours in Finder</name>
 	  <include path="finder.xml"></include>
   </item>
 
   <item>
-	  <name>Tmtxt Behaviour in VLC</name>
+	  <name>My Behaviour in VLC</name>
 	  <include path="vlc.xml"></include>
   </item>
 
   <item>
-	  <name>Tmtxt Behaviour in Apple Calendar</name>
+	  <name>My Behaviour in Apple Calendar</name>
 	  <include path="calendar.xml"></include>
   </item>
 
