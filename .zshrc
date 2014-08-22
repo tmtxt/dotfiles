@@ -153,6 +153,8 @@ elif [[ $platform == "Mac" ]]; then
 		# macports-system path
 		PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
+    PATH=$HOME/bin/system:$PATH
+
 		# postgresql
 		export PATH=/Library/PostgreSQL/9.3/bin:$PATH
 		export PGDATA=/Library/PostgreSQL/9.3/data
@@ -178,7 +180,7 @@ elif [[ $platform == "Mac" ]]; then
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
-
+    
     # ls alias when macports and no macports
     if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
         alias ls='ls -aCFho --color=auto'
