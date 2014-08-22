@@ -1,9 +1,9 @@
 {
   "jquery": false,
-  "eqeqeq": true, // ===
+  "eqeqeq": true,
   "indent": 2,
-  "immed": true, // immediate ex. functions must be wrapped
-  "undef": true,
+  "immed": true,
+  "undef": false,
   "bitwise": true,
   "forin": true,
   "newcap": true,
