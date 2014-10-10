@@ -119,7 +119,6 @@ alias nda='nodemon app.js'
 alias aria2='touch $HOME/Downloads/session.txt && aria2c --enable-rpc --rpc-listen-all --save-session=$HOME/Downloads/session.txt --input-file=$HOME/Downloads/session.txt -x16 -s16 -k1M --dir=$HOME/Downloads --daemon --on-download-complete=$HOME/bin/aria2-download-complete.sh'
 alias sshublt="ssh tmtxt@ubolonton.org"
 alias nma="nodemon app.js"
-alias pass="pass -c"
 alias passs="pass show"
 alias passi="pass insert"
 alias passm="pass insert -m"
@@ -127,6 +126,9 @@ alias passe="pass edit"
 alias passr="pass rm"
 alias sshkd="ssh vm-0.tmtxt.koding.kd.io"
 alias rsyncmc="rsync -avz --progress --delete --exclude=mcbackup* -e ssh root@mineclgt.com:/home/minecraft/ ~/Downloads/mcbk/"
+alias gd="gulp dev"
+alias gw="gulp watch"
+alias ap="ansible-playbook -f 10 -K"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
@@ -146,7 +148,7 @@ elif [[ $platform == "Mac" ]]; then
 		PATH=$HOME/bin/macports/libexec/gnubin:$PATH
 		PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
     PATH=$HOME/bin/macports/libexec/perl5.12:$PATH
-    PATH=$HOME/bin/boot2docker:$PATH
+    # PATH=$HOME/bin/boot2docker:$PATH
     PATH=$HOME/Sites/yii/framework:$PATH
 		PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
@@ -163,6 +165,7 @@ elif [[ $platform == "Mac" ]]; then
 		export PGPORT=5432
 		export PGLOCALEDIR=/Library/PostgreSQL/9.3/share/locale
 		export MANPATH=$MANPATH:/Library/PostgreSQL/9.3/share/man
+    export DOCKER_HOST=tcp://192.168.59.103:2375
 
 		# some useful alias
 		alias port-home='$HOME/bin/macports/bin/port'
@@ -210,3 +213,5 @@ source /Volumes/tmtxt/.gvm/scripts/gvm # gvm
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
+
+# PATH=$HOME/bin/pkg/usr/pkg/sbin:$HOME/bin/pkg/usr/pkg/bin:$PATH
