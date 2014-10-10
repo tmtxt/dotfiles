@@ -223,17 +223,5 @@
       <autogen>__ConsumerToConsumer__ ConsumerKeyCode::EJECT, ModifierFlag::FN, ConsumerKeyCode::EJECT</autogen>
       <autogen>__ConsumerToKey__ ConsumerKeyCode::EJECT, KeyCode::F13</autogen>
     </item>
-
-    <item>
-      <name>jk to Escape</name>
-      <identifier>private.jj2escape</identifier>
-      <not>EMACS</not>
-      <autogen>
-        __SimultaneousKeyPresses__
-        KeyCode::J,
-        KeyCode::K,
-        KeyCode::ESCAPE
-      </autogen>
-    </item>
   </item>
 </root>
