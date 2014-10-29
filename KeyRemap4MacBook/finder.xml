@@ -1,26 +1,38 @@
 <item>
   <item>
-	<name>Option+&lt; to Option+Up</name>
+	  <name>Option+&lt; to Option+Up</name>
     <identifier>private.finder_optionLt</identifier>
     <only>FINDER</only>
     <autogen>
-	  __KeyToKey__
-	  KeyCode::COMMA,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
-	  KeyCode::CURSOR_UP,
-	  ModifierFlag::OPTION_L
-	</autogen>
+	    __KeyToKey__
+	    KeyCode::COMMA,
+	    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	    KeyCode::CURSOR_UP,
+	    ModifierFlag::OPTION_L
+	  </autogen>
   </item>
   <item>
     <name>Option+&gt; to Option+Down</name>
     <identifier>private.finder_optionGt</identifier>
-	<only>FINDER</only>
+	  <only>FINDER</only>
     <autogen>
-	  __KeyToKey__
-	  KeyCode::DOT,
-	  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
-	  KeyCode::CURSOR_DOWN,
-	  ModifierFlag::OPTION_L
-	</autogen>
+	    __KeyToKey__
+	    KeyCode::DOT,
+	    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	    KeyCode::CURSOR_DOWN,
+	    ModifierFlag::OPTION_L
+	  </autogen>
+  </item>
+  <item>
+    <name>Command+Option+I to Command+Up</name>
+    <identifier>private.finder_commandOptionI</identifier>
+    <only>FINDER</only>
+    <autogen>
+      __KeyToKey__
+		  KeyCode::I,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		  KeyCode::CURSOR_UP,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+    </autogen>
   </item>
 </item>

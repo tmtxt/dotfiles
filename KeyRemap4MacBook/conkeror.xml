@@ -166,13 +166,36 @@
 	  </autogen>
   </item>
   <item>
+	  <name>Option+Shift+D to Option+Forward Delete</name>
+	  <identifier>private.conkeror_optionshiftD</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+	    __KeyToKey__
+      KeyCode::D,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+      KeyCode::FORWARD_DELETE,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+	  </autogen>
+  </item>
+  <item>
 	  <name>Option+F to Delete</name>
 	  <identifier>private.conkeror_optionF</identifier>
 	  <only>CONKEROR</only>
 	  <autogen>
 	    __KeyToKey__
-	    KeyCode::F, ModifierFlag::OPTION_L,
+	    KeyCode::F, ModifierFlag::OPTION_L | ModifierFlag::NONE,
 	    KeyCode::DELETE
+	  </autogen>
+  </item>
+  <item>
+	  <name>Option+Shift+F to Option+Delete</name>
+	  <identifier>private.conkeror_optionshiftF</identifier>
+	  <only>CONKEROR</only>
+	  <autogen>
+	    __KeyToKey__
+	    KeyCode::F, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+	    KeyCode::DELETE,
+      ModifierFlag::OPTION_L,
 	  </autogen>
   </item>
   
@@ -188,4 +211,18 @@
     <only>CONKEROR</only>
     <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
   </item>
+
+  <item>
+    <name>Command+Option+I to Command+Up</name>
+    <identifier>private.conkeror_commandOptionI</identifier>
+    <only>CONKEROR</only>
+    <autogen>
+      __KeyToKey__
+		  KeyCode::I,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		  KeyCode::CURSOR_UP,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+    </autogen>
+  </item>
+
 </item>
