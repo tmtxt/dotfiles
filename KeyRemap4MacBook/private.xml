@@ -234,5 +234,35 @@
         MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
       </autogen>
     </item>
+	  <item>
+      <name>Shift+F9 to Volume Mute</name>
+      <identifier>private.shiftf9</identifier>
+      <autogen>
+        __KeyToConsumer__
+		    KeyCode::F9,
+        MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		    ConsumerKeyCode::VOLUME_MUTE
+      </autogen>
+    </item>
+	  <item>
+      <name>Shift+F10 to Volume Down</name>
+      <identifier>private.shiftf10</identifier>
+      <autogen>
+        __KeyToConsumer__
+		    KeyCode::F10,
+        MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		    ConsumerKeyCode::VOLUME_DOWN
+      </autogen>
+    </item>
+	  <item>
+      <name>Shift+F11 to Volume Up</name>
+      <identifier>private.shiftf11</identifier>
+      <autogen>
+        __KeyToConsumer__
+		    KeyCode::F11,
+        MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+		    ConsumerKeyCode::VOLUME_UP
+      </autogen>
+    </item>
   </item>
 </root>
