@@ -61,4 +61,51 @@
     </autogen>
   </item>
 
+  <item>
+	  <name>Option+I to Up</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.terminal_optionI</identifier>
+    <only>TERMINAL</only>
+	  <autogen>
+		  __KeyToKey__
+		  KeyCode::I,
+		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		  KeyCode::CURSOR_UP</autogen>
+	</item>
+
+	<item>
+	  <name>Option+K to Down</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.terminal_optionK</identifier>
+	  <only>TERMINAL</only>
+	  <autogen>
+		  __KeyToKey__
+		  KeyCode::K,
+		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		  KeyCode::CURSOR_DOWN</autogen>
+	</item>
+
+  <item>
+	  <name>Option+J to Left</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.terminal_optionJ</identifier>
+	  <only>TERMINAL</only>
+	  <autogen>
+		  __KeyToKey__
+		  KeyCode::J,
+		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		  KeyCode::CURSOR_LEFT</autogen>
+	</item>
+
+  <item>
+	  <name>Option+L to Right</name>
+	  <appendix>(when there are no other modifiers)</appendix>
+	  <identifier>private.terminal_optionL</identifier>
+	  <only>TERMINAL</only>
+	  <autogen>
+		  __KeyToKey__
+		  KeyCode::L,
+		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+		  KeyCode::CURSOR_RIGHT</autogen>
+	</item>
 </item>
