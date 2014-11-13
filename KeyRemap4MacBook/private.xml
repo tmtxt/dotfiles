@@ -191,6 +191,11 @@
 	  <include path="calendar.xml"></include>
   </item>
 
+  <item>
+	  <name>My Behaviour in Terminal</name>
+	  <include path="terminal.xml"></include>
+  </item>
+
   <!-- misc -->
   <item>
 	  <name>Tmtxt Misc</name>

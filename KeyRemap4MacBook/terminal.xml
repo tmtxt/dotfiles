@@ -1,0 +1,39 @@
+<item>
+  <item>
+    <name>Option+M to Return</name>
+    <identifier>private.terminal_optionM</identifier>
+    <only>TERMINAL</only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::M,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+      KeyCode::RETURN
+    </autogen>
+  </item>
+  
+  <item>
+    <name>Option+U to Option+B</name>
+    <identifier>private.terminal_optionU</identifier>
+    <only>TERMINAL</only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::U,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+      KeyCode::B,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+    </autogen>
+  </item>
+
+  <item>
+    <name>Option+O to Option+F</name>
+    <identifier>private.terminal_optionO</identifier>
+    <only>TERMINAL</only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::O,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+      KeyCode::F,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+    </autogen>
+  </item>
+</item>

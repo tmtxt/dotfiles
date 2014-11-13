@@ -207,6 +207,7 @@
   </item>
 
   <!-- -------------------------------------------------- -->
+  <!-- Kill line -->
   <item>
     <name>Control+K to Command+Shift+Right,Command+X</name>
 	  <appendix>(C-k to kill all line and put it into blackboard)</appendix>
@@ -221,10 +222,32 @@
     </block>
   </item>
   <item>
+    <name>Option+G to Command+Shift+Right,Command+X</name>
+	  <appendix>(Option+G to kill all line and put it into blackboard)</appendix>
+    <identifier>private.ergonomic_optionGK</identifier>
+    <block>
+      <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}, DICTIONARY</not>
+      <autogen>__KeyToKey__ KeyCode::G, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+    </block>
+    <block>
+      <only>DICTIONARY</only>
+      <autogen>__KeyToKey__ KeyCode::G, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE, KeyCode::E, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::SHIFT_L, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
+    </block>
+  </item>
+
+  <!-- -------------------------------------------------- -->
+  <!-- Undo -->
+  <item>
     <name>Control+/ to Command_Z</name>
     <identifier>private.ergonomic_controlSlash</identifier>
     <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
     <autogen>__KeyToKey__ KeyCode::SLASH, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
+  </item>
+  <item>
+    <name>Option+Z to Command_Z</name>
+    <identifier>private.ergonomic_optionZ</identifier>
+    <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+    <autogen>__KeyToKey__ KeyCode::Z, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::Z, ModifierFlag::COMMAND_L</autogen>
   </item>
   <item>
     <name>Shift+Control+P to Shift+Up</name>

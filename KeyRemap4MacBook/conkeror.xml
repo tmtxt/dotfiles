@@ -206,10 +206,12 @@
     <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::RETURN</autogen>
   </item>
   <item>
-    <name>Option+W to Command+C</name>
-    <identifier>private.conkeror_optionW</identifier>
+    <name>Option+C to Command+C</name>
+    <identifier>private.conkeror_optionC</identifier>
     <only>CONKEROR</only>
-    <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::C, ModifierFlag::COMMAND_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::C,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+      KeyCode::C, ModifierFlag::COMMAND_L</autogen>
   </item>
 
   <item>
@@ -221,6 +223,33 @@
 		  KeyCode::I,
       MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
 		  KeyCode::CURSOR_UP,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+    </autogen>
+  </item>
+  
+  <item>
+    <name>Option+V to Command+V</name>
+    <identifier>private.conkeror_optionV</identifier>
+    <only>CONKEROR</only>
+    <autogen>
+      __KeyToKey__
+		  KeyCode::V,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+		  KeyCode::V,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
+    </autogen>
+  </item>
+  
+  <item>
+    <name>Option+Shift+W to Command+K</name>
+    <identifier>private.conkeror_optionShiftW</identifier>
+    <only>CONKEROR</only>
+    <autogen>
+      __KeyToKey__
+		  KeyCode::W,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION |
+    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+		  KeyCode::K,
       MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
     </autogen>
   </item>
