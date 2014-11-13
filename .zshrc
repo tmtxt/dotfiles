@@ -129,6 +129,9 @@ alias rsyncmc="rsync -avz --progress --delete --exclude=mcbackup* -e ssh root@mi
 alias gd="gulp dev"
 alias gw="gulp watch"
 alias ap="ansible-playbook -f 10 -K"
+alias vh="vagrant halt"
+alias vu="vagrant up"
+alias vs="vagrant ssh"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
@@ -183,6 +186,7 @@ elif [[ $platform == "Mac" ]]; then
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
+    # alias sudo="sudo -E -s"
     
     # ls alias when macports and no macports
     if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
