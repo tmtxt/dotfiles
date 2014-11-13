@@ -80,3 +80,5 @@ bind right:ctrl;cmd throw right resize
 bind left:ctrl;cmd throw left resize
 bind up:ctrl;cmd throw up resize
 bind down:ctrl;cmd throw down resize
+bind 0:cmd;alt throw right resize
+bind 9:cmd;alt throw left resize
