@@ -36,4 +36,29 @@
       MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
     </autogen>
   </item>
+  
+  <item>
+    <name>Option+F to Backward Delete</name>
+    <identifier>private.terminal_optionF</identifier>
+    <only>TERMINAL</only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::F,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+      KeyCode::DELETE</autogen>
+  </item>
+
+  <item>
+    <name>Option+Shift+F to Option+Backward Delete</name>
+    <identifier>private.terminal_optionshiftF</identifier>
+    <only>TERMINAL</only>
+    <autogen>
+      __KeyToKey__
+      KeyCode::F,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+      KeyCode::DELETE,
+      MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION
+    </autogen>
+  </item>
+
 </item>
