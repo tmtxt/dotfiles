@@ -154,8 +154,8 @@
 	  </replacementvalue>
   </replacementdef>
 
-  
-  
+
+
   <item>
 	  <name>My Ergonomic Mode</name>
 	  <include path="ergonomic-mode.xml"></include>
@@ -170,7 +170,7 @@
 	  <name>My Behaviours in Conkeror</name>
 	  <include path="conkeror.xml"></include>
   </item>
-  
+
   <item>
 	  <name>My Behaviours in Skype</name>
 	  <include path="skype.xml"></include>
@@ -196,6 +196,11 @@
 	  <include path="terminal.xml"></include>
   </item>
 
+  <item>
+	  <name>Game profile for Kinesis Keyboard</name>
+	  <include path="kinesis-games.xml"></include>
+  </item>
+
   <!-- misc -->
   <item>
 	  <name>Tmtxt Misc</name>
@@ -213,7 +218,7 @@
 		    KeyCode::VK_OPEN_URL_APP_KeyRemap4MacBook_Profile1
 	    </autogen>
 	  </item>
-	  
+
 	  <item>
       <name>Disable Power Key</name>
       <appendix>(+ Fn+Power to Power)</appendix>

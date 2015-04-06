@@ -108,4 +108,14 @@
 		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
 		  KeyCode::CURSOR_RIGHT</autogen>
 	</item>
+
+  <item>
+      <name>Option+V to Command+V</name>
+      <identifier>private.terminal_optionV</identifier>
+      <only>TERMINAL</only>
+      <autogen>__KeyToKey__
+        KeyCode::V,
+        MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+        KeyCode::V, ModifierFlag::COMMAND_L</autogen>
+    </item>
 </item>

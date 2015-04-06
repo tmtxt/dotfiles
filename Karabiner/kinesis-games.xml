@@ -1,0 +1,11 @@
+<item>
+  <item>
+	  <name>Left Option to Space</name>
+	  <identifier>private.kgame_leftoption</identifier>
+	  <autogen>
+      __KeyToKey__
+      KeyCode::OPTION_L,
+      KeyCode::SPACE
+    </autogen>
+  </item>
+</item>
