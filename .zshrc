@@ -213,7 +213,7 @@ fi
 
 # PATH
 PATH=$HOME/bin:$PATH	  # my personal stuff
-# source ~/.rvm/scripts/rvm
+source ~/.rvm/scripts/rvm
 PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
 PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
 PATH=/usr/local/mysql/bin:$PATH # mysql path

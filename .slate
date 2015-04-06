@@ -51,9 +51,6 @@ bind 3:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
 bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
 bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
 bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
-bind 5:ctrl;alt;cmd ${fullNoToolbar}
-bind 6:ctrl;alt;cmd sequence ${moveEmacsThreePixelsLeft} | ${moveEmacsThreePixelsRight}
-bind 7:ctrl;alt;cmd sequence ${moveEmacsLeft} ${moveEmacsRight}
 bind 8:ctrl;alt;cmd ${leftTwoThird}
 bind 9:ctrl;alt;cmd ${rightOneThird}
 bind right:ctrl;alt;shift ${moveRight}
