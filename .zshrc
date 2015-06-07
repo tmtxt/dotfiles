@@ -21,7 +21,7 @@ ZSH_THEME=""
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting   
+# Uncomment following line if you want red dots to be displayed while waiting
 # for completion
 COMPLETION_WAITING_DOTS="true"
 
@@ -68,12 +68,12 @@ function tmtxt-fill-bar {
     (( left_prompt_size = ${left_left_prompt_size} + ${left_right_prompt_size} ))
 
     if [[ "$left_prompt_size" -gt $term_width ]]; then
-				((pwd_len=$term_width - $left_prompt_size))
+        ((pwd_len=$term_width - $left_prompt_size))
     else
-				fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
+        fill_bar="${(l.(($term_width - $left_prompt_size - 6))..─.)}"
     fi
 
-		echo "%{$fg[white]%} ${fill_bar} %{$reset_color%}"
+    echo "%{$fg[white]%} ${fill_bar} %{$reset_color%}"
 }
 
 # git variables
@@ -100,18 +100,18 @@ RPROMPT='${return_code} $(git_prompt_info) %1'
 local unamestr=$(uname)
 local platform=""
 if [[ $unamestr == "Linux" ]]; then
-		platform="Linux"
+    platform="Linux"
 elif [[ $unamestr == "Darwin" ]]; then
-		platform="Mac"
+    platform="Mac"
 fi
 
 # some useful alias
-alias df='df -h'				# file system usage
-alias du='du -h'				# du /path/to/file - File space usage
-alias rs='rsync --progress -rv'	# inside computer
+alias df='df -h'        # file system usage
+alias du='du -h'        # du /path/to/file - File space usage
+alias rs='rsync --progress -rv' # inside computer
 alias rsl='rsync --progress -rv --inplace' # local
-alias rsn='rsync --progress -rvz'		   # network
-alias jks='jekyll serve -w'				   # jekyll server
+alias rsn='rsync --progress -rvz'      # network
+alias jks='jekyll serve -w'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
@@ -142,86 +142,85 @@ export LANG=en_US.UTF-8
 
 # some config
 if [[ $platform == "Linux" ]]; then
-		# export path for dropbox
-		PATH=$HOME/.dropbox-dist:$PATH
-		
-		# show details for ls command
-		alias ls='ls -aCFho --color=auto'
-		
+    # export path for dropbox
+    PATH=$HOME/.dropbox-dist:$PATH
+
+    # show details for ls command
+    alias ls='ls -aCFho --color=auto'
+
 elif [[ $platform == "Mac" ]]; then
-		# macports-home path
-		PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
-		PATH=$HOME/bin/macports/libexec/gnubin:$PATH
-		PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+    # macports-home path
+    PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
+    PATH=$HOME/bin/macports/libexec/gnubin:$PATH
+    PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
     PATH=$HOME/bin/macports/libexec/perl5.12:$PATH
     # PATH=$HOME/bin/boot2docker:$PATH
     PATH=$HOME/Sites/yii/framework:$PATH
-		PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
+    PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
-		# macports-system path
-		PATH=$PATH:/opt/local/bin:/opt/local/sbin
+    # macports-system path
+    PATH=$PATH:/opt/local/bin:/opt/local/sbin
 
     PATH=$HOME/bin/system:$PATH
 
-		# postgresql
-		export PATH=/Library/PostgreSQL/9.3/bin:$PATH
-		export PGDATA=/Library/PostgreSQL/9.3/data
-		export PGDATABASE=postgres
-		export PGUSER=postgres
-		export PGPORT=5432
-		export PGLOCALEDIR=/Library/PostgreSQL/9.3/share/locale
-		export MANPATH=$MANPATH:/Library/PostgreSQL/9.3/share/man
+    # postgresql
+    export PATH=/Library/PostgreSQL/9.3/bin:$PATH
+    export PGDATA=/Library/PostgreSQL/9.3/data
+    export PGDATABASE=postgres
+    export PGUSER=postgres
+    export PGPORT=5432
+    export PGLOCALEDIR=/Library/PostgreSQL/9.3/share/locale
+    export MANPATH=$MANPATH:/Library/PostgreSQL/9.3/share/man
     export DOCKER_HOST=tcp://192.168.59.103:2375
     PATH=$HOME/bin/macports/lib/postgresql93/bin:$PATH
 
-		# some useful alias
-		alias port-home='$HOME/bin/macports/bin/port'
-		alias port-system='sudo /opt/local/bin/port'
-		alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports		
-		alias ckr="open -n $HOME/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
-		alias cwd="pwd | pbcopy"	# copy working directory
-		alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
-		alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
-		alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
-		alias rcs="$HOME/bin/reset-conkeror-session.sh"
-		alias mcs="~/bin/minecraft-server.sh"
+    # some useful alias
+    alias port-home='$HOME/bin/macports/bin/port'
+    alias port-system='sudo /opt/local/bin/port'
+    alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
+    alias ckr="open -n $HOME/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
+    alias cwd="pwd | pbcopy"  # copy working directory
+    alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
+    alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
+    alias ggdns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8"
+    alias rcs="$HOME/bin/reset-conkeror-session.sh"
+    alias mcs="~/bin/minecraft-server.sh"
     alias wifion="networksetup -setairportpower en1 on"
     alias wifioff="networksetup -setairportpower en1 off"
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
     # alias sudo="sudo -E -s"
-    
+
     # ls alias when macports and no macports
     if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
         alias ls='ls -aCFho --color=auto'
     else
         alias ls='ls -aCFho -G'
     fi
-    
-		# autojump with macports
-		export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
-		if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
-				. $HOME/bin/macports/etc/profile.d/autojump.zsh
-		fi
-    
-		autoload -U compinit
-		compinit
+
+    # autojump with macports
+    export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
+    if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
+        . $HOME/bin/macports/etc/profile.d/autojump.zsh
+    fi
+
+    autoload -U compinit
+    compinit
 fi
 
 . ~/.nvm/nvm.sh            # nvm
 
 # PATH
-PATH=$HOME/bin:$PATH	  # my personal stuff
+PATH=$HOME/bin:$PATH    # my personal stuff
 source ~/.rvm/scripts/rvm
-PATH=$HOME/.rvm/scripts:$PATH		  # rvm stuff
+PATH=$HOME/.rvm/scripts:$PATH     # rvm stuff
 PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
 PATH=/usr/local/mysql/bin:$PATH # mysql path
 PATH=$HOME/bin/aria2:$PATH
 PATH=$HOME/bin/google_appengine:$PATH
-# source /Volumes/tmtxt/.gvm/scripts/gvm # gvm
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
 
-# PATH=$HOME/bin/pkg/usr/pkg/sbin:$HOME/bin/pkg/usr/pkg/bin:$PATH
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
