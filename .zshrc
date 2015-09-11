@@ -105,6 +105,23 @@ elif [[ $unamestr == "Darwin" ]]; then
     platform="Mac"
 fi
 
+# source if exist
+function source_s {
+    [[ -s "$1" ]] && source "$1"
+}
+
+# add path if exist
+# default to append to $PATH, pass second argument true to prepend
+function path_s {
+    if [ -d "$1" ]; then
+        if [ $2 ]; then
+            PATH="$1:$PATH"
+        else
+            PATH="$PATH:$1"
+        fi
+    fi
+}
+
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
@@ -144,36 +161,21 @@ if [[ $platform == "Linux" ]]; then
     alias ls='ls -aCFho --color=auto'
 
 elif [[ $platform == "Mac" ]]; then
-    # macports-home path
-    PATH=$HOME/bin/macports/bin:$HOME/bin/macports/sbin:$PATH
-    PATH=$HOME/bin/macports/libexec/gnubin:$PATH
-    PATH=$HOME/bin/macports/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-    PATH=$HOME/bin/macports/libexec/perl5.12:$PATH
-    # PATH=$HOME/bin/boot2docker:$PATH
-    PATH=$HOME/Sites/yii/framework:$PATH
-    PERL5LIB=$HOME/bin/macports/lib/perl5/5.12.4:$HOME/bin/macports/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
+    # macport path
+    if [ -d $HOME/bin/macports ]; then
+        MPP=$HOME/bin/macports
+    else
+        MPP=/opt/local
+    fi
 
-    # macports-system path
-    PATH=$PATH:/opt/local/bin:/opt/local/sbin
-
-    PATH=$HOME/bin/system:$PATH
-
-    # postgresql
-    export PATH=/Library/PostgreSQL/9.3/bin:$PATH
-    export PGDATA=/Library/PostgreSQL/9.3/data
-    export PGDATABASE=postgres
-    export PGUSER=postgres
-    export PGPORT=5432
-    export PGLOCALEDIR=/Library/PostgreSQL/9.3/share/locale
-    export MANPATH=$MANPATH:/Library/PostgreSQL/9.3/share/man
-    export DOCKER_HOST=tcp://192.168.59.103:2375
-    PATH=$HOME/bin/macports/lib/postgresql93/bin:$PATH
+    # macports path
+    path_s $MPP/bin true
+    path_s $MPP/sbin true
+    path_s $MPP/libexec/gnubin true
+    path_s $HOME/bin/system
+    PERL5LIB=$MPP/lib/perl5/5.12.4:$MPP/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
     # some useful alias
-    alias port-home='$HOME/bin/macports/bin/port'
-    alias port-system='sudo /opt/local/bin/port'
-    alias portexpt='port -qv installed >' # "portexpt port.txt" export installed ports
-    alias ckr="open -n $HOME/Applications/conkeror_mac_bundler/Conkeror.app" # conkeror
     alias cwd="pwd | pbcopy"  # copy working directory
     alias rmd="diskutil erasevolume HFS+ \"ramdisk\" `hdiutil attach -nomount ram://1165430`"
     alias nodns="sudo networksetup -setdnsservers Wi-Fi Empty"
@@ -185,10 +187,9 @@ elif [[ $platform == "Mac" ]]; then
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
-    # alias sudo="sudo -E -s"
 
     # ls alias when macports and no macports
-    if [ -f $HOME/bin/macports/libexec/gnubin/ls ]; then
+    if [ -f $MPP/libexec/gnubin/ls ]; then
         alias ls='ls -aCFho --color=auto'
     else
         alias ls='ls -aCFho -G'
@@ -215,15 +216,11 @@ fi
 . ~/.nvm/nvm.sh            # nvm
 
 # PATH
-PATH=$HOME/bin:$PATH    # my personal stuff
-source ~/.rvm/scripts/rvm
-PATH=$HOME/.rvm/scripts:$PATH     # rvm stuff
-PATH=$HOME/.rvm/gems/ruby-2.0.0-p247/bin:$PATH
-PATH=/usr/local/mysql/bin:$PATH # mysql path
-PATH=$HOME/bin/aria2:$PATH
-PATH=$HOME/bin/google_appengine:$PATH
+path_s $HOME/bin true
+path_s $HOME/bin/aria2 true
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+source_s "$HOME/.gvm/scripts/gvm"
+source_s "$HOME/.rvm/scripts/rvm"
