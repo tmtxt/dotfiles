@@ -172,6 +172,7 @@ elif [[ $platform == "Mac" ]]; then
     path_s $MPP/bin true
     path_s $MPP/sbin true
     path_s $MPP/libexec/gnubin true
+    path_s $MPP/Library/Frameworks/Python.framework/Versions/Current/bin true
     path_s $HOME/bin/system
     PERL5LIB=$MPP/lib/perl5/5.12.4:$MPP/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
@@ -196,14 +197,14 @@ elif [[ $platform == "Mac" ]]; then
     fi
 
     # autojump with macports
-    export FPATH="$FPATH:$HOME/bin/macports/share/zsh/site-functions/"
-    if [ -f $HOME/bin/macports/etc/profile.d/autojump.zsh ]; then
-        . $HOME/bin/macports/etc/profile.d/autojump.zsh
+    export FPATH="$FPATH:$MPP/share/zsh/site-functions/"
+    if [ -f $MPP/etc/profile.d/autojump.zsh ]; then
+        . $MPP/etc/profile.d/autojump.zsh
     fi
-
     autoload -U compinit
     compinit
 
+    # pass store
     PASS_PATH=$(where pass)
     alias pass="$PASS_PATH -c"
     alias passs="$PASS_PATH show"
@@ -213,11 +214,10 @@ elif [[ $platform == "Mac" ]]; then
     alias passr="$PASS_PATH rm"
 fi
 
-. ~/.nvm/nvm.sh            # nvm
-
 # PATH
 path_s $HOME/bin true
 path_s $HOME/bin/aria2 true
+path_s $HOME/.nvm/nvm.sh
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
