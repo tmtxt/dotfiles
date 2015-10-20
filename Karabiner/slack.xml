@@ -1,0 +1,29 @@
+<item>
+  <item>
+	  <name>Control+Shift+L to Option+Down</name>
+	  <appendix>(Next in List)</appendix>
+    <identifier>private.slack_controlshiftL</identifier>
+    <only>SLACK</only>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::L,
+	    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	    KeyCode::CURSOR_DOWN,
+	    ModifierFlag::OPTION_R
+	  </autogen>
+  </item>
+
+  <item>
+	  <name>Control+Shift+J to Option+Up</name>
+	  <appendix>(Previous in List)</appendix>
+    <identifier>private.slack_controlshiftJ</identifier>
+    <only>SLACK</only>
+    <autogen>
+	    __KeyToKey__
+	    KeyCode::J,
+	    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+	    KeyCode::CURSOR_UP,
+	    ModifierFlag::OPTION_R
+	  </autogen>
+  </item>
+</item>
