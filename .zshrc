@@ -147,6 +147,10 @@ alias vs="vagrant ssh"
 alias vp="vagrant provision"
 alias vr="vagrant reload"
 alias gcr="git clone --recursive"
+alias ta="tmux a -t"
+alias ta0="tmux a -t 0"
+alias tk="tmux kill-session -t"
+alias tk0="tmux kill-session -t 0"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
