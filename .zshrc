@@ -222,6 +222,7 @@ fi
 path_s $HOME/bin true
 path_s $HOME/bin/aria2 true
 path_s $HOME/.nvm/nvm.sh
+path_s $HOME/.composer/vendor/bin
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"

@@ -141,6 +141,10 @@
     <equal>org.macosforge.xquartz.X11</equal>
     <equal>org.macports.X11</equal>
   </appdef>
+  <appdef>
+    <appname>SLACK</appname>
+    <equal>com.tinyspeck.slackmacgap</equal>
+  </appdef>
 
   <!-- replacement string -->
   <replacementdef>
@@ -194,6 +198,11 @@
   <item>
 	  <name>My Behaviour in Terminal</name>
 	  <include path="terminal.xml"></include>
+  </item>
+
+  <item>
+	  <name>My Behaviour in Slack</name>
+	  <include path="slack.xml"></include>
   </item>
 
   <item>
