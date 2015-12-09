@@ -151,6 +151,8 @@ alias ta="tmux a -t"
 alias ta0="tmux a -t 0"
 alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
+alias dck="docker-compose kill"
+alias dcu="docker-compose up -d"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
