@@ -122,6 +122,20 @@ function path_s {
     fi
 }
 
+# calculate md5 string
+function mmd5 {
+    if [[ -z "$1" ]]; then
+        echo "No value supplied"
+    else
+        val=$(echo -n "$1" | md5sum | awk '{print $1}')
+        echo $val
+        if [[ $platform == "Mac" ]]; then
+            echo $val | pbcopy
+            echo "MD5 string coppied to clipboard"
+        fi
+    fi
+}
+
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
