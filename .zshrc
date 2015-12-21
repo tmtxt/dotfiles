@@ -143,25 +143,34 @@ function cv {
     ffmpeg "${args[@]}"
 }
 
+# calculate md5 string
+function mmd5 {
+    if [[ -z "$1" ]]; then
+        echo "No value supplied"
+    else
+        val=$(echo -n "$1" | md5sum | awk '{print $1}')
+        echo $val
+        if [[ $platform == "Mac" ]]; then
+            echo $val | pbcopy
+            echo "MD5 string coppied to clipboard"
+        fi
+    fi
+}
+
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
 alias rs='rsync -avz --progress' # inside computer
-# alias rsl='rsync --progress -rv --inplace' # local
-# alias rsn='rsync --progress -rvz'      # network
 alias jks='jekyll serve -w'          # jekyll server
 alias sd='sudo shutdown -h'
+alias rsc='rsync -avz --progress'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
 alias pg_start='su postgres -c "pg_ctl start"'
 alias pg_restart='su postgres -c "pg_ctl restart"'
-alias nda='nodemon app.js'
 alias aria2='touch $HOME/Downloads/session.txt && aria2c --enable-rpc --rpc-listen-all --save-session=$HOME/Downloads/session.txt --input-file=$HOME/Downloads/session.txt -x16 -s16 -k1M --dir=$HOME/Downloads --daemon --on-download-complete=$HOME/bin/aria2-download-complete.sh'
-alias nma="nodemon app.js"
-alias rsyncmc="rsync -avz --progress --delete --exclude=mcbackup* -e ssh root@mineclgt.com:/home/minecraft/ ~/Downloads/mcbk/"
 alias gd="gulp dev"
 alias gw="gulp watch"
-alias ap="ansible-playbook -f 10 -K"
 alias vh="vagrant halt"
 alias vu="vagrant up"
 alias vs="vagrant ssh"
@@ -172,6 +181,8 @@ alias ta="tmux a -t"
 alias ta0="tmux a -t 0"
 alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
+alias dck="docker-compose kill"
+alias dcu="docker-compose up -d"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
