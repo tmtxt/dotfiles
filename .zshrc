@@ -122,12 +122,33 @@ function path_s {
     fi
 }
 
+# zip the input with the current name is the current date time
+function zz {
+    zip -r $(date +%Y-%m-%d-%H-%M-%S).zip $1
+}
+
+# combine the input files to one mkv video using ffmpeg
+function cv {
+    declare -a args
+    for arg in $@; do
+        args+=('-i')
+        args+=($arg)
+    done
+    args+=("-acodec")
+    args+=("copy")
+    args+=("-vcodec")
+    args+=("copy")
+    args+=("output.mkv")
+
+    ffmpeg "${args[@]}"
+}
+
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
-alias rs='rsync --progress -rv' # inside computer
-alias rsl='rsync --progress -rv --inplace' # local
-alias rsn='rsync --progress -rvz'      # network
+alias rs='rsync -avz --progress' # inside computer
+# alias rsl='rsync --progress -rv --inplace' # local
+# alias rsn='rsync --progress -rvz'      # network
 alias jks='jekyll serve -w'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
@@ -192,7 +213,8 @@ elif [[ $platform == "Mac" ]]; then
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
-
+    alias pi="sudo port install"
+    
     # ls alias when macports and no macports
     if [ -f $MPP/libexec/gnubin/ls ]; then
         alias ls='ls -aCFho --color=auto'
