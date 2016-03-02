@@ -256,9 +256,12 @@ path_s $HOME/bin true
 path_s $HOME/bin/aria2 true
 path_s $HOME/.nvm/nvm.sh
 path_s $HOME/.composer/vendor/bin
+path_s /Applications/Emacs.app/Contents/MacOS/bin true
+path_s $HOME/Applications/Emacs.app/Contents/MacOS/bin true
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
+export EDITOR="emacsclient"
 
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
