@@ -235,8 +235,8 @@ elif [[ $platform == "Mac" ]]; then
 
     # autojump with macports
     export FPATH="$FPATH:$MPP/share/zsh/site-functions/"
-    if [ -f $MPP/etc/profile.d/autojump.zsh ]; then
-        . $MPP/etc/profile.d/autojump.zsh
+    if [ -f $MPP/etc/profile.d/autojump.sh ]; then
+        . $MPP/etc/profile.d/autojump.sh
     fi
     autoload -U compinit
     compinit
