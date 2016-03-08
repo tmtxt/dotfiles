@@ -24,8 +24,8 @@ alias moveEmacsThreePixelsRight move screenOriginX;screenOriginY-24 windowSizeX;
 
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
-alias rightlarge move screenOriginX;screenOriginY screenSizeX/4*3;screenSizeY
-alias leftsmall move screenOriginX+screenSizeX/4*3;screenOriginY screenSizeX/4;screenSizeY
+alias rightlarge move screenOriginX;screenOriginY screenSizeX/3*2;screenSizeY
+alias leftsmall move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY
 
 alias leftTwoThird move screenOriginX;screenOriginY screenSizeX/3*2;screenSizeY
 alias rightOneThird move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY

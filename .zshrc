@@ -163,7 +163,6 @@ alias du='du -h'        # du /path/to/file - File space usage
 alias rs='rsync -avz --progress' # inside computer
 alias jks='jekyll serve -w'          # jekyll server
 alias sd='sudo shutdown -h'
-alias rsc='rsync -avz --progress'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
 alias pg_start='su postgres -c "pg_ctl start"'
@@ -183,6 +182,7 @@ alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
 alias dck="docker-compose kill"
 alias dcu="docker-compose up -d"
+alias kb="kubectl"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
