@@ -182,6 +182,9 @@ alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
 alias dck="docker-compose kill"
 alias dcu="docker-compose up -d"
+alias dcp="docker-compose ps"
+alias dcr="docker-compose rm"
+alias dcl="docker-compose logs"
 alias kb="kubectl"
 
 # UTF8
@@ -265,3 +268,15 @@ export EDITOR="emacsclient"
 
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
+
+# kubectl describe
+# $1 type: po, no, rc, svc,...
+# $2 grep, empty for nothing
+function kbd {
+    result=$(kubectl get $1 | grep "$2")
+    arr=($(echo $result | awk '{print $1}'))
+    echo $result | cat -n
+    echo -n "Enter the number to describe: "
+    read num
+    kubectl describe "$1" "${arr[$num]}"
+}

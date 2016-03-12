@@ -47,12 +47,10 @@ alias moveEmacsRight move screenOriginX;screenOriginY windowSizeX;windowSizeY
 
 # Key bindings for those position
 bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
-bind 3:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
-bind 4:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
-bind 1:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
-bind 2:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
-bind 8:ctrl;alt;cmd ${leftTwoThird}
-bind 9:ctrl;alt;cmd ${rightOneThird}
+bind 6:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+3 for left half
+bind 7:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+4 for right half
+bind 8:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+1 for right large
+bind 9:ctrl;alt;cmd ${leftsmall} #ctrl+cmd+alt+1 for left small
 bind right:ctrl;alt;shift ${moveRight}
 bind left:ctrl;alt;shift ${moveLeft}
 bind down:ctrl;alt;shift ${moveDown}
