@@ -185,7 +185,10 @@ alias dcu="docker-compose up -d"
 alias dcp="docker-compose ps"
 alias dcr="docker-compose rm"
 alias dcl="docker-compose logs"
+alias dcb="docker-compose build"
 alias kb="kubectl"
+alias kbl="kubectl logs --tail=100 -f"
+alias nrt="npm run truong-stg"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
