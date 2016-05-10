@@ -157,6 +157,13 @@ function mmd5 {
     fi
 }
 
+# generate uuid
+function uuidv4 {
+    local uuid=$(uuidgen | awk '{print tolower($0)}')
+    echo -n "$uuid" | pbcopy
+    echo "$uuid copied to clipboard"
+}
+
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
