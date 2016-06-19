@@ -168,7 +168,7 @@ function uuidv4 {
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
 alias rs='rsync -avz --progress' # inside computer
-alias jks='jekyll serve -w'          # jekyll server
+alias jks='jekyll serve -w -D --incremental'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
@@ -183,6 +183,7 @@ alias vs="vagrant ssh"
 alias vp="vagrant provision"
 alias vr="vagrant reload"
 alias gcr="git clone --recursive"
+alias gp="git pull"
 alias tl="tmux ls"
 alias tn="tmux new -s"
 alias ta="tmux a -t"
@@ -196,6 +197,8 @@ alias dcr="docker-compose rm"
 alias dcl="docker-compose logs"
 alias dcb="docker-compose build"
 alias kb="kubectl"
+alias kbs="kubectl --context=staging"
+alias kbp="kubectl --context=production"
 alias kbl="kubectl logs --tail=100 -f"
 alias nrt="npm run truong-stg"
 
@@ -281,14 +284,47 @@ export EDITOR="emacsclient"
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
 
-# kubectl describe
-# $1 type: po, no, rc, svc,...
+# kubectl get name of entity
+# $1 type: po, no, rc, svc
 # $2 grep, empty for nothing
-function kbd {
+function kubectl_get_name {
     result=$(kubectl get $1 | grep "$2")
     arr=($(echo $result | awk '{print $1}'))
     echo $result | cat -n
-    echo -n "Enter the number to describe: "
+    echo -n "Select the number: "
     read num
-    kubectl describe "$1" "${arr[$num]}"
+    local res=${arr[$num]}
+    eval $3=\$res
+}
+
+function kbc {
+    kubectl_get_name $1 $2 "KBC_RESULT"
+    echo -n $KBC_RESULT | pbcopy
+    echo "Copied $KBC_RESULT to clipboard"
+}
+
+function kbsc {
+    if [[ -z "$1" ]]; then
+        echo -n "Enter grep text: "
+        read text
+        kubectl_get_name rc $text "KBS_RESULT"
+        local rc=$KBS_RESULT
+        echo -n "Enter replicas: "
+        read rep
+        local replicas=$rep
+    else
+        local rc=$1
+        local replicas=$2
+    fi
+
+    kubectl scale rc $rc --replicas=$replicas
+    echo "Scaled $rc to $replicas instances"
+}
+
+function sshstg {
+    ssh "core@10.9.8.$1"
+}
+
+function sshprd {
+    ssh "core@192.168.167.$1"
 }
