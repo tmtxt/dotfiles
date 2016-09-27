@@ -206,6 +206,11 @@
   </item>
 
   <item>
+	  <name>My Behaviour in Firefox</name>
+	  <include path="firefox.xml"></include>
+  </item>
+
+  <item>
 	  <name>Game profile for Kinesis Keyboard</name>
 	  <include path="kinesis-games.xml"></include>
   </item>

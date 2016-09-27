@@ -1,0 +1,25 @@
+<item>
+  <item>
+	  <name>Option+t to Command+t</name>
+	  <appendix>(new tab)</appendix>
+	  <identifier>private.firefox_optionT</identifier>
+	  <only>FIREFOX</only>
+	  <autogen>
+	    __KeyToKey__
+	    KeyCode::T, ModifierFlag::OPTION_L,
+	    KeyCode::T, ModifierFlag::COMMAND_L
+	  </autogen>
+  </item>
+
+  <item>
+	  <name>Option+Shift+W to Command+W</name>
+	  <appendix>(close tab)</appendix>
+	  <identifier>private.firefox_optionShiftT</identifier>
+	  <only>FIREFOX</only>
+	  <autogen>
+	    __KeyToKey__
+	    KeyCode::W, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
+	    KeyCode::W, ModifierFlag::COMMAND_L
+	  </autogen>
+  </item>
+</item>

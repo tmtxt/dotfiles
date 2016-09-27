@@ -168,7 +168,7 @@ function uuidv4 {
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
 alias rs='rsync -avz --progress' # inside computer
-alias jks='jekyll serve -w -D --incremental'          # jekyll server
+alias jks='jekyll serve -w -D'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
@@ -191,16 +191,24 @@ alias ta0="tmux a -t 0"
 alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
 alias dck="docker-compose kill"
-alias dcu="docker-compose up -d"
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
 alias dcp="docker-compose ps"
 alias dcr="docker-compose rm"
-alias dcl="docker-compose logs"
+alias dcl="docker-compose logs -f --tail=100"
 alias dcb="docker-compose build"
 alias kb="kubectl"
 alias kbs="kubectl --context=staging"
 alias kbp="kubectl --context=production"
 alias kbl="kubectl logs --tail=100 -f"
-alias nrt="npm run truong-stg"
+alias nrts="npm run truong-stg"
+alias nrtp="npm run truong-prod"
+alias sstg=". ~/.bashrc-workflow-stg"
+alias sprd=". ~/.bashrc-workflow-prod"
+alias pst="pm2 start"
+alias plg="pm2 logs"
+alias pls="pm2 ls"
+alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
@@ -328,3 +336,6 @@ function sshstg {
 function sshprd {
     ssh "core@192.168.167.$1"
 }
+
+export MOZ_PURGE_CACHES=true
+launchctl setenv MOZ_PURGE_CACHES true

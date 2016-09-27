@@ -8,13 +8,14 @@
       <name>Control+D to Forward Delete</name>
       <identifier>private.ergonomic_controlD_nomodifiers</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <not>FIREFOX</not>
       <autogen>
         __KeyToKey__
         KeyCode::D,
         MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE,
         KeyCode::FORWARD_DELETE</autogen>
     </item>
-    
+
     <item>
       <name>Option+D to Forward Delete</name>
       <identifier>private.ergonomic_optionD</identifier>
@@ -25,7 +26,7 @@
         MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
         KeyCode::FORWARD_DELETE</autogen>
     </item>
-    
+
     <item>
       <name>Option+Shift+D to Option+Forward Delete</name>
       <identifier>private.ergonomic_optionshiftD</identifier>
@@ -66,7 +67,7 @@
         KeyCode::DELETE
       </autogen>
     </item>
-    
+
     <item>
       <name>Option+Shift+F to Option+Backward Delete</name>
       <identifier>private.ergonomic_optionshiftF</identifier>
@@ -104,7 +105,7 @@
       </autogen>
     </item>
   </item>
-  
+
   <!-- -------------------------------------------------- -->
   <!-- Return -->
   <item>
@@ -123,7 +124,7 @@
       <autogen>__KeyToKey__ KeyCode::M, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::RETURN</autogen>
     </item>
   </item>
-  
+
   <!-- -------------------------------------------------- -->
   <!-- Cut Copy Paste -->
   <item>
@@ -139,6 +140,7 @@
       <name>Option+W to Command+X</name>
       <identifier>private.ergonomic_optionW</identifier>
       <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
+      <not>FIREFOX</not>
       <autogen>__KeyToKey__ KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION, KeyCode::X, ModifierFlag::COMMAND_L</autogen>
     </item>
 
@@ -152,7 +154,7 @@
         KeyCode::V, ModifierFlag::COMMAND_L</autogen>
     </item>
   </item>
-  
+
   <!-- -------------------------------------------------- -->
   <!-- Up Down Left Right -->
   <item>
@@ -168,7 +170,7 @@
 		    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
 		    KeyCode::CURSOR_UP</autogen>
 	  </item>
-	  
+
 	  <item>
 	    <name>Option+K to Down</name>
 	    <appendix>(when there are no other modifiers)</appendix>
@@ -294,7 +296,7 @@
 	  </autogen>
   </item>
 
-  
+
 
 	<item>
     <name>Option+Shift+K to PageDown</name>
@@ -322,7 +324,7 @@
     <name>Control+A to Command+Left</name>
     <identifier>private.ergonomic_controlA</identifier>
     <not>{{TMTXT_EMACS_MODE_IGNORE_APPS}}</not>
-    <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>      
+    <autogen>__KeyToKey__ KeyCode::A, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>
 	</item>
 
 	<item>
@@ -341,7 +343,7 @@
 		  KeyCode::J,
 		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
 		  KeyCode::CURSOR_LEFT,
-		  ModifierFlag::COMMAND_L</autogen>      
+		  ModifierFlag::COMMAND_L</autogen>
 	</item>
 
 	<item>
@@ -353,7 +355,7 @@
 		  KeyCode::L,
 		  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
 		  KeyCode::CURSOR_RIGHT,
-		  ModifierFlag::COMMAND_L</autogen>      
+		  ModifierFlag::COMMAND_L</autogen>
 	</item>
 
 	<item>
@@ -367,7 +369,7 @@
 		  KeyCode::CURSOR_LEFT,
 		  ModifierFlag::OPTION_L</autogen>
 	</item>
-	
+
 	<item>
     <name>Option+O to Option+Right</name>
     <identifier>private.ergonomic_optionO</identifier>
@@ -391,7 +393,7 @@
 		  KeyCode::CURSOR_UP, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND
 	  </autogen>
 	</item>
-	
+
 	<item>
 	  <name>Option+Shift+N to Command+Down</name>
 	  <identifier>private.ergonomic_optionshiftN</identifier>
@@ -554,5 +556,5 @@
 		  ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_L
 	  </autogen>
 	</item>
-  
+
 </item>

@@ -10,69 +10,57 @@
 
 // ========================= Special key settings ========================== //
 
-key.quitKey              = "C-g";
-key.helpKey              = "<f1>";
-key.escapeKey            = "C-q";
-key.macroStartKey        = "<f3>";
-key.macroEndKey          = "<f4>";
-key.suspendKey           = "<f2>";
-key.universalArgumentKey = "C-u";
-key.negativeArgument1Key = "C--";
-key.negativeArgument2Key = "C-M--";
-key.negativeArgument3Key = "M--";
+// key.quitKey              = "C-g";
+// key.helpKey              = "<f1>";
+// key.escapeKey            = "C-q";
+// key.macroStartKey        = "<f3>";
+// key.macroEndKey          = "<f4>";
+// key.suspendKey           = "<f2>";
+// key.universalArgumentKey = "C-u";
+// key.negativeArgument1Key = "C--";
+// key.negativeArgument2Key = "C-M--";
+// key.negativeArgument3Key = "M--";
 
 // ================================= Hooks ================================= //
 
-hook.addToHook('KeyBoardQuit', function (aEvent) {
-         if (key.currentKeySequence.length)
-             return;
+// hook.addToHook('KeyBoardQuit', function (aEvent) {
+//          if (key.currentKeySequence.length)
+//              return;
 
-         command.closeFindBar();
+//          command.closeFindBar();
 
-         let marked = command.marked(aEvent);
+//          let marked = command.marked(aEvent);
 
-         if (util.isCaretEnabled())
-         {
-             if (marked)
-             {
-                 command.resetMark(aEvent);
-             }
-             else
-             {
-                 if ("blur" in aEvent.target) aEvent.target.blur();
+//          if (util.isCaretEnabled())
+//          {
+//              if (marked)
+//              {
+//                  command.resetMark(aEvent);
+//              }
+//              else
+//              {
+//                  if ("blur" in aEvent.target) aEvent.target.blur();
 
-                 gBrowser.focus();
-                 _content.focus();
-             }
-         }
-         else
-         {
-             goDoCommand("cmd_selectNone");
-         }
+//                  gBrowser.focus();
+//                  _content.focus();
+//              }
+//          }
+//          else
+//          {
+//              goDoCommand("cmd_selectNone");
+//          }
 
-         if (KeySnail.windowType === "navigator:browser" && !marked)
-         {
-             key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
-         }
-     });
+//          if (KeySnail.windowType === "navigator:browser" && !marked)
+//          {
+//              key.generateKey(aEvent.originalTarget, KeyEvent.DOM_VK_ESCAPE, true);
+//          }
+//      });
 
 // ============================= Key bindings ============================== //
-
-// key.setGlobalKey('C-M-r', function (ev) {
-//                 userscript.reload();
-//             }, 'Reload the initialization file', true);
-
-// key.setGlobalKey('M-x', function (ev, arg) {
-//                 ext.select(arg, ev);
-//             }, 'List exts and execute selected one', true);
 
 // key.setGlobalKey('M-:', function (ev) {
 //                 command.interpreter();
 //             }, 'Command interpreter', true);
-
-// key.setGlobalKey(["<f1>", "b"], function (ev) {
-//                 key.listKeyBindings();
-//             }, 'List all keybindings', false);
 
 // key.setGlobalKey('C-m', function (ev) {
 //                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
@@ -81,10 +69,6 @@ hook.addToHook('KeyBoardQuit', function (aEvent) {
 // key.setGlobalKey(["<f1>", "F"], function (ev) {
 //                 openHelpLink("firefox-help");
 //             }, 'Display Firefox help', false);
-
-// key.setGlobalKey(["C-x", "l"], function (ev) {
-//                 command.focusToById("urlbar");
-//             }, 'Focus to the location bar', true);
 
 // key.setGlobalKey(["C-x", "g"], function (ev) {
 //                 command.focusToById("searchbar");
@@ -102,14 +86,6 @@ hook.addToHook('KeyBoardQuit', function (aEvent) {
 //                 command.copyRegion(ev);
 //             }, 'Copy selected text', true);
 
-// key.setGlobalKey('C-s', function (ev) {
-//                 command.iSearchForwardKs(ev);
-//             }, 'Emacs like incremental search forward', true);
-
-// key.setGlobalKey('C-r', function (ev) {
-//                 command.iSearchBackwardKs(ev);
-//             }, 'Emacs like incremental search backward', true);
-
 // key.setGlobalKey(["C-x", "k"], function (ev) {
 //                 BrowserCloseTabOrWindow();
 //             }, 'Close tab / window', false);
@@ -125,14 +101,6 @@ hook.addToHook('KeyBoardQuit', function (aEvent) {
 // key.setGlobalKey(["C-x", "n"], function (ev) {
 //                 OpenBrowserWindow();
 //             }, 'Open new window', false);
-
-// key.setGlobalKey('C-M-l', function (ev) {
-//                 getBrowser().mTabContainer.advanceSelectedTab(1, true);
-//             }, 'Select next tab', false);
-
-// key.setGlobalKey('C-M-h', function (ev) {
-//                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
-//             }, 'Select previous tab', false);
 
 // key.setGlobalKey(["C-x", "C-c"], function (ev) {
 //                 goQuitApplication();
@@ -354,14 +322,6 @@ hook.addToHook('KeyBoardQuit', function (aEvent) {
 // key.setViewKey([["M->"], ["G"]], function (ev) {
 //                 goDoCommand("cmd_scrollBottom");
 //             }, 'Scroll to the bottom of the page', true);
-
-// key.setViewKey('l', function (ev) {
-//                 getBrowser().mTabContainer.advanceSelectedTab(1, true);
-//             }, 'Select next tab', false);
-
-// key.setViewKey('h', function (ev) {
-//                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
-//             }, 'Select previous tab', false);
 
 // key.setViewKey(':', function (ev, arg) {
 //                 shell.input(null, arg);
