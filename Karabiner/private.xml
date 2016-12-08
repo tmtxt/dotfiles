@@ -145,6 +145,10 @@
     <appname>SLACK</appname>
     <equal>com.tinyspeck.slackmacgap</equal>
   </appdef>
+  <appdef>
+    <appname>INTELLIJ</appname>
+    <equal>com.jetbrains.intellij.ce</equal>
+  </appdef>
 
   <!-- replacement string -->
   <replacementdef>
@@ -155,6 +159,7 @@
 	    TERMINAL,
 	    VIRTUALMACHINE,
 	    X11,
+      INTELLIJ
 	  </replacementvalue>
   </replacementdef>
 

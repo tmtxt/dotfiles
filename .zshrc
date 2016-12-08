@@ -251,7 +251,7 @@ elif [[ $platform == "Mac" ]]; then
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
     alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
     alias pi="sudo port install"
-    
+
     # ls alias when macports and no macports
     if [ -f $MPP/libexec/gnubin/ls ]; then
         alias ls='ls -aCFho --color=auto'
@@ -339,3 +339,5 @@ function sshprd {
 
 export MOZ_PURGE_CACHES=true
 launchctl setenv MOZ_PURGE_CACHES true
+
+export NODE_PATH=/Users/tmtxt/.nvm/versions/node/v4.2.1/lib/node_modules
