@@ -28,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pass bower nvm npm)
+plugins=(git pass bower nvm npm mix)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -191,6 +191,7 @@ alias ta0="tmux a -t 0"
 alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
 alias dck="docker-compose kill"
+alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 alias dcud="docker-compose up -d"
 alias dcp="docker-compose ps"
@@ -340,4 +341,4 @@ function sshprd {
 export MOZ_PURGE_CACHES=true
 launchctl setenv MOZ_PURGE_CACHES true
 
-export NODE_PATH=/Users/tmtxt/.nvm/versions/node/v4.2.1/lib/node_modules
+export NODE_PATH=/Users/tmtxt/.nvm/versions/node/v4.1.2/lib/node_modules
