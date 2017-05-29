@@ -1,5 +1,5 @@
 {
   "indent_size": 2,
   "indent_inner_html": true,
-  "brace_style": "expand"
+  "e4x": true
 }

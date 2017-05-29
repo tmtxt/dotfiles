@@ -200,8 +200,9 @@ alias dcl="docker-compose logs -f --tail=100"
 alias dcb="docker-compose build"
 alias kb="kubectl"
 alias kbs="kubectl --context=staging"
+alias kbsl="kubectl --context=staging logs --tail=100 -f"
 alias kbp="kubectl --context=production"
-alias kbl="kubectl logs --tail=100 -f"
+alias kbpl="kubectl --context=production logs --tail=100 -f"
 alias nrts="npm run truong-stg"
 alias nrtp="npm run truong-prod"
 alias sstg=". ~/.bashrc-workflow-stg"
@@ -292,6 +293,8 @@ export EDITOR="emacsclient"
 
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
+source_s "$HOME/bin/google-cloud-sdk/path.zsh.inc"
+source_s "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
 
 # kubectl get name of entity
 # $1 type: po, no, rc, svc
@@ -338,7 +341,11 @@ function sshprd {
     ssh "core@192.168.167.$1"
 }
 
-export MOZ_PURGE_CACHES=true
-launchctl setenv MOZ_PURGE_CACHES true
+function rsi {
+    rsync -avz --progress core@192.168.167.127:/data/integration/$1 ./
+}
 
-export NODE_PATH=/Users/tmtxt/.nvm/versions/node/v4.1.2/lib/node_modules
+export MOZ_PURGE_CACHES=true
+# launchctl setenv MOZ_PURGE_CACHES true
+
+export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
