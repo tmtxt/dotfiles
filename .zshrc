@@ -212,6 +212,17 @@ alias plg="pm2 logs"
 alias pls="pm2 ls"
 alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
 
+# password store
+PASS_PATH=$(where pass)
+alias pass="$PASS_PATH -c"
+alias passs="$PASS_PATH show"
+alias passi="$PASS_PATH insert"
+alias passm="$PASS_PATH insert -m"
+alias passe="$PASS_PATH edit"
+alias passr="$PASS_PATH rm"
+alias pgps="$PASS_PATH git push"
+alias pgpl="$PASS_PATH git pull"
+
 # UTF8
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -268,15 +279,6 @@ elif [[ $platform == "Mac" ]]; then
     fi
     autoload -U compinit
     compinit
-
-    # pass store
-    PASS_PATH=$(where pass)
-    alias pass="$PASS_PATH -c"
-    alias passs="$PASS_PATH show"
-    alias passi="$PASS_PATH insert"
-    alias passm="$PASS_PATH insert -m"
-    alias passe="$PASS_PATH edit"
-    alias passr="$PASS_PATH rm"
 fi
 
 # PATH
