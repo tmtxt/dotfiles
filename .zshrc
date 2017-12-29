@@ -28,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pass bower nvm npm mix)
+plugins=(git pass bower nvm npm mix docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -198,11 +198,6 @@ alias dcp="docker-compose ps"
 alias dcr="docker-compose rm"
 alias dcl="docker-compose logs -f --tail=100"
 alias dcb="docker-compose build"
-alias kb="kubectl"
-alias kbs="kubectl --context=staging"
-alias kbsl="kubectl --context=staging logs --tail=100 -f"
-alias kbp="kubectl --context=production"
-alias kbpl="kubectl --context=production logs --tail=100 -f"
 alias nrts="npm run truong-stg"
 alias nrtp="npm run truong-prod"
 alias sstg=". ~/.bashrc-workflow-stg"
@@ -210,18 +205,8 @@ alias sprd=". ~/.bashrc-workflow-prod"
 alias pst="pm2 start"
 alias plg="pm2 logs"
 alias pls="pm2 ls"
+alias pythonhttp="python -m SimpleHTTPServer"
 alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
-
-# password store
-PASS_PATH=$(where pass)
-alias pass="$PASS_PATH -c"
-alias passs="$PASS_PATH show"
-alias passi="$PASS_PATH insert"
-alias passm="$PASS_PATH insert -m"
-alias passe="$PASS_PATH edit"
-alias passr="$PASS_PATH rm"
-alias pgps="$PASS_PATH git push"
-alias pgpl="$PASS_PATH git pull"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
@@ -281,6 +266,17 @@ elif [[ $platform == "Mac" ]]; then
     compinit
 fi
 
+# password store
+PASS_PATH=$(where pass)
+alias pass="$PASS_PATH -c"
+alias passs="$PASS_PATH show"
+alias passi="$PASS_PATH insert"
+alias passm="$PASS_PATH insert -m"
+alias passe="$PASS_PATH edit"
+alias passr="$PASS_PATH rm"
+alias pgps="$PASS_PATH git push"
+alias pgpl="$PASS_PATH git pull"
+
 # PATH
 path_s $HOME/bin true
 path_s $HOME/bin/aria2 true
@@ -335,19 +331,10 @@ function kbsc {
     echo "Scaled $rc to $replicas instances"
 }
 
-function sshstg {
-    ssh "core@10.9.8.$1"
-}
-
-function sshprd {
-    ssh "core@192.168.167.$1"
-}
-
-function rsi {
-    rsync -avz --progress core@192.168.167.127:/data/integration/$1 ./
-}
-
 export MOZ_PURGE_CACHES=true
 # launchctl setenv MOZ_PURGE_CACHES true
 
 export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
+
+# kubenetes
+source_s $HOME/Projects/dotfiles/kubenetes-script.sh
