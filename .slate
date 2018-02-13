@@ -79,7 +79,7 @@ bind f:ctrl;alt;cmd ${onefourthleftbottom}
 bind t:ctrl;alt;cmd ${onefourthrighttop}
 bind g:ctrl;alt;cmd ${onefourthrightbottom}
 
-bind right:ctrl;cmd throw right resize
-bind left:ctrl;cmd throw left resize
-bind up:ctrl;cmd throw up resize
-bind down:ctrl;cmd throw down resize
+bind right:ctrl;alt;cmd throw right resize
+bind left:ctrl;alt;cmd throw left resize
+bind up:ctrl;alt;cmd throw up resize
+bind down:ctrl;alt;cmd throw down resize
