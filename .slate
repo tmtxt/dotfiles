@@ -25,8 +25,8 @@ alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias leftlarge move screenOriginX;screenOriginY screenSizeX/3*2;screenSizeY
 alias rightsmall move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;screenSizeY
-alias leftsmall move screenOriginX;screenOriginY screenSizeX/10*4;screenSizeY
-alias rightlarge move screenOriginX+screenSizeX/10*4;screenOriginY screenSizeX/10*6;screenSizeY
+alias leftsmall move screenOriginX;screenOriginY screenSizeX/20*9;screenSizeY
+alias rightlarge move screenOriginX+screenSizeX/20*9;screenOriginY screenSizeX/20*11;screenSizeY
 
 alias lefttop move screenOriginX;screenOriginY screenSizeX/3;screenSizeY/2 #1/6 top left
 alias leftbottom move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 #1/6 bottom left
