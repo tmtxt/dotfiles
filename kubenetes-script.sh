@@ -38,3 +38,17 @@ function kbpc {
 function kbpex {
     kbp exec -it $1 bash
 }
+
+# Usage
+# list and copy resource_name, optionally with grep_text
+# kbpc $resource_type $grep_text
+#
+# Ex:
+# Copy 1 pod name, grep by account-mapper string
+# kbpc po account-mapper
+#
+# Copy 1 rc name, grep by api-server string
+# kbpc rc api-server
+#
+# Copy 1 svc name, no grep text
+# kbpc svc

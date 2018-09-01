@@ -28,7 +28,8 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git pass bower nvm npm mix docker-compose)
+plugins=(git pass bower nvm npm mix docker-compose docker yarn vagrant ufw rvm redis-cli rsync pip
+         node macports gulp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,7 +168,7 @@ function uuidv4 {
 # some useful alias
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
-alias rs='rsync -avz --progress' # inside computer
+alias rs='rsync -avz --progress --info=progress2' # inside computer
 alias jks='jekyll serve -w -D'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
@@ -190,23 +191,17 @@ alias ta="tmux a -t"
 alias ta0="tmux a -t 0"
 alias tk="tmux kill-session -t"
 alias tk0="tmux kill-session -t 0"
-alias dck="docker-compose kill"
-alias dcd="docker-compose down"
-alias dcu="docker-compose up"
-alias dcud="docker-compose up -d"
-alias dcp="docker-compose ps"
-alias dcr="docker-compose rm"
-alias dcl="docker-compose logs -f --tail=100"
-alias dcb="docker-compose build"
 alias nrts="npm run truong-stg"
 alias nrtp="npm run truong-prod"
+alias nrt="npm run test"
+alias nrtf="npm run test-file"
+alias nrbt="npm run before-test"
 alias sstg=". ~/.bashrc-workflow-stg"
 alias sprd=". ~/.bashrc-workflow-prod"
 alias pst="pm2 start"
 alias plg="pm2 logs"
 alias pls="pm2 ls"
 alias pythonhttp="python -m SimpleHTTPServer"
-alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
 
 # UTF8
 export LC_ALL=en_US.UTF-8
@@ -338,3 +333,16 @@ export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
 
 # kubenetes
 source_s $HOME/Projects/dotfiles/kubenetes-script.sh
+
+# docker
+alias dck="docker-compose kill"
+alias dcd="docker-compose down"
+alias dcu="docker-compose up"
+alias dcud="docker-compose up -d"
+alias dcp="docker-compose ps"
+alias dcr="docker-compose rm"
+alias dcl="docker-compose logs -f --tail=100"
+alias dcb="docker-compose build"
+alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
+alias dkl="docker logs -f"
+alias dklt="docker logs -f --tail=100"
