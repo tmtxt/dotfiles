@@ -329,10 +329,12 @@ source_s "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
 export MOZ_PURGE_CACHES=true
 # launchctl setenv MOZ_PURGE_CACHES true
 
-export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
+# export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
+export NODE_PATH=`npm root -g`
 
 # kubenetes
 source_s $HOME/Projects/dotfiles/kubenetes-script.sh
+source_s $HOME/dotfiles/kubenetes-script.sh
 
 # docker
 alias dck="docker-compose kill"

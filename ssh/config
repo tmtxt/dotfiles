@@ -50,5 +50,9 @@ Host prod.redis4
  User me
  Hostname prod.redis4.truongtx.me
 
+Host stg.backing
+ User me
+ Hostname 10.20.1.10
+
 Host *
  UseKeychain yes
