@@ -1,58 +1,55 @@
-Host giapha
- User tmtxt
- Hostname giapha.truongtx.me
-
-Host giapha.truongtx.me
- User tmtxt
-
-Host vps
- User tmtxt
- Hostname vps.truongtx.me
-
 Host p1
  User tmtxt
  Hostname p1.truongtx.me
+
+Host p2
+ User tmtxt
+ Hostname p2.truongtx.me
+
+# Host jenkins
+#  User truongtran
+#  Hostname ec2-52-196-158-195.ap-northeast-1.compute.amazonaws.com
 
 Host jenkins
  User jenkins
  Hostname 10.240.0.8
 
-Host prod.moni
- User me
- Hostname 10.240.0.45
+# Host prod.moni
+#  User me
+#  Hostname 10.240.0.45
 
-Host prod.logging
- User me
- Hostname 10.240.1.45
+# Host prod.logging
+#  User me
+#  Hostname 10.240.1.45
 
-Host prod.rdb
- User me
- Hostname prod.rethinkdb
+# Host prod.rdb
+#  User me
+#  Hostname prod.rethinkdb
 
-Host prod.rdb-acc
- User me
- Hostname prod.rethinkdb-account
+# Host prod.rdb-acc
+#  User me
+#  Hostname prod.rethinkdb-account
 
-Host prod.rdb-bk
- User me
- Hostname prod.rethinkdb-backup
+# Host prod.rdb-bk
+#  User me
+#  Hostname prod.rethinkdb-backup
 
-Host prod.redis1
- User me
+# Host prod.redis1
+#  User me
 
-Host prod.redis2
- User me
+# Host prod.redis2
+#  User me
 
-Host prod.redis3
- User me
+# Host prod.redis3
+#  User me
 
-Host prod.redis4
- User me
- Hostname prod.redis4.truongtx.me
+# Host prod.redis4
+#  User me
+#  Hostname prod.redis4.truongtx.me
 
-Host stg.backing
- User me
- Hostname 10.20.1.10
+# Host stg.backing
+#  User me
+#  Hostname 10.20.1.10
 
 Host *
  UseKeychain yes

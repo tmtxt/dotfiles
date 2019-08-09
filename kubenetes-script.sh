@@ -1,6 +1,11 @@
 alias kb="kubectl"
-alias kbs="kubectl --context=staging"
-alias kbsl="kubectl --context=staging logs --tail=100 -f"
+
+# stg
+alias kbs="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging"
+alias kbsl="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging logs --tail=100 -f"
+alias kbsp="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging get po"
+
+# prod
 alias kbp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production"
 alias kbpl="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production logs --tail=100 -f"
 alias kbpp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production get po"
@@ -8,7 +13,7 @@ alias kbpp="kubectl --context=gke_agency-revolution_us-west1-b_production --name
 # copy integration file from production
 function kbpic {
     pod_name=$(kbp get po | grep integration-storage | awk '{print $1}');
-    kbp cp $pod_name:/exports/$1 ~/Downloads/$1
+    kbp cp $pod_name:/exports/$1 ~/Downloads/ar-integrations/$1
 }
 
 # kubectl get name of entity

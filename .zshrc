@@ -263,12 +263,13 @@ fi
 
 # password store
 PASS_PATH=$(where pass)
-alias pass="$PASS_PATH -c"
+alias passc="$PASS_PATH -c"
 alias passs="$PASS_PATH show"
 alias passi="$PASS_PATH insert"
 alias passm="$PASS_PATH insert -m"
 alias passe="$PASS_PATH edit"
 alias passr="$PASS_PATH rm"
+alias passg="$PASS_PATH generate"
 alias pgps="$PASS_PATH git push"
 alias pgpl="$PASS_PATH git pull"
 
@@ -338,6 +339,9 @@ fi
 # kubenetes
 source_s $HOME/Projects/dotfiles/kubenetes-script.sh
 source_s $HOME/dotfiles/kubenetes-script.sh
+
+source_s $HOME/Projects/dotfiles/aws-script.sh
+source_s $HOME/dotfiles/aws-script.sh
 
 # docker
 alias dck="docker-compose kill"

@@ -1,6 +1,6 @@
 My personal config files.
 
-# Installation
+# Mac/Linux
 
 ```console
 $ git clone git@github.com:tmtxt/dotfiles.git
@@ -18,3 +18,47 @@ $ ln -s .aspell.en.prepl ~/.aspell.en.prepl
 $ ln -s .aspell.en.pws ~/.aspell.en.pws
 $ ln -s Thunderbird/prefs.js ~/Library/Thunderbird/Profiles/profile.name/prefs.js
 ```
+
+# Windows
+
+Install `chocolatey` and `scoop` first.
+
+Run these commands to install necessary packages (in Powershell)
+
+```console
+choco install -y `
+    7zip `
+    cpu-z `
+    gpu-z `
+    emacs `
+    googlechrome `
+    firefox `
+    discord `
+    autohotkey `
+    unikey `
+    hackfont `
+    hwinfo `
+    itunes `
+    jetbrains-rider `
+    postman `
+    pritunl-client `
+    slack `
+    sourcetree `
+    steam `
+    sublimetext3 `
+    vscode
+
+scoop install `
+    ag `
+    concfg `
+    curl `
+    git-with-openssh `
+    pshazz `
+    sudo
+```
+
+Manually install these apps
+* Cloudshot
+* Visual studio
+* SQL Server Developer
+* SQL Management Studio
