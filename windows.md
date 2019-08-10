@@ -31,7 +31,24 @@ scoop install `
     curl `
     git-with-openssh `
     pshazz `
-    sudo
+    sudo `
+    ruby `
+    nodejs-lts `
+    empty-recycle-bin `
+    wget `
+    which `
+    touch `
+    time `
+    telnet `
+    simple-http-server `
+    say `
+    redis `
+    aws `
+    grep
+
+npm install -g `
+    gulp `
+    livedown
 ```
 
 Manually install these apps
