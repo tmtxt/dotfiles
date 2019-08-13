@@ -7,6 +7,8 @@ $ git clone git@github.com:tmtxt/dotfiles.git
 $ git clone git@github.com:robbyrussell/oh-my-zsh.git .oh-my-zsh
 
 $ ln -s $PWD/.zshrc ~/.zshrc
+$ chsh -s $(which zsh)
+
 $ ln -s $PWD/.tmux.conf ~/.tmux.conf
 $ ln -s $PWD/.wgetrc ~/.wgetrc
 

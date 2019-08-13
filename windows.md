@@ -3,6 +3,10 @@ Install `chocolatey` and `scoop` first.
 Run these commands to install necessary packages (in Powershell)
 
 ```console
+scoop bucket add extras
+```
+
+```console
 choco install -y `
     7zip `
     cpu-z `
@@ -44,7 +48,9 @@ scoop install `
     say `
     redis `
     aws `
-    grep
+    grep `
+    gcloud `
+    kubectl
 
 npm install -g `
     gulp `
