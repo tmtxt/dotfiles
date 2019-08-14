@@ -62,3 +62,9 @@ Manually install these apps
 * Visual studio
 * SQL Server Developer
 * SQL Management Studio
+
+Alias these commands
+
+```console
+Set-Alias -Name ll -Value Get-ChildItem
+```
