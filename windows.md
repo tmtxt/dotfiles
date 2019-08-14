@@ -50,7 +50,8 @@ scoop install `
     aws `
     grep `
     gcloud `
-    kubectl
+    kubectl `
+    winscp
 
 npm install -g `
     gulp `
