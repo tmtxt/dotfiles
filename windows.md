@@ -2,10 +2,7 @@ Install `chocolatey` and `scoop` first.
 
 Run these commands to install necessary packages (in Powershell)
 
-```console
-scoop bucket add extras
-```
-
+* Chocolatey packages
 ```console
 choco install -y `
     7zip `
@@ -28,6 +25,11 @@ choco install -y `
     steam `
     sublimetext3 `
     vscode
+```
+
+* Scoop packages
+```
+scoop bucket add extras
 
 scoop install `
     ag `
@@ -52,10 +54,18 @@ scoop install `
     gcloud `
     kubectl `
     winscp
+```
 
+* Npm modules
+```
 npm install -g `
     gulp `
     livedown
+```
+
+* Powershell modules
+```
+Install-Module -Name AWSPowerShell
 ```
 
 Manually install these apps
