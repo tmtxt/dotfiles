@@ -53,7 +53,8 @@ scoop install `
     grep `
     gcloud `
     kubectl `
-    winscp
+    winscp `
+    pwsh
 ```
 
 * Npm modules
