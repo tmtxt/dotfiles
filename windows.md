@@ -28,7 +28,7 @@ choco install -y `
 ```
 
 * Scoop packages
-```
+```console
 scoop bucket add extras
 
 scoop install `
@@ -53,6 +53,7 @@ scoop install `
     grep `
     gcloud `
     kubectl `
+    emacs `
     winscp `
     pwsh
 ```
@@ -74,3 +75,9 @@ Manually install these apps
 * Visual studio
 * SQL Server Developer
 * SQL Management Studio
+
+Alias these commands
+
+```console
+Set-Alias -Name ll -Value Get-ChildItem
+```

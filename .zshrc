@@ -215,6 +215,9 @@ if [[ $platform == "Linux" ]]; then
     # show details for ls command
     alias ls='ls -aCFho --color=auto'
 
+    # autojump (ubuntu)
+    source_s "/usr/share/autojump/autojump.zsh"
+
 elif [[ $platform == "Mac" ]]; then
     # macport path
     if [ -d $HOME/bin/macports ]; then
