@@ -3,7 +3,7 @@ Install `chocolatey` and `scoop` first.
 Run these commands to install necessary packages (in Powershell)
 
 ```console
-scoop bucket add extras
+scoop bucket add extras; scoop bucket add versions
 ```
 
 ```console
@@ -27,7 +27,7 @@ choco install -y `
     sourcetree `
     steam `
     sublimetext3 `
-    vscode
+    vscode;
 
 scoop install `
     ag `
@@ -50,7 +50,8 @@ scoop install `
     aws `
     grep `
     gcloud `
-    kubectl
+    kubectl `
+    emacs;
 
 npm install -g `
     gulp `
