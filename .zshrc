@@ -355,3 +355,6 @@ alias dcb="docker-compose build"
 alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
 alias dkl="docker logs -f"
 alias dklt="docker logs -f --tail=100"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
