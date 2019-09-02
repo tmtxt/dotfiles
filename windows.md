@@ -8,7 +8,6 @@ choco install -y `
     7zip `
     cpu-z `
     gpu-z `
-    emacs `
     googlechrome `
     firefox `
     discord `
@@ -54,7 +53,8 @@ scoop install `
     gcloud `
     kubectl `
     winscp `
-    pwsh
+    pwsh `
+    emacs
 ```
 
 * Npm modules
