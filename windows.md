@@ -23,7 +23,9 @@ choco install -y `
     sourcetree `
     steam `
     sublimetext3 `
-    vscode
+    vscode `
+    authy-desktop `
+    teamviewer
 ```
 
 * Scoop packages
