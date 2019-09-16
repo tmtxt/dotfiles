@@ -25,7 +25,10 @@ choco install -y `
     sublimetext3 `
     vscode `
     authy-desktop `
-    teamviewer
+    teamviewer `
+    calibre `
+    google-backup-and-sync `
+    msiafterburner
 ```
 
 * Scoop packages
