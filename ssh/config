@@ -52,4 +52,5 @@ Host jenkins
 #  Hostname 10.20.1.10
 
 Host *
+ IgnoreUnknown UseKeychain
  UseKeychain yes
