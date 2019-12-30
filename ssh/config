@@ -6,13 +6,13 @@ Host p2
  User tmtxt
  Hostname p2.truongtx.me
 
-# Host jenkins
-#  User truongtran
-#  Hostname ec2-52-196-158-195.ap-northeast-1.compute.amazonaws.com
-
 Host jenkins
- User jenkins
- Hostname 10.240.0.8
+ User tmtxt
+ Hostname jenkins.truongtx.me
+
+# Host jenkins
+#  User jenkins
+#  Hostname 10.240.0.8
 
 # Host prod.moni
 #  User me
