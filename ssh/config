@@ -8,7 +8,11 @@ Host p2
 
 Host jenkins
  User tmtxt
- Hostname jenkins.truongtx.me
+ Hostname 13.229.223.105
+
+Host pritunl
+ User tmtxt
+ Hostname pritunl.truongtx.me
 
 # Host jenkins
 #  User jenkins
