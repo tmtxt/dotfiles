@@ -10,6 +10,10 @@ Host jenkins
  User tmtxt
  Hostname jenkins.truongtx.me
 
+Host pritunl
+ User tmtxt
+ Hostname pritunl.truongtx.me
+
 # Host jenkins
 #  User jenkins
 #  Hostname 10.240.0.8
