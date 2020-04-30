@@ -6,29 +6,12 @@ Run these commands to install necessary packages (in Powershell)
 ```console
 choco install -y `
     7zip `
-    cpu-z `
-    gpu-z `
     googlechrome `
-    firefox `
-    discord `
     autohotkey `
-    unikey `
     hackfont `
-    hwinfo `
-    itunes `
     jetbrains-rider `
     postman `
-    pritunl-client `
-    slack `
-    sourcetree `
-    steam `
-    sublimetext3 `
-    vscode `
-    authy-desktop `
-    teamviewer `
-    calibre `
-    google-backup-and-sync `
-    msiafterburner
+    vscode
 ```
 
 * Scoop packages
@@ -43,7 +26,7 @@ scoop install `
     pshazz `
     sudo `
     ruby `
-    nodejs-lts `
+    nvm `
     empty-recycle-bin `
     wget `
     which `
@@ -59,8 +42,7 @@ scoop install `
     kubectl `
     emacs `
     winscp `
-    pwsh `
-    emacs
+    pwsh
 ```
 
 * Npm modules
@@ -86,3 +68,9 @@ Alias these commands
 ```console
 Set-Alias -Name ll -Value Get-ChildItem
 ```
+
+Set these Environment variables
+```
+GIT_SSH=
+```
+Set Environment variable to use SSH from Windows default OpenSSH for Git
