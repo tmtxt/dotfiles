@@ -1,6 +1,6 @@
 Install `chocolatey` and `scoop` first.
 
-Run these commands to install necessary packages (in Powershell)
+# Install using Package Manager (Powershell)
 
 * Chocolatey packages
 ```console
@@ -11,7 +11,8 @@ choco install -y `
     hackfont `
     jetbrains-rider `
     postman `
-    vscode
+    vscode `
+    firefox
 ```
 
 * Scoop packages
@@ -42,7 +43,9 @@ scoop install `
     kubectl `
     emacs `
     winscp `
-    pwsh
+    pwsh `
+    ffmpeg `
+    youtube-dl
 ```
 
 * Npm modules
@@ -57,6 +60,8 @@ npm install -g `
 Install-Module -Name AWSPowerShell
 ```
 
+# Install Manually
+
 Manually install these apps
 * Cloudshot
 * Visual studio
@@ -69,8 +74,16 @@ Alias these commands
 Set-Alias -Name ll -Value Get-ChildItem
 ```
 
+# Environment Variables
+
 Set these Environment variables
 ```
-GIT_SSH=
+GIT_SSH=C:\Windows\System32\OpenSSH\ssh.exe
 ```
-Set Environment variable to use SSH from Windows default OpenSSH for Git
+
+# Symlinks
+
+Run in Administrator `cmd` (update the path accordingly)
+```
+$ mklink /H C:\Users\me\Documents\WindowsPowerShell\Profile.ps1 C:\Users\me\Projects\dotfiles\Powershell\Profile.ps1
+```
