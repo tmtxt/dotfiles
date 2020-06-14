@@ -169,7 +169,7 @@ function uuidv4 {
 alias df='df -h'        # file system usage
 alias du='du -h'        # du /path/to/file - File space usage
 alias rs='rsync -avz --progress --info=progress2' # inside computer
-alias jks='jekyll serve -w -D'          # jekyll server
+alias jks='jekyll serve -w -D --host=0.0.0.0'          # jekyll server
 alias sd='sudo shutdown -h'
 alias mygcc="gcc -Wall -ansi -pedantic"
 alias pg_stop='su postgres -c "pg_ctl stop -m fast"'
