@@ -28,6 +28,12 @@ alias rightsmall move screenOriginX+screenSizeX/3*2;screenOriginY screenSizeX/3;
 alias leftsmall move screenOriginX;screenOriginY screenSizeX/20*9;screenSizeY
 alias rightlarge move screenOriginX+screenSizeX/20*9;screenOriginY screenSizeX/20*11;screenSizeY
 
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias topthird move screenOriginX;screenOriginY screenSizeX;screenSizeY/3
+alias midthird move screenOriginX;screenOriginY+screenSizeY/3 screenSizeX;screenSizeY/3
+alias bottomthird move screenOriginX;screenOriginY+screenSizeY/3*2 screenSizeX;screenSizeY/3
+
 alias lefttop move screenOriginX;screenOriginY screenSizeX/3;screenSizeY/2 #1/6 top left
 alias leftbottom move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 #1/6 bottom left
 alias middletop move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2  #1/6 top middle
@@ -52,20 +58,19 @@ alias lessY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY-screenSiz
 
 # Key bindings for those position
 bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
-bind 4:ctrl;alt;cmd ${leftsmall}	#ctrl+cmd+alt+6 for left half
-bind 5:ctrl;alt;cmd ${rightlarge} #ctrl+cmd+alt+7 for right half
+bind 1:ctrl;alt;cmd ${topthird}
+bind 2:ctrl;alt;cmd ${midthird}
+bind 3:ctrl;alt;cmd ${bottomthird}
+bind 4:ctrl;alt;cmd ${tophalf}
+bind 5:ctrl;alt;cmd ${bottomhalf}
 bind 6:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+6 for left half
 bind 7:ctrl;alt;cmd ${righthalf} #ctrl+cmd+alt+7 for right half
-bind 8:ctrl;alt;cmd ${leftlarge} #ctrl+cmd+alt+8 for left large
-bind 9:ctrl;alt;cmd ${rightsmall} #ctrl+cmd+alt+9 for right small
+bind 8:ctrl;alt;cmd ${leftlarge}	#ctrl+cmd+alt+6 for left half
+bind 9:ctrl;alt;cmd ${rightsmall} #ctrl+cmd+alt+7 for right half
 bind right:ctrl;alt;shift ${moveRight}
 bind left:ctrl;alt;shift ${moveLeft}
 bind down:ctrl;alt;shift ${moveDown}
 bind up:ctrl;alt;shift ${moveUp}
-bind right:ctrl;shift ${moreX}
-bind left:ctrl;shift ${lessX}
-bind down:ctrl;shift ${moreY}
-bind up:ctrl;shift ${lessY}
 
 bind u:ctrl;alt;cmd ${lefttop}
 bind j:ctrl;alt;cmd ${leftbottom}

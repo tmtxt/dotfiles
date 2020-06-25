@@ -2,21 +2,21 @@ Host p1
  User tmtxt
  Hostname p1.truongtx.me
 
-Host p2
+Host minecraft
  User tmtxt
- Hostname p2.truongtx.me
+ Hostname mineclgt.truongtx.me
+
+Host pritunl
+ User tmtxt
+ Hostname pritunl.truongtx.me
+
+Host vpn
+ User tmtxt
+ Hostname vpn.truongtx.me
 
 Host jenkins
  User tmtxt
- Hostname 13.229.223.105
-
-Host pritunl
- User tmtxt
- Hostname pritunl.truongtx.me
-
-Host pritunl
- User tmtxt
- Hostname pritunl.truongtx.me
+ Hostname 172.26.4.119
 
 # Host jenkins
 #  User jenkins
