@@ -58,6 +58,7 @@ npm install -g `
 * Powershell modules
 ```
 Install-Module -Name AWSPowerShell
+Install-Module ZLocation -Scope CurrentUser
 ```
 
 # Install Manually
@@ -80,5 +81,5 @@ GIT_SSH=C:\Windows\System32\OpenSSH\ssh.exe
 Run in Administrator `cmd` (update the path accordingly)
 **Note**: Only symlink after finishing installing the above packages
 ```
-$ mklink /H C:\Users\me\Documents\WindowsPowerShell\Profile.ps1 C:\Users\me\Projects\dotfiles\Powershell\Profile.ps1
+> mklink /H "C:\Users\me\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "C:\Users\me\Projects\dotfiles\Powershell\Microsoft.PowerShell_profile.ps1"
 ```
