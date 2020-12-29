@@ -30,9 +30,11 @@ alias rightlarge move screenOriginX+screenSizeX/20*9;screenOriginY screenSizeX/2
 
 alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
 alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
-alias topthird move screenOriginX;screenOriginY screenSizeX;screenSizeY/3
-alias midthird move screenOriginX;screenOriginY+screenSizeY/3 screenSizeX;screenSizeY/3
-alias bottomthird move screenOriginX;screenOriginY+screenSizeY/3*2 screenSizeX;screenSizeY/3
+# alias topthird move screenOriginX;screenOriginY screenSizeX;screenSizeY/3
+# alias midthird move screenOriginX;screenOriginY+screenSizeY/3 screenSizeX;screenSizeY/3
+# alias bottomthird move screenOriginX;screenOriginY+screenSizeY/3*2 screenSizeX;screenSizeY/3
+alias toplarge move screenOriginX;screenOriginY screenSizeX;screenSizeY/3*2
+alias bottomsmall move screenOriginX;screenOriginY+screenSizeY/3*2 screenSizeX;screenSizeY/3
 
 alias lefttop move screenOriginX;screenOriginY screenSizeX/3;screenSizeY/2 #1/6 top left
 alias leftbottom move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2 #1/6 bottom left
@@ -58,9 +60,11 @@ alias lessY move windowTopLeftX;windowTopLeftY windowSizeX;windowSizeY-screenSiz
 
 # Key bindings for those position
 bind 0:ctrl;alt;cmd ${full}		#ctrl+cmd+alt+0 for full screen
-bind 1:ctrl;alt;cmd ${topthird}
-bind 2:ctrl;alt;cmd ${midthird}
-bind 3:ctrl;alt;cmd ${bottomthird}
+# bind 1:ctrl;alt;cmd ${topthird}
+# bind 2:ctrl;alt;cmd ${midthird}
+# bind 3:ctrl;alt;cmd ${bottomthird}
+bind 2:ctrl;alt;cmd ${toplarge}
+bind 3:ctrl;alt;cmd ${bottomsmall}
 bind 4:ctrl;alt;cmd ${tophalf}
 bind 5:ctrl;alt;cmd ${bottomhalf}
 bind 6:ctrl;alt;cmd ${lefthalf}	#ctrl+cmd+alt+6 for left half
