@@ -1,5 +1,10 @@
 alias kb="kubectl"
 
+# uat
+alias kbu="kubectl --context=gke_agency-revolution_asia-southeast1-a_uat --namespace=uat"
+alias kbul="kubectl --context=gke_agency-revolution_asia-southeast1-a_uat --namespace=uat logs --tail=100 -f"
+alias kbup="kubectl --context=gke_agency-revolution_asia-southeast1-a_uat --namespace=uat get po"
+
 # stg
 alias kbs="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging"
 alias kbsl="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging logs --tail=100 -f"
@@ -7,6 +12,7 @@ alias kbsp="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --
 
 # prod
 alias kbp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production"
+alias kbpsys="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=kube-system"
 alias kbpl="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production logs --tail=100 -f"
 alias kbpp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production get po"
 
@@ -34,6 +40,17 @@ function kbpc {
         kbp_result=$(kbp get $1);
     fi
     kubectl_get_name $kbp_result "KBC_RESULT"
+    echo -n $KBC_RESULT | pbcopy
+    echo "Copied $KBC_RESULT to clipboard"
+}
+
+function kbsc {
+    if [[ -n "$2" ]]; then
+        kbs_result=$(kbs get $1 | grep $2);
+    else
+        kbs_result=$(kbs get $1);
+    fi
+    kubectl_get_name $kbs_result "KBC_RESULT"
     echo -n $KBC_RESULT | pbcopy
     echo "Copied $KBC_RESULT to clipboard"
 }

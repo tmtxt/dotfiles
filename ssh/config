@@ -15,8 +15,8 @@ Host vpn
  Hostname vpn.truongtx.me
 
 Host jenkins
- User tmtxt
- Hostname 172.26.4.119
+ User me
+ Hostname 10.240.0.9
 
 # Host jenkins
 #  User jenkins
