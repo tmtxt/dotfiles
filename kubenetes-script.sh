@@ -6,15 +6,15 @@ alias kbul="kubectl --context=gke_agency-revolution_asia-southeast1-a_uat --name
 alias kbup="kubectl --context=gke_agency-revolution_asia-southeast1-a_uat --namespace=uat get po"
 
 # stg
-alias kbs="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging"
-alias kbsl="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging logs --tail=100 -f"
-alias kbsp="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging --namespace=staging get po"
+alias kbs="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2"
+alias kbsl="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2 logs --tail=100 -f"
+alias kbsp="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2 get po"
 
 # prod
-alias kbp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production"
-alias kbpsys="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=kube-system"
-alias kbpl="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production logs --tail=100 -f"
-alias kbpp="kubectl --context=gke_agency-revolution_us-west1-b_production --namespace=production get po"
+alias kbp="kubectl --context=gke_agency-revolution_us-west1-b_production-v2 --namespace=production-v2"
+alias kbpsys="kubectl --context=gke_agency-revolution_us-west1-b_production-v2 --namespace=kube-system"
+alias kbpl="kubectl --context=gke_agency-revolution_us-west1-b_production-v2 --namespace=production-v2 logs --tail=100 -f"
+alias kbpp="kubectl --context=gke_agency-revolution_us-west1-b_production-v2 --namespace=production-v2 get po"
 
 # copy integration file from production
 function kbpic {

@@ -347,14 +347,14 @@ source_s $HOME/Projects/dotfiles/aws-script.sh
 source_s $HOME/dotfiles/aws-script.sh
 
 # docker
-alias dck="docker-compose kill"
-alias dcd="docker-compose down"
-alias dcu="docker-compose up"
-alias dcud="docker-compose up -d"
-alias dcp="docker-compose ps"
-alias dcr="docker-compose rm"
-alias dcl="docker-compose logs -f --tail=100"
-alias dcb="docker-compose build"
+alias dck="docker compose kill"
+alias dcd="docker compose down"
+alias dcu="docker compose up"
+alias dcud="docker compose up -d"
+alias dcp="docker compose ps"
+alias dcr="docker compose rm"
+alias dcl="docker compose logs -f --tail=100"
+alias dcb="docker compose build"
 alias docker-remove-all-images="docker rm \$(docker ps -a -q) && docker rmi \$(docker images -q)"
 alias dkl="docker logs -f"
 alias dklt="docker logs -f --tail=100"

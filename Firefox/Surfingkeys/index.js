@@ -1,7 +1,8 @@
 // Config file for Surfingkeys
 
 // Hints
-Hints.characters = "1234567890";
+Hints.setCharacters("1234567890");
+// Hints.characters = "1234567890";
 settings.hintAlign = "left";
 
 map("F", "gf");
