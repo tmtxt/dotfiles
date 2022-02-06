@@ -1,9 +1,8 @@
-// Config file for Surfingkeys
+const { Hints } = api;
 
 // Hints
-Hints.setCharacters("1234567890");
-// Hints.characters = "1234567890";
-settings.hintAlign = "left";
+Hints.setNumeric();
+settings.hintAlign = 'left';
 
-map("F", "gf");
-map("<Alt-q>", "<Alt-i>");
+// map('F', 'gf');
+// map('<Alt-q>', '<Alt-i>');
