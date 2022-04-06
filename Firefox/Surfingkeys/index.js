@@ -4,5 +4,5 @@ const { Hints } = api;
 Hints.setNumeric();
 settings.hintAlign = 'left';
 
-// map('F', 'gf');
+api.map('F', 'gf');
 // map('<Alt-q>', '<Alt-i>');
