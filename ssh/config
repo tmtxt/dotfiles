@@ -1,63 +1,12 @@
-Host p1
- User tmtxt
- Hostname p1.truongtx.me
+Host bastion-prod
+ HostName bastion.skutopia-production.internal.skutopia.com.au
+ User truong_tran_skutopia_com
+ IdentityFile /Users/tmtxt/.ssh/skutopia
 
-Host minecraft
- User tmtxt
- Hostname mineclgt.truongtx.me
-
-Host pritunl
- User tmtxt
- Hostname pritunl.truongtx.me
-
-Host vpn
- User tmtxt
- Hostname vpn.truongtx.me
-
-Host jenkins
- User me
- Hostname 10.240.0.9
-
-# Host jenkins
-#  User jenkins
-#  Hostname 10.240.0.8
-
-# Host prod.moni
-#  User me
-#  Hostname 10.240.0.45
-
-# Host prod.logging
-#  User me
-#  Hostname 10.240.1.45
-
-# Host prod.rdb
-#  User me
-#  Hostname prod.rethinkdb
-
-# Host prod.rdb-acc
-#  User me
-#  Hostname prod.rethinkdb-account
-
-# Host prod.rdb-bk
-#  User me
-#  Hostname prod.rethinkdb-backup
-
-# Host prod.redis1
-#  User me
-
-# Host prod.redis2
-#  User me
-
-# Host prod.redis3
-#  User me
-
-# Host prod.redis4
-#  User me
-#  Hostname prod.redis4.truongtx.me
-
-# Host stg.backing
-#  User me
-#  Hostname 10.20.1.10
+Host bastion-dev
+ HostName bastion.skutopia-web-dev-40d.internal.skutopia.com.au
+ User truong_tran_skutopia_com
+ IdentityFile /Users/tmtxt/.ssh/skutopia
 
 Host *
  IgnoreUnknown UseKeychain
