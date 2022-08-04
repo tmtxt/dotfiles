@@ -5,9 +5,9 @@ alias kbd="kubectl --context=gke_skutopia-web-dev-40d_australia-southeast1-b_dev
 alias kbdl="kubectl --context=gke_skutopia-web-dev-40d_australia-southeast1-b_dev-skutopia logs --tail=100 -f"
 
 # stg
-# alias kbs="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2"
-# alias kbsl="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2 logs --tail=100 -f"
-# alias kbsp="kubectl --context=gke_agency-revolution_asia-southeast1-a_staging-v2 --namespace=staging-v2 get po"
+alias kbs="kubectl --context=gke_skutopia-production_australia-southeast1_stg-skutopia"
+alias kbsl="kubectl --context=gke_skutopia-production_australia-southeast1_stg-skutopia logs --tail=100 -f"
+alias kbsp="kubectl --context=gke_skutopia-production_australia-southeast1_stg-skutopia get po"
 
 # # prod
 alias kbp="kubectl --context=gke_skutopia-production_australia-southeast1_prd-skutopia"
