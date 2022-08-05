@@ -330,15 +330,6 @@ source_s "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
 #     echo "Scaled $rc to $replicas instances"
 # }
 
-export MOZ_PURGE_CACHES=true
-# launchctl setenv MOZ_PURGE_CACHES true
-
-# export NODE_PATH=~/.nvm/versions/node/v4.1.2/lib/node_modules
-# if hash npm 2>/dev/null
-# then
-#     export NODE_PATH=`npm root -g`
-# fi
-
 # kubenetes
 source_s $HOME/Projects/dotfiles/kubenetes-script.sh
 source_s $HOME/dotfiles/kubenetes-script.sh
@@ -362,4 +353,5 @@ alias dklt="docker logs -f --tail=100"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew
+# eval "$(/opt/homebrew/bin/brew shellenv)"
