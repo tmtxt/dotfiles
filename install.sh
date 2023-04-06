@@ -8,4 +8,4 @@ git clone https://github.com/tmtxt/dotfiles.git ~/projects/dotfiles
 # remove default .zshrc file
 mv ~/.zshrc ~/.zshrc-default
 ln -s $HOME/projects/dotfiles/.zshrc ~/.zshrc
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
