@@ -284,6 +284,7 @@ path_s $HOME/.composer/vendor/bin
 path_s $HOME/.pulumi/bin
 path_s /Applications/Emacs.app/Contents/MacOS/bin true
 path_s $HOME/Applications/Emacs.app/Contents/MacOS/bin true
+path_s $HOME/.pulumi/bin
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
