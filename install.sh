@@ -11,4 +11,4 @@ git config --global core.editor "code --wait"
 # remove default .zshrc file
 mv ~/.zshrc ~/.zshrc-default
 ln -s $HOME/projects/dotfiles/.zshrc ~/.zshrc
-sudo chsh -s $(which zsh) node
+sudo chsh -s $(which zsh) $USER
