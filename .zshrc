@@ -338,6 +338,8 @@ source_s $HOME/dotfiles/kubenetes-script.sh
 
 source_s $HOME/Projects/dotfiles/aws-script.sh
 source_s $HOME/dotfiles/aws-script.sh
+source_s $HOME/dotfiles/skutopia.sh
+source_s $HOME/Projects/dotfiles/skutopia.sh
 
 # docker
 alias dck="docker compose kill"
