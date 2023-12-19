@@ -1,4 +1,4 @@
-alias portforward_rdp_qa_prd='CLOUDSDK_PYTHON_SITEPACKAGES=1 gcloud compute ssh --zone "australia-southeast1-b" "jumpbox"  --tunnel-through-iap --project "skutopia-production" -- -NL 19091:"10.11.0.58":3389 -v'
+alias portforward_rdp_qa_prd='CLOUDSDK_PYTHON_SITEPACKAGES=1 gcloud compute ssh --zone "australia-southeast1-b" "jumpbox"  --tunnel-through-iap --project "skutopia-production" -- -NL 19091:"10.11.0.23":3389 -v'
 alias portforward_rdp_qa_stg='CLOUDSDK_PYTHON_SITEPACKAGES=1 gcloud compute ssh --zone "australia-southeast1-b" "jumpbox"  --tunnel-through-iap --project "skutopia-production" -- -NL 19092:"10.11.0.16":3389 -v'
 alias portforward_rdp_h1_console='CLOUDSDK_PYTHON_SITEPACKAGES=1 gcloud compute ssh --zone australia-southeast1-b jumpbox  --tunnel-through-iap --project skutopia-production -- -NL 19093:autostore-service-pc.h1-alx-syd.wms.prd.skutopia.com.au:3389 -v'
 alias portforward_rdp_h1_httptestclient='CLOUDSDK_PYTHON_SITEPACKAGES=1 gcloud compute ssh --zone australia-southeast1-b jumpbox  --tunnel-through-iap --project skutopia-production -- -NL 19094:10.10.0.20:3389 -v'
