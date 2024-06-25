@@ -1,13 +1,35 @@
 Host bastion-prod
- HostName bastion.skutopia-production.internal.skutopia.com.au
- User truong_tran_skutopia_com
- IdentityFile /Users/tmtxt/.ssh/skutopia
+     HostName bastion.skutopia-production.internal.skutopia.com.au
+     User truong_tran_skutopia_com
+     IdentityFile /Users/tmtxt/.ssh/skutopia
 
 Host bastion-dev
- HostName bastion.skutopia-web-dev-40d.internal.skutopia.com.au
- User truong_tran_skutopia_com
- IdentityFile /Users/tmtxt/.ssh/skutopia
+     HostName bastion.skutopia-web-dev-40d.internal.skutopia.com.au
+     User truong_tran_skutopia_com
+     IdentityFile /Users/tmtxt/.ssh/skutopia
+
+Host wms-dev
+     HostName localhost
+     Port 22223
+     UserKnownHostsFile=/dev/null
+     GlobalKnownHostsFile=/dev/null
+     StrictHostKeyChecking no
+     User node
+     IdentityFile /Users/tmtxt/.ssh/id_rsa
+     RequestTTY yes
+     RemoteCommand cd /workspaces/waretopia; zsh
+
+Host ssp-dev
+     HostName localhost
+     Port 22233
+     UserKnownHostsFile=/dev/null
+     GlobalKnownHostsFile=/dev/null
+     StrictHostKeyChecking no
+     User node
+     IdentityFile /Users/tmtxt/.ssh/id_rsa
+     RequestTTY yes
+     RemoteCommand cd /workspaces/skutopia; zsh
 
 Host *
- IgnoreUnknown UseKeychain
- UseKeychain yes
+     IgnoreUnknown UseKeychain
+     UseKeychain yes

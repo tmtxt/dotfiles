@@ -232,6 +232,7 @@ elif [[ $platform == "Mac" ]]; then
     path_s $MPP/libexec/gnubin true
     path_s $MPP/Library/Frameworks/Python.framework/Versions/Current/bin true
     path_s $HOME/bin/system
+    path_s $HOME/Library/Python/3.12/bin
     PERL5LIB=$MPP/lib/perl5/5.12.4:$MPP/lib/perl5/vendor_perl/5.12.4:$PERL5LIB
 
     # some useful alias

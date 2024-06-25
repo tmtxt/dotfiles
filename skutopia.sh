@@ -10,14 +10,20 @@ function skuPortForward {
 }
 
 alias portforward_rdp_qa_prd="skuPortForward 19091:10.11.0.23:3389"
-alias portforward_rdp_emu_prd="skuPortForward 19097:10.11.0.110:3389"
+alias portforward_rdp_emu_prd="skuPortForward 19097:10.11.0.52:3389"
 alias portforward_rdp_qa_stg="skuPortForward 19092:10.11.0.16:3389"
-alias portforward_rdp_emu_stg='skuPortForward 19095:10.11.0.109:3389'
-alias portforward_rdp_h1_console='skuPortForward "19093:autostore-service-pc.h1-alx-syd.wms.prd.skutopia.com.au:3389"'
+alias portforward_rdp_emu_stg='skuPortForward 19095:10.11.0.12:3389'
+alias portforward_rdp_h1_service_pc='skuPortForward "19093:autostore-service-pc.h1-alx-syd.wms.prd.skutopia.com.au:3389"'
+alias portforward_rdp_h1_console='skuPortForward 19098:10.11.0.22:3389'
 alias portforward_rdp_h1_httptestclient='skuPortForward 19094:10.10.0.20:3389'
 
 alias portforward_db_wms_stg='skuPortForward 20500:10.9.0.12:5432'
+alias portforward_db_wms_stg_read_replica='skuPortForward 20505:10.46.0.16:5432'
 alias portforward_db_wms_prd='skuPortForward 20501:10.9.0.15:5432'
+alias portforward_db_wms_prd_read_replica='skuPortForward 20506:10.46.0.17:5432'
+alias portforward_db_ssp_prd='skuPortForward 20502:10.9.0.4:5432'
+alias portforward_db_ssp_stg='skuPortForward 20503:10.9.0.5:5432'
+alias portforward_db_billing_prd='skuPortForward 20504:10.9.0.7:5432'
 
 # interactive ssh, with grep command
 function gcloudssh {
