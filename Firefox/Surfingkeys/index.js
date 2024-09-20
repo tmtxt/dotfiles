@@ -1,7 +1,7 @@
 const { Hints } = api;
 
 // Hints
-Hints.setNumeric();
+Hints.setCharacters('0123456789');
 settings.hintAlign = 'left';
 
 api.map('F', 'gf');
