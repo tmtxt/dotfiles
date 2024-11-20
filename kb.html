@@ -3,25 +3,42 @@
 <head>
     <title>Keyboard layout</title>
     <style>
+        body {
+            width: 1500px;
+        }
         .key-row {
             display: flex;
         }
         .key {
-            border: 1px solid black;
+            display: inline-block;
+            padding: 5px 5px;
+            margin: 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            cursor: pointer;
             width: 75px;
             height: 75px;
+        }
+        .key:active {
+            background-color: #e0e0e0;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         .char {
             
         }
         .actions {
-            
+            font-size: 12px;
         }
         .action-row {
             display: flex;
+            align-items: center;
         }
         .action-icon {
-            
+            min-width: 15px;
         }
         .action-text {
             
@@ -56,8 +73,134 @@
 <body>
 <div class="key-row">
     <div class="key">
+        <div class="char">1</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">Explorer</div>
+            </div>
+            <div class="action-row legend5">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">Explorer</div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">2</div>
+        <div class="actions">
+            <div class="action-row legend8">
+                <div class="action-icon">&#127075;</div>
+                <div class="action-text">Split</div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">3</div>
+        <div class="actions">
+            <div class="action-row legend8">
+                <div class="action-icon">&#127025;</div>
+                <div class="action-text">Split</div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">4</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">5</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">Terminal</div>
+            </div>
+            <div class="action-row legend5">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">Terminal</div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">6</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">7</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">8</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">9</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">SCM</div>
+            </div>
+            <div class="action-row legend5">
+                <div class="action-icon">&#8862;</div>
+                <div class="action-text">SCM</div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">0</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">-</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+    <div class="key">
+        <div class="char">=</div>
+        <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon"></div>
+                <div class="action-text"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="key-row">
+    <div class="key">
         <div class="char">Q</div>
         <div class="actions">
+            <div class="action-row legend1">
+                <div class="action-icon">&#x2716;</div>
+                <div class="action-text">App</div>
+            </div>
             <div class="action-row legend3">
                 <div class="action-icon"></div>
                 <div class="action-text">Modifier</div>
@@ -67,8 +210,14 @@
     <div class="key">
         <div class="char">W</div>
         <div class="actions">
-            <div class="icon"></div>
-            <div class="text"></div>
+            <div class="action-row legend1">
+                <div class="action-icon">&#x2716;</div>
+                <div class="action-text">Tab</div>
+            </div>
+            <div class="action-row legend8">
+                <div class="action-icon"></div>
+                <div class="action-text">Context</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -95,8 +244,10 @@
     <div class="key">
         <div class="char">Y</div>
         <div class="actions">
-            <div class="icon"></div>
-            <div class="text"></div>
+            <div class="action-row legend1">
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Text</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -105,6 +256,10 @@
             <div class="action-row legend1">
                 <div class="action-icon">&LeftArrow;</div>
                 <div class="action-text">Word</div>
+            </div>
+            <div class="action-row legend2">
+                <div class="action-icon">&LeftArrow;</div>
+                <div class="action-text">Bracket</div>
             </div>
         </div>
     </div>
@@ -119,6 +274,10 @@
                 <div class="action-icon">&UpArrow;</div>
                 <div class="action-text">Page</div>
             </div>
+            <div class="action-row legend8">
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Members</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -127,6 +286,10 @@
             <div class="action-row legend1">
                 <div class="action-icon">&RightArrow;</div>
                 <div class="action-text">Word</div>
+            </div>
+            <div class="action-row legend2">
+                <div class="action-icon">&RightArrow;</div>
+                <div class="action-text">Bracket</div>
             </div>
         </div>
     </div>
@@ -157,8 +320,8 @@
         <div class="char">A</div>
         <div class="actions">
             <div class="action-row legend1">
-                <div class="action-icon">&#8998;</div>
-                <div class="action-text">Char</div>
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Commands</div>
             </div>
         </div>
     </div>
@@ -169,7 +332,11 @@
                 <div class="action-icon">&#128427;</div>
                 <div class="action-text">Save</div>
             </div>
-            <div class="action-row legend1">
+            <div class="action-row legend3">
+                <div class="action-icon">&#128427;</div>
+                <div class="action-text">Save</div>
+            </div>
+            <div class="action-row legend5">
                 <div class="action-icon">&#128427;</div>
                 <div class="action-text">Save</div>
             </div>
@@ -199,13 +366,19 @@
                 <div class="action-icon">&#9003;</div>
                 <div class="action-text">Word</div>
             </div>
+            <div class="action-row legend8">
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Files</div>
+            </div>
         </div>
     </div>
     <div class="key">
         <div class="char">G</div>
         <div class="actions">
-            <div class="icon"></div>
-            <div class="text"></div>
+            <div class="action-row legend3">
+                <div class="action-icon">&#9209;</div>
+                <div class="action-text">Cancel</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -225,6 +398,10 @@
             <div class="action-row legend2">
                 <div class="action-icon">&LeftArrow;</div>
                 <div class="action-text">Line</div>
+            </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&LeftArrow;</div>
+                <div class="action-text">Tab</div>
             </div>
         </div>
     </div>
@@ -251,6 +428,10 @@
             <div class="action-row legend2">
                 <div class="action-icon">&RightArrow;</div>
                 <div class="action-text">Line</div>
+            </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&RightArrow;</div>
+                <div class="action-text">Tab</div>
             </div>
         </div>
     </div>
@@ -402,7 +583,7 @@
     <div class="legend5">5/ s: Command/Windows</div>
     <div class="legend6">6/ s-S: Command/Windows-Shift</div>
     <div class="legend7">7/ C-M: Control-Meta/Alt</div>
-    <div class="legend8">8/ C-q: Control-q</div>
+    <div class="legend8">8/ C-q: Control-q (Editor specific)</div>
 </div>
 </body>
 </html>
