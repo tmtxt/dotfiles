@@ -58,10 +58,10 @@ F10::
 }
 
 ; jk at the same time for Escape
-j & k::Escape
-j::Send("j")
-k & j::Escape
-k::Send("k")
+; j & k::Escape
+; j::Send("j")
+; k & j::Escape
+; k::Send("k")
 
 #a::^a
 !c::^c
