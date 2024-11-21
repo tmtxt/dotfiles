@@ -107,3 +107,8 @@ F10::
 #w::^F4
 !Space::!Home
 #HotIf
+
+#HotIf WinActive("ahk_exe WindowsTerminal.exe")
+#t::^+t
+#w::^+w
+#HotIf
