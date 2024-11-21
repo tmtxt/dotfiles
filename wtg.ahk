@@ -53,9 +53,15 @@ F7::
 
 F10::
 {
-    if WinExist("ahk_exe ms-teams.exe ahk_class TeamsWebView")
-        WinActivate
+    if WinExist("ahk_exe ms-teams.exe")
+        WinActivateBottom
 }
+
+; jk at the same time for Escape
+j & k::Escape
+j::Send("j")
+k & j::Escape
+k::Send("k")
 
 #a::^a
 !c::^c
