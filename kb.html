@@ -15,7 +15,7 @@
             margin: 5px;
             border: 2px solid #ccc;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: #e0e0e0;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             font-family: Arial, sans-serif;
             font-size: 15px;
@@ -28,7 +28,7 @@
             box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
         .char {
-            
+            font-weight: bold;
         }
         .actions {
             font-size: 12px;
@@ -43,6 +43,15 @@
         .action-text {
             
         }
+        .legends {
+            margin-top: 10px;
+        }
+        .legends li>div {
+            display: flex;
+        }
+        .legends .stroke {
+            width: 50px;
+        }
         .legend1 {
             color: #0000FF;
         }
@@ -53,8 +62,9 @@
             color: #008000;
         }
         .legend4 {
-            color: #00FFFF;
+            /*color: #00FFFF;*/
             /*color: #FFFF00;*/
+            color: darkcyan;
         }
         .legend5 {
             color: #FFA500;
@@ -205,6 +215,10 @@
                 <div class="action-icon"></div>
                 <div class="action-text">Modifier</div>
             </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Projects</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -212,7 +226,7 @@
         <div class="actions">
             <div class="action-row legend1">
                 <div class="action-icon">&#x2716;</div>
-                <div class="action-text">Tab</div>
+                <div class="action-text">Buffer</div>
             </div>
             <div class="action-row legend8">
                 <div class="action-icon"></div>
@@ -261,6 +275,10 @@
                 <div class="action-icon">&LeftArrow;</div>
                 <div class="action-text">Bracket</div>
             </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&LeftArrow;</div>
+                <div class="action-text">Buffer</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -273,6 +291,10 @@
             <div class="action-row legend2">
                 <div class="action-icon">&UpArrow;</div>
                 <div class="action-text">Page</div>
+            </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&UpArrow;</div>
+                <div class="action-text">Frame</div>
             </div>
             <div class="action-row legend8">
                 <div class="action-icon">&#x1F50E;&#xFE0E;</div>
@@ -290,6 +312,10 @@
             <div class="action-row legend2">
                 <div class="action-icon">&RightArrow;</div>
                 <div class="action-text">Bracket</div>
+            </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&RightArrow;</div>
+                <div class="action-text">Buffer</div>
             </div>
         </div>
     </div>
@@ -401,7 +427,7 @@
             </div>
             <div class="action-row legend4">
                 <div class="action-icon">&LeftArrow;</div>
-                <div class="action-text">Tab</div>
+                <div class="action-text">Frame</div>
             </div>
         </div>
     </div>
@@ -415,6 +441,10 @@
             <div class="action-row legend2">
                 <div class="action-icon">&DownArrow;</div>
                 <div class="action-text">Page</div>
+            </div>
+            <div class="action-row legend4">
+                <div class="action-icon">&DownArrow;</div>
+                <div class="action-text">Frame</div>
             </div>
         </div>
     </div>
@@ -431,7 +461,7 @@
             </div>
             <div class="action-row legend4">
                 <div class="action-icon">&RightArrow;</div>
-                <div class="action-text">Tab</div>
+                <div class="action-text">Frame</div>
             </div>
         </div>
     </div>
@@ -576,14 +606,16 @@
     </div>
 </div>
 <div class="legends">
-    <div class="legend1">1/ M: Meta/Alt</div>
-    <div class="legend2">2/ M-S: Meta/Alt-Shift</div>
-    <div class="legend3">3/ C: Control</div>
-    <div class="legend4">4/ C-S: Control-Shift</div>
-    <div class="legend5">5/ s: Command/Windows</div>
-    <div class="legend6">6/ s-S: Command/Windows-Shift</div>
-    <div class="legend7">7/ C-M: Control-Meta/Alt</div>
-    <div class="legend8">8/ C-q: Control-q (Editor specific)</div>
+    <ol>
+        <li class="legend1"><div><div class="stroke">M</div><div class="desc">Meta/Alt</div></div></li>
+        <li class="legend2"><div><div class="stroke">M-S</div><div class="desc">Meta/Alt-Shift</div></div></li>
+        <li class="legend3"><div><div class="stroke">C</div><div class="desc">Control</div></div></li>
+        <li class="legend4"><div><div class="stroke">C-S</div><div class="desc">Control-Shift</div></div></li>
+        <li class="legend5"><div><div class="stroke">s</div><div class="desc">Command/Windows</div></div></li>
+        <li class="legend6"><div><div class="stroke">s-S</div><div class="desc">Command/Windows-Shift</div></div></li>
+        <li class="legend7"><div><div class="stroke">C-M</div><div class="desc">Control-Meta/Alt</div></div></li>
+        <li class="legend8"><div><div class="stroke">C-q</div><div class="desc">Control-q (Editor specific)</div></div></li>
+    </ol>
 </div>
 </body>
 </html>

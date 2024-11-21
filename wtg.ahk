@@ -94,7 +94,7 @@ F10::
 !x::^x
 #x::^x
 !z::^z
-#z::^z
+;#z::^z
 
 #HotIf WinActive("ahk_exe ms-teams.exe")
 #k::^e
