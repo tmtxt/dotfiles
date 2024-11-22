@@ -20,8 +20,8 @@
             font-family: Arial, sans-serif;
             font-size: 15px;
             cursor: pointer;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
         }
         .key:active {
             background-color: #e0e0e0;
@@ -124,9 +124,15 @@
             content: "Control+Alt"
         }
         .legend8 {
-            color: #000000;
+            color: saddlebrown;
         }
         .action-row.legend8::after {
+            content: "Control+Alt+Shift"
+        }
+        .legend9 {
+            color: #000000;
+        }
+        .action-row.legend9::after {
             content: "Control+q"
         }
         
@@ -194,7 +200,7 @@
     <div class="key">
         <div class="char">2</div>
         <div class="actions">
-            <div class="action-row legend8">
+            <div class="action-row legend9">
                 <div class="action-icon">&#127075;</div>
                 <div class="action-text">Split</div>
             </div>
@@ -203,7 +209,7 @@
     <div class="key">
         <div class="char">3</div>
         <div class="actions">
-            <div class="action-row legend8">
+            <div class="action-row legend9">
                 <div class="action-icon">&#127025;</div>
                 <div class="action-text">Split</div>
             </div>
@@ -339,7 +345,7 @@
                 <div class="action-icon">&#x2716;</div>
                 <div class="action-text">Buffer</div>
             </div>
-            <div class="action-row legend8">
+            <div class="action-row legend9">
                 <div class="action-icon"></div>
                 <div class="action-text">Context</div>
             </div>
@@ -413,9 +419,13 @@
                 <div class="action-icon">&UpArrow;</div>
                 <div class="action-text">Frame</div>
             </div>
+            <div class="action-row legend7">
+                <div class="action-icon">&#8657;</div>
+                <div class="action-text">Line</div>
+            </div>
             <div class="action-row legend8">
-                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
-                <div class="action-text">Members</div>
+                <div class="action-icon">&#8657;</div>
+                <div class="action-text">Page</div>
             </div>
         </div>
     </div>
@@ -521,7 +531,7 @@
                 <div class="action-icon">&#9003;</div>
                 <div class="action-text">Word</div>
             </div>
-            <div class="action-row legend8">
+            <div class="action-row legend9">
                 <div class="action-icon">&#x1F50E;&#xFE0E;</div>
                 <div class="action-text">Files</div>
             </div>
@@ -558,6 +568,14 @@
                 <div class="action-icon">&LeftArrow;</div>
                 <div class="action-text">Frame</div>
             </div>
+            <div class="action-row legend7">
+                <div class="action-icon">&#8656;</div>
+                <div class="action-text">Char</div>
+            </div>
+            <div class="action-row legend8">
+                <div class="action-icon">&#8656;</div>
+                <div class="action-text">Line</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -575,6 +593,14 @@
                 <div class="action-icon">&DownArrow;</div>
                 <div class="action-text">Frame</div>
             </div>
+            <div class="action-row legend7">
+                <div class="action-icon">&#8659;</div>
+                <div class="action-text">Line</div>
+            </div>
+            <div class="action-row legend8">
+                <div class="action-icon">&#8659;</div>
+                <div class="action-text">Page</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -591,6 +617,14 @@
             <div class="action-row legend4">
                 <div class="action-icon">&RightArrow;</div>
                 <div class="action-text">Frame</div>
+            </div>
+            <div class="action-row legend7">
+                <div class="action-icon">&#8658;</div>
+                <div class="action-text">Char</div>
+            </div>
+            <div class="action-row legend8">
+                <div class="action-icon">&#8658;</div>
+                <div class="action-text">Line</div>
             </div>
         </div>
     </div>
@@ -713,6 +747,10 @@
                 <div class="action-icon">&#x21B5;</div>
                 <div class="action-text">Enter</div>
             </div>
+            <div class="action-row legend9">
+                <div class="action-icon">&#x1F50E;&#xFE0E;</div>
+                <div class="action-text">Members</div>
+            </div>
         </div>
     </div>
     <div class="key">
@@ -787,14 +825,15 @@
 </div>
 <div class="legends">
     <ol>
-        <li class="legend1"><div><div class="stroke">M</div><div class="desc">Meta/Alt</div></div></li>
-        <li class="legend2"><div><div class="stroke">M-S</div><div class="desc">Meta/Alt+Shift</div></div></li>
+        <li class="legend1"><div><div class="stroke">M</div><div class="desc">Alt</div></div></li>
+        <li class="legend2"><div><div class="stroke">M-S</div><div class="desc">Alt+Shift</div></div></li>
         <li class="legend3"><div><div class="stroke">C</div><div class="desc">Control</div></div></li>
         <li class="legend4"><div><div class="stroke">C-S</div><div class="desc">Control+Shift</div></div></li>
-        <li class="legend5"><div><div class="stroke">s</div><div class="desc">Command/Windows</div></div></li>
-        <li class="legend6"><div><div class="stroke">s-S</div><div class="desc">Command/Windows+Shift</div></div></li>
-        <li class="legend7"><div><div class="stroke">C-M</div><div class="desc">Control+Meta/Alt</div></div></li>
-        <li class="legend8"><div><div class="stroke">C-q</div><div class="desc">Control+q (Editor specific)</div></div></li>
+        <li class="legend5"><div><div class="stroke">s</div><div class="desc">Command</div></div></li>
+        <li class="legend6"><div><div class="stroke">s-S</div><div class="desc">Command+Shift</div></div></li>
+        <li class="legend7"><div><div class="stroke">C-M</div><div class="desc">Control+Alt</div></div></li>
+        <li class="legend8"><div><div class="stroke">C-q</div><div class="desc">Control+Alt+Shift</div></div></li>
+        <li class="legend9"><div><div class="stroke">C-q</div><div class="desc">Control+q (Editor specific)</div></div></li>
     </ol>
 </div>
 </body>
