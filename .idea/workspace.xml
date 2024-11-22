@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a869c4ad-4571-41d0-8c34-de563adf7aca" name="Changes" comment="">
+    <list default="true" id="a869c4ad-4571-41d0-8c34-de563adf7aca" name="Changes" comment="Keys">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kb.html" beforeDir="false" afterPath="$PROJECT_DIR$/kb.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wtg.ahk" beforeDir="false" afterPath="$PROJECT_DIR$/wtg.ahk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,10 @@
       <updated>1731992119077</updated>
       <workItem from="1731992120538" duration="3867000" />
       <workItem from="1732057577345" duration="5470000" />
-      <workItem from="1732065543655" duration="4472000" />
+      <workItem from="1732065543655" duration="5687000" />
+      <workItem from="1732139691708" duration="627000" />
+      <workItem from="1732158682007" duration="5427000" />
+      <workItem from="1732227280464" duration="8155000" />
     </task>
     <task id="LOCAL-00001" summary="Layout">
       <option name="closed" value="true" />
@@ -61,7 +63,47 @@
       <option name="project" value="LOCAL" />
       <updated>1732060555369</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Keys">
+      <option name="closed" value="true" />
+      <created>1732158703928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732158703928</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Keys">
+      <option name="closed" value="true" />
+      <created>1732158974672</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732158974672</updated>
+    </task>
+    <task id="LOCAL-00004" summary="keys">
+      <option name="closed" value="true" />
+      <created>1732160884856</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732160884856</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Keys">
+      <option name="closed" value="true" />
+      <created>1732163325632</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732163325632</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Keys">
+      <option name="closed" value="true" />
+      <created>1732233784812</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732233784812</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,6 +114,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout" />
+    <MESSAGE value="keys" />
+    <MESSAGE value="Keys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Keys" />
   </component>
 </project>
