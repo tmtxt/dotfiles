@@ -51,6 +51,12 @@ F7::
         WinActivate
 }
 
+F8::
+{
+    if WinExist("ahk_exe Ssms.exe")
+        WinActivate
+}
+
 F10::
 {
     if WinExist("ahk_exe ms-teams.exe")
@@ -91,12 +97,14 @@ F10::
 !n::^Home
 !+n::^End
 !o::^Right
+!+o::!+o
 #q::!F4
 !s::^s
 #s::^s
 #+s::#+s ; for snipping tool
 ^!s::^!s
 !u::^Left
+!+u::!+u
 !v::^v
 #v::^v
 !x::^x
@@ -113,12 +121,17 @@ F10::
 #r::^r
 #t::^t
 #w::^w
+!w::^w
 #+t::^+t
 #HotIf
 
 #HotIf WinActive("ahk_exe rider64.exe")
 #n::!Insert
 #w::^F4
+!Space::!Home
+#HotIf
+
+#HotIf WinActive("ahk_exe Code.exe")
 !Space::!Home
 #HotIf
 
