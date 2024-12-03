@@ -17,6 +17,12 @@ F1::
 
 F2::
 {
+    if WinExist("ahk_exe devenv.exe")
+        WinActivate
+}
+
+^F2::
+{
     if WinExist("ahk_exe Code.exe")
         WinActivate
 }
@@ -29,7 +35,7 @@ F3::
 
 F4::
 {
-    if WinExist("ahk_exe CargoWise.exe")
+    if WinExist("ahk_exe mstsc.exe")
         WinActivate
 }
 
@@ -54,6 +60,12 @@ F7::
 F8::
 {
     if WinExist("ahk_exe Ssms.exe")
+        WinActivate
+}
+
+F9::
+{
+    if WinExist("ahk_exe WINWORD.EXE")
         WinActivate
 }
 
