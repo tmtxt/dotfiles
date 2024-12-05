@@ -39,6 +39,12 @@ F4::
         WinActivate
 }
 
+^F4::
+{
+    if WinExist("ahk_exe Quick Get Latest.exe")
+        WinActivate
+}
+
 F5::
 {
     if WinExist("ahk_exe WindowsTerminal.exe")
