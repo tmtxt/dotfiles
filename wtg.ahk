@@ -128,7 +128,14 @@ F10::
 !x::^x
 #x::^x
 !z::^z
-;#z::^z
+
+#HotIf WinActive("ahk_exe emacs.exe")
+!x::!x
+!c::!c
+!v::!v
+!s::!s
+!w::!w
+#HotIf
 
 #HotIf WinActive("ahk_exe ms-teams.exe")
 #k::^e
