@@ -17,7 +17,7 @@ F1::
 
 F2::
 {
-    if WinExist("ahk_exe devenv.exe")
+    if WinExist("ahk_exe emacs.exe")
         WinActivate
 }
 
@@ -30,6 +30,12 @@ F2::
 F3::
 {
     if WinExist("ahk_exe rider64.exe")
+        WinActivate
+}
+
+^F3::
+{
+    if WinExist("ahk_exe devenv.exe")
         WinActivate
 }
 
@@ -72,6 +78,12 @@ F8::
 F9::
 {
     if WinExist("ahk_exe WINWORD.EXE")
+        WinActivate
+}
+
+^F9::
+{
+    if WinExist("ahk_exe EXCEL.EXE")
         WinActivate
 }
 
