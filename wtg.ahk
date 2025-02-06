@@ -15,6 +15,12 @@ F1::
         WinActivate
 }
 
+^F1::
+{
+    if WinExist("ahk_exe datagrip64.exe")
+        WinActivate
+}
+
 F2::
 {
     if WinExist("ahk_exe emacs.exe")
@@ -41,7 +47,7 @@ F3::
 
 F4::
 {
-    if WinExist("ahk_exe mstsc.exe")
+    if WinExist("ahk_exe CargoWise.exe")
         WinActivate
 }
 
@@ -54,6 +60,12 @@ F4::
 F5::
 {
     if WinExist("ahk_exe WindowsTerminal.exe")
+        WinActivate
+}
+
+^F5::
+{
+    if WinExist("ahk_exe xtadmin.exe")
         WinActivate
 }
 
@@ -128,6 +140,7 @@ F10::
 !+n::^End
 !o::^Right
 !+o::!+o
+^!o::^+Right
 #q::!F4
 !s::^s
 #s::^s
@@ -135,6 +148,7 @@ F10::
 ^!s::^!s
 !u::^Left
 !+u::!+u
+^!u::^+Left
 !v::^v
 #v::^v
 !x::^x
@@ -166,6 +180,14 @@ F10::
 #n::!Insert
 #w::^F4
 !Space::!Home
+^!+f::^!+f
+#HotIf
+
+#HotIf WinActive("ahk_exe datagrip64.exe")
+#n::!Insert
+#w::^F4
+!Space::!Home
+!k::Down
 #HotIf
 
 #HotIf WinActive("ahk_exe Code.exe")
