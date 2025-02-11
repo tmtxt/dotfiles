@@ -266,20 +266,20 @@ elif [[ $platform == "Mac" ]]; then
 fi
 
 # password store
-PASS_PATH=$(where pass)
-if grep -qi microsoft /proc/version; then
-    export WAYLAND_DISPLAY=""
-    export EDITOR=vim
+if [[ -e /proc/version ]]; then
+    if grep -qi microsoft /proc/version; then
+        export WAYLAND_DISPLAY=""
+        export EDITOR=vim
+    fi
 fi
-alias passc="$PASS_PATH -c"
-alias passs="$PASS_PATH show"
-alias passi="$PASS_PATH insert"
-alias passm="$PASS_PATH insert -m"
-alias passe="$PASS_PATH edit"
-alias passr="$PASS_PATH rm"
-alias passg="$PASS_PATH generate"
-alias pgps="$PASS_PATH git push"
-alias pgpl="$PASS_PATH git pull"
+
+alias passc="pass -c"
+alias passs="pass show"
+alias passi="pass insert"
+alias passm="pass insert -m"
+alias passe="pass edit"
+alias passr="pass rm"
+alias passg="pass generate"
 
 # PATH
 path_s $HOME/bin true
