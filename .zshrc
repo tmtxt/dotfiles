@@ -267,6 +267,9 @@ fi
 
 # password store
 PASS_PATH=$(where pass)
+if grep -q Microsoft /proc/version; then
+    export PASSWORD_STORE_CLIPBOARD_COMMAND="clip.exe"
+fi
 alias passc="$PASS_PATH -c"
 alias passs="$PASS_PATH show"
 alias passi="$PASS_PATH insert"
@@ -289,7 +292,11 @@ path_s $HOME/.pulumi/bin
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
-export EDITOR="emacsclient"
+
+if command -v emacsclient &> /dev/null
+then
+    export EDITOR="emacsclient"
+fi
 
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
