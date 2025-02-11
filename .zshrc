@@ -268,7 +268,7 @@ fi
 # password store
 PASS_PATH=$(where pass)
 if grep -qi microsoft /proc/version; then
-    export PASSWORD_STORE_CLIPBOARD_COMMAND="clip.exe"
+    export WAYLAND_DISPLAY=""
 fi
 alias passc="$PASS_PATH -c"
 alias passs="$PASS_PATH show"
