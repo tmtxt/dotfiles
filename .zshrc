@@ -269,6 +269,7 @@ fi
 PASS_PATH=$(where pass)
 if grep -qi microsoft /proc/version; then
     export WAYLAND_DISPLAY=""
+    export EDITOR=vim
 fi
 alias passc="$PASS_PATH -c"
 alias passs="$PASS_PATH show"
