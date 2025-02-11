@@ -267,7 +267,7 @@ fi
 
 # password store
 PASS_PATH=$(where pass)
-if grep -q Microsoft /proc/version; then
+if grep -q microsoft /proc/version; then
     export PASSWORD_STORE_CLIPBOARD_COMMAND="clip.exe"
 fi
 alias passc="$PASS_PATH -c"
