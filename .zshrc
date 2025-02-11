@@ -296,51 +296,14 @@ source_s "$HOME/.rvm/scripts/rvm"
 source_s "$HOME/bin/google-cloud-sdk/path.zsh.inc"
 source_s "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
 
-# kubectl get name of entity
-# $1 type: po, no, rc, svc
-# $2 grep, empty for nothing
-# function kubectl_get_name {
-#     result=$(kubectl get $1 | grep "$2")
-#     arr=($(echo $result | awk '{print $1}'))
-#     echo $result | cat -n
-#     echo -n "Select the number: "
-#     read num
-#     local res=${arr[$num]}
-#     eval $3=\$res
-# }
-
-# function kbc {
-#     kubectl_get_name $1 $2 "KBC_RESULT"
-#     echo -n $KBC_RESULT | pbcopy
-#     echo "Copied $KBC_RESULT to clipboard"
-# }
-
-# function kbsc {
-#     if [[ -z "$1" ]]; then
-#         echo -n "Enter grep text: "
-#         read text
-#         kubectl_get_name rc $text "KBS_RESULT"
-#         local rc=$KBS_RESULT
-#         echo -n "Enter replicas: "
-#         read rep
-#         local replicas=$rep
-#     else
-#         local rc=$1
-#         local replicas=$2
-#     fi
-
-#     kubectl scale rc $rc --replicas=$replicas
-#     echo "Scaled $rc to $replicas instances"
-# }
-
 # kubenetes
-source_s $HOME/Projects/dotfiles/kubenetes-script.sh
-source_s $HOME/dotfiles/kubenetes-script.sh
+# source_s $HOME/Projects/dotfiles/kubenetes-script.sh
+# source_s $HOME/dotfiles/kubenetes-script.sh
 
-source_s $HOME/Projects/dotfiles/aws-script.sh
-source_s $HOME/dotfiles/aws-script.sh
-source_s $HOME/dotfiles/skutopia.sh
-source_s $HOME/Projects/dotfiles/skutopia.sh
+# source_s $HOME/Projects/dotfiles/aws-script.sh
+# source_s $HOME/dotfiles/aws-script.sh
+# source_s $HOME/dotfiles/skutopia.sh
+# source_s $HOME/Projects/dotfiles/skutopia.sh
 
 # docker
 alias dck="docker compose kill"
