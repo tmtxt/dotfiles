@@ -155,6 +155,9 @@ F10::
 #x::^x
 !z::^z
 
+; Define a hotkey to show the context menu
+^+[::AppsKey
+
 #HotIf WinActive("ahk_exe emacs.exe")
 !x::!x
 !c::!c

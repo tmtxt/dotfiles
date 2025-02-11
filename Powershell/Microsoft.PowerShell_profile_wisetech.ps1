@@ -5,7 +5,7 @@ Set-Alias -Name open -Value Invoke-Item -Option AllScope
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
 
 Import-Module ZLocation
-Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
+# Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
 Set-Alias -Name j -Value Invoke-ZLocation
 
 Function uuidv4 {
