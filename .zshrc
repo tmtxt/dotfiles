@@ -266,16 +266,20 @@ elif [[ $platform == "Mac" ]]; then
 fi
 
 # password store
-PASS_PATH=$(where pass)
-alias passc="$PASS_PATH -c"
-alias passs="$PASS_PATH show"
-alias passi="$PASS_PATH insert"
-alias passm="$PASS_PATH insert -m"
-alias passe="$PASS_PATH edit"
-alias passr="$PASS_PATH rm"
-alias passg="$PASS_PATH generate"
-alias pgps="$PASS_PATH git push"
-alias pgpl="$PASS_PATH git pull"
+if [[ -e /proc/version ]]; then
+    if grep -qi microsoft /proc/version; then
+        export WAYLAND_DISPLAY=""
+        export EDITOR=vim
+    fi
+fi
+
+alias passc="pass -c"
+alias passs="pass show"
+alias passi="pass insert"
+alias passm="pass insert -m"
+alias passe="pass edit"
+alias passr="pass rm"
+alias passg="pass generate"
 
 # PATH
 path_s $HOME/bin true
@@ -289,7 +293,11 @@ path_s $HOME/.pulumi/bin
 
 # vagrant, disable live reload in vagrant
 export VAGRANT_LIVE_RELOAD="0"
-export EDITOR="emacsclient"
+
+if command -v emacsclient &> /dev/null
+then
+    export EDITOR="emacsclient"
+fi
 
 source_s "$HOME/.gvm/scripts/gvm"
 source_s "$HOME/.rvm/scripts/rvm"
