@@ -94,3 +94,13 @@ function base64decode {
     $decodedString | Set-Clipboard
     Write-Host "The decoded string has been copied to the clipboard."
 }
+
+function loremipsum {
+    $loremIpsum = @"
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"@
+
+    # Copy the text to the clipboard
+    Set-Clipboard -Value $loremIpsum
+    Write-Host "Lorem Ipsum copied to clipboard"
+}
