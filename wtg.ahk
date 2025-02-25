@@ -201,3 +201,11 @@ F10::
 #t::^+t
 #w::^+w
 #HotIf
+
+#HotIf WinActive("ahk_exe WINWORD.exe")
+#+p::
+{
+    Send("!j")
+    Send("p")
+}
+#HotIf
