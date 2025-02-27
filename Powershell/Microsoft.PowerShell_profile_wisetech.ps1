@@ -8,6 +8,9 @@ Import-Module ZLocation
 # Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
 Set-Alias -Name j -Value Invoke-ZLocation
 
+$env:Path = "c:\Program Files\Git\usr\bin;" + $env:Path
+$env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
+
 function Read-MultiLineInput {
     $inputLines = @()
     $endMarker = ""

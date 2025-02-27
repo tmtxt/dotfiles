@@ -209,3 +209,59 @@ F10::
     Send("p")
 }
 #HotIf
+
+^!g::
+{
+    psScript := "
+    (
+        [Reflection.Assembly]::LoadWithPartialName('System.Web')
+        $Today = (Get-Date).Date
+
+        $Monday = $Today.AddDays(1 - $Today.DayOfWeek.value__)
+        $Today = $Today.ToString('yyyy-MM-dd') + 'T00:00:00'
+        $Monday = $Monday.ToString('yyyy-MM-dd') + 'T00:00:00'
+
+        $MyStaffGUID = 'TT7'
+
+        $StringProcess = 'edient:Command=RunReport&LicenceCode=EDIAUSSYD&ReportPK=cb3c41a9-c84d-48fb-a728-3dc30ba83267&Hash=`%2bv4`%2fR2`%2fFpmB6uCn`%2f`%2b2vL`%2fLl1PcgOXXJ5q&Configuration=Default+Configuration{2}+See+Configuration+tab+to+modify&Staff={3}&Start+Date={0}&End+Date={1}&Domain=wtg.zone&Instance=ediProd' -f [System.Web.HttpUtility]::UrlEncode($Monday),[System.Web.HttpUtility]::UrlEncode($Today),[System.Web.HttpUtility]::UrlEncode(':'),$MyStaffGUID
+        'Process {0}' -f $StringProcess
+
+        Start-Process $StringProcess
+    )"
+    Run("powershell -NoProfile -Command &{" psScript " }", , "HIDE")
+}
+
+
+;MyGui := Gui("", "Base64 Decode")
+;#!p::MyGui.Show()
+
+
+
+; Create a GUI window
+;gui := GuiCreate("Base64 Decoder", "400x200")
+
+; Add a text box for input
+;inputBox := gui.Add("Edit", "w380 h100 vInputBox")
+
+; Add a button to decode the Base64 string
+;decodeButton := gui.Add("Button", "w100 h30 vDecodeButton", "Decode")
+;decodeButton.OnEvent("Click", DecodeBase64)
+
+; Add a text box for output
+;outputBox := gui.Add("Edit", "w380 h100 vOutputBox ReadOnly")
+
+; Show the GUI
+;gui.Show()
+
+; Function to decode Base64 string
+;DecodeBase64(*) {
+    ;global inputBox, outputBox
+    ;base64String := inputBox.Value
+    ;decodedString := StrFromBase64(base64String)
+    ;outputBox.Value := decodedString
+;}
+
+; Function to decode Base64 string
+;StrFromBase64(base64) {
+ ;   return StrGet(Clipboard := Buffer(base64, "base64"))
+;}
