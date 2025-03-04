@@ -129,3 +129,23 @@ function PcFullName {
 
     Write-Host "Full Device Name $fullDeviceName copied to clipboard"
 }
+
+function UnescapeString {
+    $input = Read-Host "Enter the string to unescape"
+
+    # Remove surrounding double quotes if present
+    if ($input.StartsWith('"') -and $input.EndsWith('"')) {
+        $input = $input.Substring(1, $input.Length - 2)
+    }
+
+    $unescapedString = [System.Text.RegularExpressions.Regex]::Unescape($input)
+    Write-Output ""
+    Write-Output $unescapedString
+
+    # Copy the unescaped string to the clipboard
+    Add-Type -AssemblyName System.Windows.Forms
+    [System.Windows.Forms.Clipboard]::SetText($unescapedString)
+
+    Write-Host ""
+    Write-Host "Unescape string copied to clipboard"
+}

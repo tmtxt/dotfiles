@@ -17,7 +17,7 @@ F1::
 
 ^F1::
 {
-    if WinExist("ahk_exe datagrip64.exe")
+    if WinExist("ahk_exe explorer.exe")
         WinActivate
 }
 
