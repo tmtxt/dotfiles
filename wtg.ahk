@@ -105,6 +105,8 @@ F10::
         WinActivateBottom
 }
 
+^F12::CapsLock
+
 ; jk at the same time for Escape
 ; j & k::Escape
 ; j::Send("j")
@@ -218,10 +220,32 @@ F10::
         $Today = (Get-Date).Date
 
         $Monday = $Today.AddDays(1 - $Today.DayOfWeek.value__)
+        $Yesterday = $Today.AddDays(-1).ToString('yyyy-MM-dd') + 'T00:00:00'
         $Today = $Today.ToString('yyyy-MM-dd') + 'T00:00:00'
         $Monday = $Monday.ToString('yyyy-MM-dd') + 'T00:00:00'
 
-        $MyStaffGUID = 'TT7'
+        $MyStaffGUID = '92682df0-f3c2-4ff3-9a4c-c4e74a847d60'
+
+        $StringProcess = 'edient:Command=RunReport&LicenceCode=EDIAUSSYD&ReportPK=cb3c41a9-c84d-48fb-a728-3dc30ba83267&Hash=`%2bv4`%2fR2`%2fFpmB6uCn`%2f`%2b2vL`%2fLl1PcgOXXJ5q&Configuration=Default+Configuration{2}+See+Configuration+tab+to+modify&Staff={3}&Start+Date={0}&End+Date={1}&Domain=wtg.zone&Instance=ediProd' -f [System.Web.HttpUtility]::UrlEncode($Monday),[System.Web.HttpUtility]::UrlEncode($Yesterday),[System.Web.HttpUtility]::UrlEncode(':'),$MyStaffGUID
+        'Process {0}' -f $StringProcess
+
+        Start-Process $StringProcess
+    )"
+    Run("powershell -NoProfile -Command &{" psScript " }", , "HIDE")
+}
+^!+g::
+{
+    psScript := "
+    (
+        [Reflection.Assembly]::LoadWithPartialName('System.Web')
+        $Today = (Get-Date).Date
+
+        $Monday = $Today.AddDays(1 - $Today.DayOfWeek.value__)
+        $Yesterday = $Today.AddDays(-1).ToString('yyyy-MM-dd') + 'T00:00:00'
+        $Today = $Today.ToString('yyyy-MM-dd') + 'T00:00:00'
+        $Monday = $Monday.ToString('yyyy-MM-dd') + 'T00:00:00'
+
+        $MyStaffGUID = '92682df0-f3c2-4ff3-9a4c-c4e74a847d60'
 
         $StringProcess = 'edient:Command=RunReport&LicenceCode=EDIAUSSYD&ReportPK=cb3c41a9-c84d-48fb-a728-3dc30ba83267&Hash=`%2bv4`%2fR2`%2fFpmB6uCn`%2f`%2b2vL`%2fLl1PcgOXXJ5q&Configuration=Default+Configuration{2}+See+Configuration+tab+to+modify&Staff={3}&Start+Date={0}&End+Date={1}&Domain=wtg.zone&Instance=ediProd' -f [System.Web.HttpUtility]::UrlEncode($Monday),[System.Web.HttpUtility]::UrlEncode($Today),[System.Web.HttpUtility]::UrlEncode(':'),$MyStaffGUID
         'Process {0}' -f $StringProcess
