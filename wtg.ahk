@@ -53,7 +53,7 @@ F4::
 
 ^F4::
 {
-    if WinExist("ahk_exe Quick Get Latest.exe")
+    if WinExist("ahk_exe CargoWise.WindowsDesktop.exe")
         WinActivate
 }
 
@@ -72,6 +72,12 @@ F5::
 F6::
 {
     if WinExist("ahk_exe AppleMusic.exe")
+        WinActivate
+}
+
+^F6::
+{
+    if WinExist("ahk_exe Quick Get Latest.exe")
         WinActivate
 }
 
