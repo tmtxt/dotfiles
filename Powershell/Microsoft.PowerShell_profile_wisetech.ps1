@@ -149,3 +149,13 @@ function UnescapeString {
     Write-Host ""
     Write-Host "Unescape string copied to clipboard"
 }
+
+function CopyGitBranchName {
+    # Get the current git branch name
+    $branchName = git rev-parse --abbrev-ref HEAD
+
+    # Copy the branch name to the clipboard
+    $branchName | Set-Clipboard
+
+    Write-Output "Current branch name '$branchName' copied to clipboard."
+}
