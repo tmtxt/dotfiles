@@ -159,3 +159,10 @@ function CopyGitBranchName {
 
     Write-Output "Current branch name '$branchName' copied to clipboard."
 }
+
+function LoginNetwork {
+    $Password = Get-Content -Path "c:\Users\tony.tran\Downloads\mypassword.txt"
+    net use \\datfiles.wtg.zone /user:tony.tran@wisetechglobal.com $Password
+    net use \\au2sp-srfd-402.sand.wtg.zone /user:tony.tran@wisetechglobal.com $Password
+    # put all the folders here...
+}
