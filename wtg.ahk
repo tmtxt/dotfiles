@@ -127,6 +127,10 @@ F10::
 !+d::^Delete
 !f::BackSpace
 !+f::^BackSpace
+^g::Escape
+^+g::^+g
+!g::Escape
+!+g::!+g
 !i::Up
 !+i::PgUp
 ^!i::+Up
@@ -172,6 +176,7 @@ F10::
 !v::!v
 !s::!s
 !w::!w
+^g::^g
 #HotIf
 
 #HotIf WinActive("ahk_exe ms-teams.exe")
@@ -210,6 +215,9 @@ F10::
 !l::!l
 !f::!f
 !d::!d
+!w::!w
+!v::!v
+;!y::!y
 #HotIf
 
 #HotIf WinActive("ahk_exe Code.exe")
