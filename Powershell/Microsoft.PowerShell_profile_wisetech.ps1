@@ -2,7 +2,7 @@ Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
 Set-Alias -Name which -Value Get-Command -Option AllScope
 Set-Alias -Name open -Value Invoke-Item -Option AllScope
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
 
 Import-Module ZLocation
 # Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
@@ -148,4 +148,21 @@ function UnescapeString {
 
     Write-Host ""
     Write-Host "Unescape string copied to clipboard"
+}
+
+function CopyGitBranchName {
+    # Get the current git branch name
+    $branchName = git rev-parse --abbrev-ref HEAD
+
+    # Copy the branch name to the clipboard
+    $branchName | Set-Clipboard
+
+    Write-Output "Current branch name '$branchName' copied to clipboard."
+}
+
+function LoginNetwork {
+    $Password = Get-Content -Path "c:\Users\tony.tran\Downloads\mypassword.txt"
+    net use \\datfiles.wtg.zone /user:tony.tran@wisetechglobal.com $Password
+    net use \\au2sp-srfd-402.sand.wtg.zone /user:tony.tran@wisetechglobal.com $Password
+    # put all the folders here...
 }

@@ -47,13 +47,13 @@ F3::
 
 F4::
 {
-    if WinExist("ahk_exe CargoWise.exe")
+    if WinExist("ahk_exe CargoWise.WindowsDesktop.exe")
         WinActivate
 }
 
 ^F4::
 {
-    if WinExist("ahk_exe CargoWise.WindowsDesktop.exe")
+    if WinExist("ahk_exe CargoWise.exe")
         WinActivate
 }
 
@@ -65,7 +65,7 @@ F5::
 
 ^F5::
 {
-    if WinExist("ahk_exe xtadmin.exe")
+    if WinExist("ahk_exe datagrip64.exe")
         WinActivate
 }
 
@@ -127,6 +127,10 @@ F10::
 !+d::^Delete
 !f::BackSpace
 !+f::^BackSpace
+^g::Escape
+^+g::^+g
+!g::Escape
+!+g::!+g
 !i::Up
 !+i::PgUp
 ^!i::+Up
@@ -172,6 +176,7 @@ F10::
 !v::!v
 !s::!s
 !w::!w
+^g::^g
 #HotIf
 
 #HotIf WinActive("ahk_exe ms-teams.exe")
@@ -198,7 +203,21 @@ F10::
 #n::!Insert
 #w::^F4
 !Space::!Home
-!k::Down
+
+; Need to revert these keys to their original function because pressing the Alt key in Rider will send the Alt key twice but doesn't happen for Rider, weird!
+; Instead, map these manually in DataGrip's keymap
+; Open DataGrip settings > Kepmap, look for Up/Down/Left/Right and map to !i/k/j/l
+; https://intellij-support.jetbrains.com/hc/en-us/community/posts/205418310-Keymapping-Issues-with-alt-letter
+; https://www.reddit.com/r/AutoHotkey/comments/574tay/how_to_get_worked_key_combination_with_alt/
+!i::!i
+!k::!k
+!j::!j
+!l::!l
+!f::!f
+!d::!d
+!w::!w
+!v::!v
+;!y::!y
 #HotIf
 
 #HotIf WinActive("ahk_exe Code.exe")
