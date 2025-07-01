@@ -71,7 +71,7 @@ F5::
 
 F6::
 {
-    if WinExist("ahk_exe AppleMusic.exe")
+    if WinExist("ahk_exe datagrip64.exe")
         WinActivate
 }
 
