@@ -63,21 +63,15 @@ F5::
         WinActivate
 }
 
-^F5::
-{
-    if WinExist("ahk_exe datagrip64.exe")
-        WinActivate
-}
+; ^F5::
+; {
+;     if WinExist("ahk_exe datagrip64.exe")
+;         WinActivate
+; }
 
 F6::
 {
-    if WinExist("ahk_exe datagrip64.exe")
-        WinActivate
-}
-
-^F6::
-{
-    if WinExist("ahk_exe Quick Get Latest.exe")
+    if WinExist("ahk_exe AppleMusic.exe")
         WinActivate
 }
 
@@ -87,7 +81,19 @@ F7::
         WinActivate
 }
 
+^F7::
+{
+    if WinExist("ahk_exe AppleMusic.exe")
+        WinActivate
+}
+
 F8::
+{
+    if WinExist("ahk_exe datagrip64.exe")
+        WinActivate
+}
+
+^F8::
 {
     if WinExist("ahk_exe Ssms.exe")
         WinActivate
@@ -166,6 +172,7 @@ F10::
 !x::^x
 #x::^x
 !z::^z
+^!+f::^!+f
 
 ; Define a hotkey to show the context menu
 ^+[::AppsKey
@@ -218,6 +225,9 @@ F10::
 !w::!w
 !v::!v
 ;!y::!y
+!;::!;
+!o::!o
+!u::!u
 #HotIf
 
 #HotIf WinActive("ahk_exe Code.exe")
