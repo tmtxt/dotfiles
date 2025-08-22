@@ -10,6 +10,7 @@ Set-Alias -Name j -Value Invoke-ZLocation
 
 $env:Path = "c:\Program Files\Git\usr\bin;" + $env:Path
 $env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
+$env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
 
 function Read-MultiLineInput {
     $inputLines = @()

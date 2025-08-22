@@ -119,14 +119,11 @@ F10::
 
 ^F12::CapsLock
 
-; jk at the same time for Escape
-; j & k::Escape
-; j::Send("j")
-; k & j::Escape
-; k::Send("k")
+#HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") && !WinActive("ahk_exe datagrip64.exe")
+!c::^c
+#HotIf
 
 #a::^a
-!c::^c
 #c::^c
 #c::^c
 !d::Delete
@@ -289,38 +286,3 @@ F10::
     )"
     Run("powershell -NoProfile -Command &{" psScript " }", , "HIDE")
 }
-
-
-;MyGui := Gui("", "Base64 Decode")
-;#!p::MyGui.Show()
-
-
-
-; Create a GUI window
-;gui := GuiCreate("Base64 Decoder", "400x200")
-
-; Add a text box for input
-;inputBox := gui.Add("Edit", "w380 h100 vInputBox")
-
-; Add a button to decode the Base64 string
-;decodeButton := gui.Add("Button", "w100 h30 vDecodeButton", "Decode")
-;decodeButton.OnEvent("Click", DecodeBase64)
-
-; Add a text box for output
-;outputBox := gui.Add("Edit", "w380 h100 vOutputBox ReadOnly")
-
-; Show the GUI
-;gui.Show()
-
-; Function to decode Base64 string
-;DecodeBase64(*) {
-    ;global inputBox, outputBox
-    ;base64String := inputBox.Value
-    ;decodedString := StrFromBase64(base64String)
-    ;outputBox.Value := decodedString
-;}
-
-; Function to decode Base64 string
-;StrFromBase64(base64) {
- ;   return StrGet(Clipboard := Buffer(base64, "base64"))
-;}
