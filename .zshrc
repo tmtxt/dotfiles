@@ -246,7 +246,7 @@ elif [[ $platform == "Mac" ]]; then
     alias wifioff="networksetup -setairportpower en1 off"
     alias wifirs="networksetup -setairportpower en1 off && networksetup -setairportpower en1 on"
     alias conkeror="$HOME/Applications/conkeror_mac_bundler/Conkeror.app/Contents/MacOS/xulrunner"
-    alias rsyncbk="sudo rsync -avz --progress --delete --exclude=.Spotlight* --exclude=.Trash* --exclude=.DocumentRevisions* --exclude=.fseventsd* --exclude=*.DS_Store*  /Volumes/tmtxt/ /Volumes/Pro/tmtxt/"
+    alias rsyncbk="sudo rsync -avz --progress --delete --exclude=\"*.Spotlight*\" --exclude=\".Trash*\" --exclude=\".DocumentRevisions*\" --exclude=\".fseventsd*\" --exclude=\"*.DS_Store*\" --exclude=\"*.TemporaryItems*\" \"/Volumes/My Passport/\" \"/Volumes/WD Element/\""
     alias pi="sudo port install"
 
     # ls alias when macports and no macports
