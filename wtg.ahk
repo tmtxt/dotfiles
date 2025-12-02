@@ -119,12 +119,15 @@ F10::
 
 ^F12::CapsLock
 
-#HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") && !WinActive("ahk_exe datagrip64.exe")
+; #HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe datagrip64.exe")
+; !c::^c
+; #HotIf
+
+#HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe datagrip64.exe") && !WinActive("ahk_exe emacs.exe")
 !c::^c
 #HotIf
 
 #a::^a
-#c::^c
 #c::^c
 !d::Delete
 !+d::^Delete
@@ -166,6 +169,7 @@ F10::
 ^!u::^+Left
 !v::^v
 #v::^v
+#w::!F4
 !x::^x
 #x::^x
 !z::^z
@@ -198,14 +202,14 @@ F10::
 
 #HotIf WinActive("ahk_exe rider64.exe")
 #n::!Insert
-#w::^F4
+#w::!w
 !Space::!Home
 ^!+f::^!+f
 #HotIf
 
 #HotIf WinActive("ahk_exe datagrip64.exe")
 #n::!Insert
-#w::^F4
+#w::!w
 !Space::!Home
 
 ; Need to revert these keys to their original function because pressing the Alt key in Rider will send the Alt key twice but doesn't happen for Rider, weird!
