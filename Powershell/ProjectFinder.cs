@@ -13,7 +13,7 @@ class ProjectFinder
 
     var filePath = Path.GetFullPath(args[0]);
     var dir = Path.GetDirectoryName(filePath);
-    string projectFile = null;
+    string projectFile = "";
 
     while (dir != null)
     {
@@ -26,7 +26,7 @@ class ProjectFinder
       dir = Directory.GetParent(dir)?.FullName;
     }
 
-    if (projectFile != null)
+    if (!string.IsNullOrEmpty(projectFile))
     {
       Console.WriteLine(projectFile);
     }
