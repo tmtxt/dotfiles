@@ -10,10 +10,10 @@ param (
 
 # Run first sub-command (e.g., ProjectFinder)
 Push-Location $PSScriptRoot
-$projectPath = & dotnet run "C:\projects\dotfiles\Powershell\ProjectFinder.cs" $FilePath
+$projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath
 
 # Run second sub-command (e.g., MethodFinder)
-$methodName = & dotnet run "C:\projects\dotfiles\Powershell\MethodFinder.cs" -- $FilePath $LineNumber
+$methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber
 Pop-Location
 
 # Use both outputs in another command (example: echo)
