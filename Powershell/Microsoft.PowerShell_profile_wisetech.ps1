@@ -73,7 +73,8 @@ function Base64Encode {
 
     if ($base64String.Length -le 100) {
         Write-Host "Base64 string: $base64String" -ForegroundColor Yellow
-    } else {
+    }
+    else {
         $first100Chars = $base64String.Substring(0, [Math]::Min(100, $base64String.Length))
         Write-Host "Truncated base64 string: $first100Chars..." -ForegroundColor Yellow
     }
@@ -90,7 +91,8 @@ function Base64Decode {
 
     if ($decodedString.Length -le 100) {
         Write-Host "Decoded string: $decodedString" -ForegroundColor Yellow
-    } else {
+    }
+    else {
         $first100Chars = $decodedString.Substring(0, [Math]::Min(100, $decodedString.Length))
         Write-Host "Truncated decoded string: $first100Chars..." -ForegroundColor Yellow
     }
@@ -166,4 +168,20 @@ function LoginNetwork {
     net use \\datfiles.wtg.zone /user:tony.tran@wisetechglobal.com $Password
     net use \\au2sp-srfd-402.sand.wtg.zone /user:tony.tran@wisetechglobal.com $Password
     # put all the folders here...
+}
+
+function CopyDbUpgrader {
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\Enterprise.DbUpgrader.Resource.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\Enterprise.DbUpgrader.Resource.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\Enterprise.DbUpgrader.Resource.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\Enterprise.DbUpgrader.Resource.pdb" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\CargoWise.DbUpgrader.Scripts.Definitions.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\CargoWise.DbUpgrader.Scripts.Definitions.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\CargoWise.DbUpgrader.Scripts.Definitions.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\CargoWise.DbUpgrader.Scripts.Definitions.pdb" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\CargoWise.Odyssey.Schema.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\CargoWise.Odyssey.Schema.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\CargoWise.Odyssey.Schema.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\CargoWise.Odyssey.Schema.pdb" -Force
+
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\Enterprise.DbUpgrader.Resource.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\Enterprise.DbUpgrader.Resource.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\Enterprise.DbUpgrader.Resource.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\Enterprise.DbUpgrader.Resource.pdb" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.DbUpgrader.Scripts.Definitions.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.DbUpgrader.Scripts.Definitions.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.DbUpgrader.Scripts.Definitions.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.DbUpgrader.Scripts.Definitions.pdb" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.Odyssey.Schema.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.Odyssey.Schema.dll" -Force
+    Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.Odyssey.Schema.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.Odyssey.Schema.pdb" -Force
 }
