@@ -1,3 +1,6 @@
+$LocalModules = "C:\projects\dotfiles\Powershell\Modules"
+$env:PSModulePath += ";$LocalModules"
+
 Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
 Set-Alias -Name which -Value Get-Command -Option AllScope
 Set-Alias -Name open -Value Invoke-Item -Option AllScope
@@ -12,26 +15,8 @@ $env:Path = "c:\Program Files\Git\usr\bin;" + $env:Path
 $env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
 $env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
 
-function Read-MultiLineInput {
-    $inputLines = @()
-    $endMarker = ""
-    Write-Host "Enter multiple lines of input (type 'Ctrl+D and then Enter' on a new line to finish):"
-
-    while ($true) {
-        $line = Read-Host
-        if ($line -eq $endMarker) {
-            break
-        }
-        $inputLines += $line
-    }
-
-    return $inputLines -join "`n"
-}
-
-Function uuidv4 {
-    (New-Guid).Guid.ToUpper() | Set-Clipboard
-    Write-Output "New uuidv4 (upper-case) copied to clipboard"
-}
+# . "$PSScriptRoot\Utils.ps1"
+Import-Module Utils
 
 Function uuidv4Lower {
     (New-Guid).Guid | Set-Clipboard
