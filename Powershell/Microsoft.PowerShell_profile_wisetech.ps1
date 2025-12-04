@@ -5,18 +5,16 @@ Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
 Set-Alias -Name which -Value Get-Command -Option AllScope
 Set-Alias -Name open -Value Invoke-Item -Option AllScope
 
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
 
 Import-Module ZLocation
-# Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
 Set-Alias -Name j -Value Invoke-ZLocation
 
 $env:Path = "c:\Program Files\Git\usr\bin;" + $env:Path
 $env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
 $env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
 
-# . "$PSScriptRoot\Utils.ps1"
-Import-Module Utils
+Import-Module MyUtils
 
 Function uuidv4Lower {
     (New-Guid).Guid | Set-Clipboard
