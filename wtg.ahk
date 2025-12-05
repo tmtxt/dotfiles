@@ -1,3 +1,7 @@
+; ------------------------------------------------------------
+; General bindings
+
+; temporarily disable this, cause problem is VSCode
 ; disable alt as menu key
 ; ~Alt::Send "{Blind}{vkE8}"
 
@@ -10,6 +14,11 @@ CapsLock::Ctrl
     WinActivateBottom("ahk_exe " . WinGetProcessName("A"))
 }
 
+; need this when the computer is in high load, sometimes AHK cannot respond and then accidentally turn on Caplocks
+^F12::CapsLock
+
+; ------------------------------------------------------------
+; Fast app switching
 F1::
 {
     if WinExist("ahk_exe msedge.exe")
@@ -118,18 +127,21 @@ F10::
         WinActivateBottom
 }
 
-^F12::CapsLock
+; ------------------------------------------------------------
+; Ergonomic key bindings
+; Set these globally in all apps and in the system, except these apps
+; - Emacs: I have my own ergonomic key bindings already, better to use that,
+;   more compatible with other Emacs feature
+; - Datagrip: has a weird overlay issue so the Alt key will be stuck,
+;   better to leave it default and then map inside the app
+; - VSCode: has the same weird overlay shit, making the Alt combination mismatch
+;   with Ctrl sometimes, disable and then use the mapping inside the application
 
-; #HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe datagrip64.exe")
-; !c::^c
-; #HotIf
-
-#HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe datagrip64.exe") && !WinActive("ahk_exe emacs.exe")
+#HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") ; && !WinActive("ahk_exe datagrip64.exe")
 !c::^c
 #HotIf
 
 #a::^a
-; !c::^c
 #c::^c
 !d::Delete
 !+d::^Delete
