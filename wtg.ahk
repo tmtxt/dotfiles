@@ -1,3 +1,5 @@
+; Run this script as Admin
+
 ; ------------------------------------------------------------
 ; General bindings
 
@@ -13,6 +15,9 @@ CapsLock::Ctrl
 {
     WinActivateBottom("ahk_exe " . WinGetProcessName("A"))
 }
+
+; Define a hotkey to show the context menu
+^+[::AppsKey
 
 ; need this when the computer is in high load, sometimes AHK cannot respond and then accidentally turn on Caplocks
 ^F12::CapsLock
@@ -135,12 +140,15 @@ F10::
 ; - Datagrip: has a weird overlay issue so the Alt key will be stuck,
 ;   better to leave it default and then map inside the app
 ; - VSCode: has the same weird overlay shit, making the Alt combination mismatch
-;   with Ctrl sometimes, disable and then use the mapping inside the application
+;   with Ctrl sometimes, disable and then use the mapping inside the application.
+;   not all key bindings have problem, so put only the ones having problem here and then remap in VSCode
 
 #HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") ; && !WinActive("ahk_exe datagrip64.exe")
 !c::^c
+!v::^v
 #HotIf
 
+; these keys are set globally
 #a::^a
 #c::^c
 !d::Delete
@@ -181,7 +189,6 @@ F10::
 !u::^Left
 !+u::!+u
 ^!u::^+Left
-!v::^v
 #v::^v
 #w::!F4
 !x::^x
@@ -189,13 +196,8 @@ F10::
 !z::^z
 ^!+f::^!+f
 
-; Define a hotkey to show the context menu
-^+[::AppsKey
-
 #HotIf WinActive("ahk_exe emacs.exe")
 !x::!x
-; !c::!c
-!v::!v
 !s::!s
 !w::!w
 ^g::^g
@@ -221,29 +223,29 @@ F10::
 ^!+f::^!+f
 #HotIf
 
-#HotIf WinActive("ahk_exe datagrip64.exe")
-#n::!Insert
-#w::!w
-!Space::!Home
+; #HotIf WinActive("ahk_exe datagrip64.exe")
+; #n::!Insert
+; #w::!w
+; !Space::!Home
 
-; Need to revert these keys to their original function because pressing the Alt key in Rider will send the Alt key twice but doesn't happen for Rider, weird!
-; Instead, map these manually in DataGrip's keymap
-; Open DataGrip settings > Kepmap, look for Up/Down/Left/Right and map to !i/k/j/l
-; https://intellij-support.jetbrains.com/hc/en-us/community/posts/205418310-Keymapping-Issues-with-alt-letter
-; https://www.reddit.com/r/AutoHotkey/comments/574tay/how_to_get_worked_key_combination_with_alt/
-!i::!i
-!k::!k
-!j::!j
-!l::!l
-!f::!f
-!d::!d
-!w::!w
-!v::!v
-;!y::!y
-!;::!;
-!o::!o
-!u::!u
-#HotIf
+; ; Need to revert these keys to their original function because pressing the Alt key in Rider will send the Alt key twice but doesn't happen for Rider, weird!
+; ; Instead, map these manually in DataGrip's keymap
+; ; Open DataGrip settings > Kepmap, look for Up/Down/Left/Right and map to !i/k/j/l
+; ; https://intellij-support.jetbrains.com/hc/en-us/community/posts/205418310-Keymapping-Issues-with-alt-letter
+; ; https://www.reddit.com/r/AutoHotkey/comments/574tay/how_to_get_worked_key_combination_with_alt/
+; !i::!i
+; !k::!k
+; !j::!j
+; !l::!l
+; !f::!f
+; !d::!d
+; !w::!w
+; !v::!v
+; ;!y::!y
+; !;::!;
+; !o::!o
+; !u::!u
+; #HotIf
 
 #HotIf WinActive("ahk_exe Code.exe")
 !Space::!Home
