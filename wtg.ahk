@@ -1,9 +1,10 @@
 ; disable alt as menu key
-~Alt::Send "{Blind}{vkE8}"
+; ~Alt::Send "{Blind}{vkE8}"
 
 ; capslock to control
 CapsLock::Ctrl
 
+; Macos style: cycle through windows in the same app
 #`::
 {
     WinActivateBottom("ahk_exe " . WinGetProcessName("A"))
@@ -27,11 +28,11 @@ F2::
         WinActivate
 }
 
-^F2::
-{
-    if WinExist("ahk_exe Code.exe")
-        WinActivate
-}
+; ^F2::
+; {
+;     if WinExist("ahk_exe Code.exe")
+;         WinActivate
+; }
 
 F3::
 {
@@ -63,12 +64,6 @@ F5::
         WinActivate
 }
 
-; ^F5::
-; {
-;     if WinExist("ahk_exe datagrip64.exe")
-;         WinActivate
-; }
-
 F6::
 {
     if WinExist("ahk_exe AppleMusic.exe")
@@ -87,9 +82,15 @@ F7::
         WinActivate
 }
 
+; F8::
+; {
+;     if WinExist("ahk_exe datagrip64.exe")
+;         WinActivate
+; }
+
 F8::
 {
-    if WinExist("ahk_exe datagrip64.exe")
+    if WinExist("ahk_exe Code.exe")
         WinActivate
 }
 
@@ -128,6 +129,7 @@ F10::
 #HotIf
 
 #a::^a
+; !c::^c
 #c::^c
 !d::Delete
 !+d::^Delete
@@ -180,7 +182,7 @@ F10::
 
 #HotIf WinActive("ahk_exe emacs.exe")
 !x::!x
-!c::!c
+; !c::!c
 !v::!v
 !s::!s
 !w::!w
