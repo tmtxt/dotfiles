@@ -44,9 +44,10 @@ class Program
     // Get class and namespace
     var classNode = method.Ancestors().OfType<ClassDeclarationSyntax>().FirstOrDefault();
     var namespaceNode = method.Ancestors().OfType<NamespaceDeclarationSyntax>().FirstOrDefault();
+    var fileScopedNamespaceNode = method.Ancestors().OfType<FileScopedNamespaceDeclarationSyntax>().FirstOrDefault();
 
     var className = classNode?.Identifier.Text ?? "<no-class>";
-    var namespaceName = namespaceNode?.Name.ToString() ?? "<no-namespace>";
+    var namespaceName = namespaceNode?.Name.ToString() ?? (fileScopedNamespaceNode?.Name.ToString() ?? "<no-namespace>");
     var methodName = method.Identifier.Text;
 
     Console.WriteLine($"{namespaceName}.{className}.{methodName}");
