@@ -1,3 +1,4 @@
+# have to hard code here because this file is usually symlinked into Documents folder, cannot detect its own location
 $LocalModules = "C:\projects\dotfiles\Powershell\Modules"
 $env:PSModulePath += ";$LocalModules"
 
