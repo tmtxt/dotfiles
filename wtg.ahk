@@ -249,6 +249,7 @@ F10::
 
 #HotIf WinActive("ahk_exe Code.exe")
 !Space::!Home
+#n::!Insert
 #HotIf
 
 #HotIf WinActive("ahk_exe WindowsTerminal.exe")
