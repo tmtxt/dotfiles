@@ -146,6 +146,8 @@ F10::
 #HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") ; && !WinActive("ahk_exe datagrip64.exe")
 !c::^c
 !v::^v
+!o::^Right
+!u::^Left
 #HotIf
 
 ; these keys are set globally
@@ -178,7 +180,6 @@ F10::
 !m::Enter
 !n::^Home
 !+n::^End
-!o::^Right
 !+o::!+o
 ^!o::^+Right
 #q::!F4
@@ -186,7 +187,6 @@ F10::
 #s::^s
 #+s::#+s ; for snipping tool
 ^!s::^!s
-!u::^Left
 !+u::!+u
 ^!u::^+Left
 #v::^v
