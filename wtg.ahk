@@ -148,6 +148,7 @@ F10::
 !v::^v
 !o::^Right
 !u::^Left
+!x::^x
 #HotIf
 
 ; these keys are set globally
@@ -191,7 +192,6 @@ F10::
 ^!u::^+Left
 #v::^v
 #w::!F4
-!x::^x
 #x::^x
 !z::^z
 ^!+f::^!+f
