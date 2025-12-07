@@ -19,4 +19,4 @@ Function uuidv4 {
   Write-Output "New uuidv4 (upper-case) copied to clipboard"
 }
 
-Export-ModuleMember -Function Read-MultiLineInput, uuidv4
+# Export-ModuleMember -Function Read-MultiLineInput, uuidv4

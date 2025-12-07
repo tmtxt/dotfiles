@@ -1,14 +1,9 @@
 $hardLinks = @(& fsutil hardlink list $PSCommandPath 2>$null | Where-Object { $_.Trim() -ne '' })
 $profilePath = if ($hardLinks.Count -gt 1) { $hardLinks[1] } else { $hardLinks[0] }
 $profileFolder = Split-Path -Parent $profilePath
-Write-Host "Profile folder: $profileFolder";
+Write-Host "Using profile: $profileFolder";
 
-# have to hard code here because this file is usually symlinked into Documents folder, cannot detect its own location
-$LocalModules = "C:\projects\dotfiles\Powershell\Modules"
-$env:PSModulePath += ";$LocalModules"
-
-Write-Output "Script root: $PSScriptRoot"
-Write-Output "Command path: $PSCommandPath"
+. "$profileFolder\Scripts\Utils\DevUtils.ps1"
 
 Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
 Set-Alias -Name which -Value Get-Command -Option AllScope
@@ -22,8 +17,6 @@ Set-Alias -Name j -Value Invoke-ZLocation
 $env:Path = "c:\Program Files\Git\usr\bin;" + $env:Path
 $env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
 $env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
-
-Import-Module MyUtils
 
 Function uuidv4Lower {
     (New-Guid).Guid | Set-Clipboard
