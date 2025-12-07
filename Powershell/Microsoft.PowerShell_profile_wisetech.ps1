@@ -1,6 +1,14 @@
+$hardLinks = @(& fsutil hardlink list $PSCommandPath 2>$null | Where-Object { $_.Trim() -ne '' })
+$profilePath = if ($hardLinks.Count -gt 1) { $hardLinks[1] } else { $hardLinks[0] }
+$profileFolder = Split-Path -Parent $profilePath
+Write-Host "Profile folder: $profileFolder";
+
 # have to hard code here because this file is usually symlinked into Documents folder, cannot detect its own location
 $LocalModules = "C:\projects\dotfiles\Powershell\Modules"
 $env:PSModulePath += ";$LocalModules"
+
+Write-Output "Script root: $PSScriptRoot"
+Write-Output "Command path: $PSCommandPath"
 
 Set-Alias -Name ll -Value Get-ChildItem -Option AllScope
 Set-Alias -Name which -Value Get-Command -Option AllScope
