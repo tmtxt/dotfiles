@@ -70,13 +70,18 @@ F4::
 {
     if WinExist("ahk_exe CargoWise.exe")
         WinActivate
+
+      else if WinExist("ahk_exe mstsc.exe")
+        WinActivate
 }
 
+#HotIf !WinActive("ahk_exe mstsc.exe") && !WinActive("ahk_exe CargoWise.exe")
 F5::
 {
     if WinExist("ahk_exe WindowsTerminal.exe")
         WinActivate
 }
+#HotIf
 
 F6::
 {
@@ -146,9 +151,12 @@ F10::
 #HotIf !WinActive("ahk_exe Code.exe") && !WinActive("ahk_exe emacs.exe") ; && !WinActive("ahk_exe datagrip64.exe")
 !c::^c
 !v::^v
+!x::^x
+#HotIf
+
+#HotIf !WinActive("ahk_exe Code.exe")
 !o::^Right
 !u::^Left
-!x::^x
 #HotIf
 
 ; these keys are set globally
@@ -263,6 +271,10 @@ F10::
     Send("!j")
     Send("p")
 }
+#HotIf
+
+#HotIf WinActive("ahk_exe mstsc.exe") || WinActive("ahk_exe CargoWise.exe")
+#F5::F5
 #HotIf
 
 ^!g::
