@@ -17,3 +17,62 @@ function CopyDbUpgrader {
   Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.Odyssey.Schema.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.Odyssey.Schema.dll" -Force
   Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net8.0\CargoWise.Odyssey.Schema.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\net8.0\CargoWise.Odyssey.Schema.pdb" -Force
 }
+
+function DecreaseCW1DatabaseVersion {
+  param (
+    [Parameter(Mandatory = $true)]
+    [string]$database
+  )
+    
+  # Configuration
+  $serverInstance = "localhost"
+
+  # Query to read the current value
+  $selectQuery = @"
+SELECT TOP 1 
+    CONVERT(nvarchar(4000), CONVERT(varbinary(8000), SD_BinaryValue)) AS BinaryValueAsString
+FROM StmData
+WHERE SD_Name = 'DATABASE_SCHEMA_VERSION'
+"@
+
+  try {
+    # Read current value
+    $result = Invoke-Sqlcmd -ServerInstance $serverInstance -Database $database -Query $selectQuery -ErrorAction Stop
+        
+    if ($null -eq $result) {
+      Write-Error "No rows found in StmData table"
+      exit 1
+    }
+        
+    # Parse to integer and decrement
+    $currentValue = [int]$result.BinaryValueAsString
+    $newValue = $currentValue - 1
+        
+    Write-Host "Current value: $currentValue"
+    Write-Host "New value: $newValue"
+        
+    # Update query
+    $updateQuery = @"
+UPDATE StmData 
+SET SD_BinaryValue = Convert(image, convert(varbinary(8000), N'$newValue'))
+WHERE SD_Name = 'DATABASE_SCHEMA_VERSION'
+"@
+        
+    # Execute update
+    Invoke-Sqlcmd -ServerInstance $serverInstance -Database $database -Query $updateQuery -ErrorAction Stop
+        
+    Write-Host "Successfully updated value to $newValue"
+  }
+  catch {
+    Write-Error "An error occurred: $_"
+    exit 1
+  }
+}
+
+function DecreaseOdysseyVersion {
+  DecreaseCW1DatabaseVersion -database "Odyssey"
+}
+
+function DecreaseOdysseyTrainingModelVersion {
+  DecreaseCW1DatabaseVersion -database "OdysseyTrainingModel"
+}
