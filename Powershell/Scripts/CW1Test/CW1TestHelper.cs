@@ -13,15 +13,34 @@ class CW1TestHelper
 {
   static void Main(string[] args)
   {
-    if (args.Length != 2)
+    if (args.Length != 3)
     {
-      Console.WriteLine("Usage: CW1TestHelper <path-to-cs-file> <line-number>");
+      Console.WriteLine("Usage: CW1TestHelper <path-to-cs-file> <line-number> <runType>");
       return;
     }
 
     var filePath = Path.GetFullPath(args[0]);
     var lineNumber = int.Parse(args[1]);
+    var runType = args[2];
 
+    // Validate runType argument
+    if (runType != "dotnettest" && runType != "vstest")
+    {
+      throw new ArgumentException($"Invalid runType value: '{runType}'. Must be 'dotnettest' or 'vstest'.");
+    }
+
+    if (runType == "dotnettest")
+    {
+      RunDotnetTest(filePath, lineNumber);
+    }
+    else
+    {
+      RunVstest(filePath, lineNumber);
+    }
+  }
+
+  static void RunDotnetTest(string filePath, int lineNumber)
+  {
     // Find project file
     var projectFile = FindProjectFile(filePath, "csproj");
     if (string.IsNullOrEmpty(projectFile))
@@ -49,6 +68,43 @@ class CW1TestHelper
       FileName = "dotnet",
       Arguments = $"test \"{projectFile}\" --filter \"{filter}\"",
       WorkingDirectory = "C:\\git\\GitHub\\WiseTechGlobal\\CargoWise",
+      UseShellExecute = false
+    };
+
+    using (var process = Process.Start(processInfo))
+    {
+      process.WaitForExit();
+    }
+  }
+
+  static void RunVstest(string filePath, int lineNumber)
+  {
+    // Find project file (DLL)
+    var dllFileName = FindProjectFile(filePath, "dll");
+    if (string.IsNullOrEmpty(dllFileName))
+    {
+      throw new Exception("No .csproj file found in parent directories.");
+    }
+
+    // Find method (name only)
+    var methodName = FindMethod(filePath, lineNumber, "NameOnly");
+    if (string.IsNullOrEmpty(methodName))
+    {
+      Console.WriteLine("No method found at the specified line.");
+      return;
+    }
+
+    Console.WriteLine("Running unit test using vstest.console.exe...");
+    Console.WriteLine($"DLL: {dllFileName}");
+    Console.WriteLine($"Method: {methodName}");
+    Console.WriteLine("");
+
+    // Run vstest
+    var processInfo = new ProcessStartInfo
+    {
+      FileName = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe",
+      Arguments = $"\"{dllFileName}\" /Tests:{methodName}",
+      WorkingDirectory = "C:\\git\\GitHub\\WiseTechGlobal\\CargoWise\\Bin",
       UseShellExecute = false
     };
 
