@@ -30,7 +30,7 @@ class CW1TestHelper
     }
 
     // Find method
-    var methodName = FindMethod(filePath, lineNumber);
+    var methodName = FindMethod(filePath, lineNumber, "FullyQualifiedName");
     if (string.IsNullOrEmpty(methodName))
     {
       Console.WriteLine("No method found at the specified line.");
@@ -77,8 +77,14 @@ class CW1TestHelper
     return projectFile;
   }
 
-  static string FindMethod(string filePath, int lineNumber)
+  static string FindMethod(string filePath, int lineNumber, string returnType)
   {
+    // Validate ReturnType argument
+    if (returnType != "FullyQualifiedName" && returnType != "NameOnly")
+    {
+      throw new ArgumentException($"Invalid ReturnType value: '{returnType}'. Must be 'FullyQualifiedName' or 'NameOnly'.");
+    }
+
     var code = File.ReadAllText(filePath);
     var tree = CSharpSyntaxTree.ParseText(code);
     var root = tree.GetRoot();
@@ -100,6 +106,14 @@ class CW1TestHelper
       return null;
     }
 
+    var methodName = method.Identifier.Text;
+
+    // Return based on ReturnType argument
+    if (returnType == "NameOnly")
+    {
+      return methodName;
+    }
+
     // Get class and namespace for FullyQualifiedName
     var classNode = method.Ancestors().OfType<ClassDeclarationSyntax>().FirstOrDefault();
     var namespaceNode = method.Ancestors().OfType<NamespaceDeclarationSyntax>().FirstOrDefault();
@@ -107,7 +121,6 @@ class CW1TestHelper
 
     var className = classNode?.Identifier.Text ?? "<no-class>";
     var namespaceName = namespaceNode?.Name.ToString() ?? (fileScopedNamespaceNode?.Name.ToString() ?? "<no-namespace>");
-    var methodName = method.Identifier.Text;
 
     return $"{namespaceName}.{className}.{methodName}";
   }
