@@ -11,14 +11,22 @@ class Program
 {
   static void Main(string[] args)
   {
-    if (args.Length != 2)
+    if (args.Length != 3)
     {
-      Console.WriteLine("Usage: MethodFinder <path-to-cs-file> <line-number>");
+      Console.WriteLine("Usage: MethodFinder <path-to-cs-file> <line-number> <ReturnType>");
       return;
     }
 
     var filePath = args[0];
     var lineNumber = int.Parse(args[1]);
+    var returnType = args[2];
+
+    // Validate ReturnType argument
+    if (returnType != "FullyQualifiedName" && returnType != "NameOnly")
+    {
+      throw new ArgumentException($"Invalid ReturnType value: '{returnType}'. Must be 'FullyQualifiedName' or 'NameOnly'.");
+    }
+
     var code = File.ReadAllText(filePath);
     var tree = CSharpSyntaxTree.ParseText(code);
     var root = tree.GetRoot();
@@ -41,14 +49,22 @@ class Program
       return;
     }
 
-    // Get class and namespace
+    var methodName = method.Identifier.Text;
+
+    // Return based on ReturnType argument
+    if (returnType == "NameOnly")
+    {
+      Console.WriteLine(methodName);
+      return;
+    }
+
+    // Get class and namespace for FullyQualifiedName
     var classNode = method.Ancestors().OfType<ClassDeclarationSyntax>().FirstOrDefault();
     var namespaceNode = method.Ancestors().OfType<NamespaceDeclarationSyntax>().FirstOrDefault();
     var fileScopedNamespaceNode = method.Ancestors().OfType<FileScopedNamespaceDeclarationSyntax>().FirstOrDefault();
 
     var className = classNode?.Identifier.Text ?? "<no-class>";
     var namespaceName = namespaceNode?.Name.ToString() ?? (fileScopedNamespaceNode?.Name.ToString() ?? "<no-namespace>");
-    var methodName = method.Identifier.Text;
 
     Console.WriteLine($"{namespaceName}.{className}.{methodName}");
   }

@@ -6,7 +6,7 @@ param (
 
 Push-Location $PSScriptRoot
 $projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath
-$methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber
+$methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber FullyQualifiedName
 Pop-Location
 
 Write-Output "Running unit test..."
