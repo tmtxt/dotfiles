@@ -5,9 +5,20 @@ param (
 )
 
 Push-Location $PSScriptRoot
-$projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath csproj
-$methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber FullyQualifiedName
+$output = & dotnet run ".\CW1TestHelper.cs" -- $FilePath $LineNumber
 Pop-Location
+
+# Parse output
+$projectPath = ""
+$methodName = ""
+foreach ($line in $output) {
+  if ($line.StartsWith("PROJECT_PATH:")) {
+    $projectPath = $line.Substring("PROJECT_PATH:".Length)
+  }
+  elseif ($line.StartsWith("METHOD_NAME:")) {
+    $methodName = $line.Substring("METHOD_NAME:".Length)
+  }
+}
 
 Write-Output "Running unit test using dotnet test..."
 Write-Output "Project: $projectPath"
