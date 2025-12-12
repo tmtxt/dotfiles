@@ -66,7 +66,7 @@ class CW1TestHelper
     var processInfo = new ProcessStartInfo
     {
       FileName = "dotnet",
-      Arguments = $"test \"{projectFile}\" --filter \"{filter}\"",
+      Arguments = $"test --no-build \"{projectFile}\" --filter \"{filter}\"",
       WorkingDirectory = "C:\\git\\GitHub\\WiseTechGlobal\\CargoWise",
       UseShellExecute = false
     };
