@@ -5,7 +5,7 @@ param (
 )
 
 Push-Location $PSScriptRoot
-$projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath
+$projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath csproj
 $methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber FullyQualifiedName
 Pop-Location
 
