@@ -1,4 +1,4 @@
-# Script to trigger CW1 from Jetbrains Rider
+# Script to trigger CW1 test using dotnet test from Jetbrains Rider
 param (
   [string]$FilePath,
   [int]$LineNumber
@@ -9,7 +9,7 @@ $projectPath = & dotnet run ".\ProjectFinder.cs" $FilePath csproj
 $methodName = & dotnet run ".\MethodFinder.cs" -- $FilePath $LineNumber FullyQualifiedName
 Pop-Location
 
-Write-Output "Running unit test..."
+Write-Output "Running unit test using dotnet test..."
 Write-Output "Project: $projectPath"
 Write-Output "Method: $methodName"
 Write-Output ""
