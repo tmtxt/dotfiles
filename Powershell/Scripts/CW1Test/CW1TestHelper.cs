@@ -23,7 +23,7 @@ class CW1TestHelper
     var lineNumber = int.Parse(args[1]);
 
     // Find project file
-    var projectFile = FindProjectFile(filePath);
+    var projectFile = FindProjectFile(filePath, "csproj");
     if (string.IsNullOrEmpty(projectFile))
     {
       throw new Exception("No .csproj file found in parent directories.");
@@ -58,8 +58,14 @@ class CW1TestHelper
     }
   }
 
-  static string FindProjectFile(string filePath)
+  static string FindProjectFile(string filePath, string returnType)
   {
+    // Validate ReturnType argument
+    if (returnType != "csproj" && returnType != "dll")
+    {
+      throw new ArgumentException($"Invalid ReturnType value: '{returnType}'. Must be 'csproj' or 'dll'.");
+    }
+
     var dir = Path.GetDirectoryName(filePath);
     string projectFile = "";
 
@@ -74,7 +80,31 @@ class CW1TestHelper
       dir = Directory.GetParent(dir)?.FullName;
     }
 
-    return projectFile;
+    if (string.IsNullOrEmpty(projectFile))
+    {
+      return null;
+    }
+
+    if (returnType == "csproj")
+    {
+      return projectFile;
+    }
+
+    // For ReturnType == "dll", extract the output DLL name from the project file
+    var xmlDoc = XDocument.Load(projectFile);
+    var assemblyName = xmlDoc.Descendants("AssemblyName").FirstOrDefault()?.Value;
+
+    string dllFileName;
+    if (!string.IsNullOrEmpty(assemblyName))
+    {
+      dllFileName = assemblyName + ".dll";
+    }
+    else
+    {
+      dllFileName = Path.ChangeExtension(Path.GetFileName(projectFile), ".dll");
+    }
+
+    return dllFileName;
   }
 
   static string FindMethod(string filePath, int lineNumber, string returnType)
