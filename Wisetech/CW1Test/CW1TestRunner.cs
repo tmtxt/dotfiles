@@ -90,8 +90,13 @@ class CW1TestHelper
     var methodName = FindMethod(filePath, lineNumber, "NameOnly");
     if (string.IsNullOrEmpty(methodName))
     {
-      Console.WriteLine("No method found at the specified line.");
-      return;
+      // If no method found, try to use the class name instead
+      methodName = FindClassName(filePath, lineNumber);
+      if (string.IsNullOrEmpty(methodName))
+      {
+        Console.WriteLine("No method or class found at the specified line.");
+        return;
+      }
     }
 
     Console.WriteLine("Running unit test using vstest.console.exe...");
@@ -209,5 +214,26 @@ class CW1TestHelper
     var namespaceName = namespaceNode?.Name.ToString() ?? (fileScopedNamespaceNode?.Name.ToString() ?? "<no-namespace>");
 
     return $"{namespaceName}.{className}.{methodName}";
+  }
+
+  static string FindClassName(string filePath, int lineNumber)
+  {
+    var code = File.ReadAllText(filePath);
+    var tree = CSharpSyntaxTree.ParseText(code);
+    var root = tree.GetRoot();
+    var text = tree.GetText();
+
+    // Find the class declaration containing the line
+    var classNode = root.DescendantNodes()
+        .OfType<ClassDeclarationSyntax>()
+        .FirstOrDefault(c =>
+        {
+          var span = c.Span;
+          var startLine = text.Lines.GetLineFromPosition(span.Start).LineNumber + 1;
+          var endLine = text.Lines.GetLineFromPosition(span.End).LineNumber + 1;
+          return lineNumber >= startLine && lineNumber <= endLine;
+        });
+
+    return classNode?.Identifier.Text;
   }
 }
