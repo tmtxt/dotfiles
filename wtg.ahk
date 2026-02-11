@@ -32,7 +32,7 @@ F1::
 
 ^F1::
 {
-    if WinExist("ahk_exe explorer.exe")
+    if WinExist("ahk_exe chrome.exe")
         WinActivate
 }
 
@@ -70,8 +70,7 @@ F4::
 {
     if WinExist("ahk_exe CargoWise.exe")
         WinActivate
-
-      else if WinExist("ahk_exe mstsc.exe")
+    else if WinExist("ahk_exe mstsc.exe")
         WinActivate
 }
 

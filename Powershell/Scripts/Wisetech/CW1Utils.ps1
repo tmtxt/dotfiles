@@ -76,3 +76,14 @@ function DecreaseOdysseyVersion {
 function DecreaseOdysseyTrainingModelVersion {
   DecreaseCW1DatabaseVersion -database "OdysseyTrainingModel"
 }
+
+function KillDotnetProcesses {
+  $processes = Get-Process -Name dotnet -ErrorAction SilentlyContinue
+  if ($processes) {
+    $processes | Stop-Process -Force
+    Write-Host ("Killed {0} .NET Host process(es)" -f $processes.Count)
+  }
+  else {
+    Write-Host "No .NET Host processes found"
+  }
+}
