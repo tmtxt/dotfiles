@@ -71,6 +71,11 @@ class CW1TestHelper
       UseShellExecute = false
     };
 
+    var fullCommand = $"{processInfo.FileName} {processInfo.Arguments}";
+    CopyToClipboard(fullCommand);
+    Console.WriteLine($"Command copied to clipboard: {fullCommand}");
+    Console.WriteLine("");
+
     using (var process = Process.Start(processInfo))
     {
       process.WaitForExit();
@@ -113,10 +118,32 @@ class CW1TestHelper
       UseShellExecute = false
     };
 
+    var fullCommand = $"& '{processInfo.FileName}' {processInfo.Arguments}";
+    CopyToClipboard(fullCommand);
+    Console.WriteLine($"Command copied to clipboard: {fullCommand}");
+    Console.WriteLine("");
+
     using (var process = Process.Start(processInfo))
     {
       process.WaitForExit();
     }
+  }
+
+  static void CopyToClipboard(string text)
+  {
+    var process = new Process
+    {
+      StartInfo = new ProcessStartInfo
+      {
+        FileName = "clip",
+        RedirectStandardInput = true,
+        UseShellExecute = false
+      }
+    };
+    process.Start();
+    process.StandardInput.Write(text);
+    process.StandardInput.Close();
+    process.WaitForExit();
   }
 
   static string FindProjectFile(string filePath, string returnType)
