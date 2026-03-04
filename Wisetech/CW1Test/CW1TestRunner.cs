@@ -92,7 +92,7 @@ class CW1TestHelper
     }
 
     // Find method (name only)
-    var methodName = FindMethod(filePath, lineNumber, "NameOnly");
+    var methodName = FindMethod(filePath, lineNumber, "FullyQualifiedName");
     if (string.IsNullOrEmpty(methodName))
     {
       // If no method found, try to use the class name instead
