@@ -96,3 +96,14 @@ function KillDotnetProcesses {
     Write-Host "No .NET Host processes found"
   }
 }
+
+function KillNodeProcesses {
+  $processes = Get-Process -Name node -ErrorAction SilentlyContinue
+  if ($processes) {
+    $processes | Stop-Process -Force
+    Write-Host ("Killed {0} Node.js process(es)" -f $processes.Count)
+  }
+  else {
+    Write-Host "No Node.js processes found"
+  }
+}
