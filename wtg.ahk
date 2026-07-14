@@ -38,7 +38,7 @@ F1::
 
 F2::
 {
-    if WinExist("ahk_exe emacs.exe")
+    if WinExist("ahk_exe Code.exe")
         WinActivate
 }
 
@@ -108,7 +108,7 @@ F7::
 
 F8::
 {
-    if WinExist("ahk_exe Code.exe")
+    if WinExist("ahk_exe emacs.exe")
         WinActivate
 }
 

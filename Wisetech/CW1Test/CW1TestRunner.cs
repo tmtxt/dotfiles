@@ -114,7 +114,7 @@ class CW1TestHelper
     {
       FileName = "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe",
       Arguments = $"\"{dllFileName}\" /Tests:{methodName}",
-      WorkingDirectory = "C:\\git\\GitHub\\WiseTechGlobal\\CargoWise\\Bin",
+      WorkingDirectory = "C:\\git\\GitHub\\WiseTechGlobal\\CargoWise\\Bin\\net10.0",
       UseShellExecute = false
     };
 
