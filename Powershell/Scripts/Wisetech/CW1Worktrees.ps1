@@ -102,16 +102,16 @@ function Invoke-CW1Git {
   Launch `claude` in the new cargowise-allagents worktree once set up.
 
 .EXAMPLE
-  New-CargowiseAgentsWorktree -WorkItem WI00123456 -Description fix-duty-calc
+  NewCW1Worktree -WorkItem WI00123456 -Description fix-duty-calc
 
 .EXAMPLE
-  New-CargowiseAgentsWorktree -WorkItem WI00123456 -Description fix-duty-calc -Repos CargoWise,CargoWise.Customs -StartClaude
+  NewCW1Worktree -WorkItem WI00123456 -Description fix-duty-calc -Repos CargoWise,CargoWise.Customs -StartClaude
 
 .NOTES
   After this, if you build/test inside the CargoWise or CargoWise.Shared
   worktree, run the cw-worktree-bin-sync preflight (their Bin/ starts empty).
 #>
-function New-CargowiseAgentsWorktree {
+function NewCW1Worktree {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(
 		[Parameter(Mandatory, Position = 0)]
@@ -226,7 +226,7 @@ function New-CargowiseAgentsWorktree {
   git worktrees inside it, leaving the branches intact.
 
 .DESCRIPTION
-  Lists the task folders created by New-CargowiseAgentsWorktree (each folder
+  Lists the task folders created by NewCW1Worktree (each folder
   under <WorkspaceRoot>\worktrees\ holds one sibling worktree per repo). You
   pick one; every repo worktree inside it is removed via
   `git worktree remove` against its source repo under WorkspaceRoot. Branches
@@ -238,9 +238,9 @@ function New-CargowiseAgentsWorktree {
   directory. Default: C:\git\GitHub\WiseTechGlobal.
 
 .EXAMPLE
-  Remove-CargowiseAgentsWorktree
+  RemoveCW1Worktree
 #>
-function Remove-CargowiseAgentsWorktree {
+function RemoveCW1Worktree {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(
 		[string]$WorkspaceRoot = 'C:\git\GitHub\WiseTechGlobal'
