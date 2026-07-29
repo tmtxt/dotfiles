@@ -36,17 +36,19 @@ F1::
         WinActivate
 }
 
+#HotIf !WinActive("ahk_exe EXCEL.EXE")
 F2::
 {
     if WinExist("ahk_exe Code.exe")
         WinActivate
 }
+#HotIf
 
-; ^F2::
-; {
-;     if WinExist("ahk_exe Code.exe")
-;         WinActivate
-; }
+^F2::
+{
+    if WinExist("ahk_exe Code.exe")
+        WinActivate
+}
 
 F3::
 {
@@ -81,6 +83,12 @@ F5::
         WinActivate
 }
 #HotIf
+
+^F5::
+{
+    if WinExist("ahk_exe WindowsTerminal.exe")
+        WinActivate
+}
 
 F6::
 {
@@ -270,6 +278,15 @@ F10::
     Send("!j")
     Send("p")
 }
+#HotIf
+
+#HotIf WinActive("ahk_exe EXCEL.EXE")
+^+p::
+{
+    Send("<CustomsInstruction.ContentOfCustomsInstruction")
+}
+
+^+e::F2
 #HotIf
 
 #HotIf WinActive("ahk_exe mstsc.exe") || WinActive("ahk_exe CargoWise.exe")
