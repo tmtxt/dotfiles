@@ -166,6 +166,28 @@ function NewCW1Worktree {
 			Invoke-CW1Git @('-C', $sourceRepo, 'fetch', 'origin', $repoBaseBranch) | Out-Null
 			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'add', '-b', $branch, $dest, "origin/$repoBaseBranch") | Out-Null
 		}
+
+		# A fresh CargoWise worktree has no Bin/ or packages/ (CargoWise resolves
+		# $(WTGBinRoot) to the worktree's own Bin/), so copy them from the source
+		# checkout so the worktree can build without a full rebuild.
+		if ($RepoName -eq 'CargoWise') {
+			foreach ($folder in @('Bin', 'packages')) {
+				$copySource = Join-Path $sourceRepo $folder
+				if (-not (Test-Path $copySource)) {
+					Write-Warning "$folder not found in $sourceRepo - skipping copy"
+					continue
+				}
+				$copyDest = Join-Path $dest $folder
+				Write-Host "Copying $folder -> $copyDest" -ForegroundColor Cyan
+				# robocopy is much faster than Copy-Item for large trees. Merge
+				# stderr (2>&1) so it can't raise NativeCommandError under
+				# EAP='Stop'. Exit codes 0-7 indicate success; 8+ is a real error.
+				robocopy $copySource $copyDest /E /MT /NFL /NDL /NJH /NJS /NP 2>&1 | Out-Null
+				if ($LASTEXITCODE -ge 8) {
+					throw "robocopy failed copying $folder to the worktree (exit code $LASTEXITCODE)"
+				}
+			}
+		}
 	}
 
 	# cargowise-allagents first - its .allagents/workspace.yaml is tracked in git,
