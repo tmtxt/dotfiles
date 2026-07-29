@@ -2,6 +2,57 @@
 
 <#
 .SYNOPSIS
+  Runs git and treats only a non-zero exit code as failure.
+
+.DESCRIPTION
+  git writes normal progress/info (e.g. "From https://github.com/...") to
+  stderr. Under $ErrorActionPreference = 'Stop' - and Windows PowerShell 5.1 in
+  particular - native stderr surfaces as a terminating NativeCommandError even
+  for a successful command. This helper relaxes the error preference for the
+  native call and merges stderr into the captured output, so only a real
+  non-zero exit code raises an error.
+
+.PARAMETER GitArgs
+  Full git argument list, e.g. @('-C', $repo, 'fetch', 'origin', 'main').
+
+.PARAMETER AllowFailure
+  Do not throw on a non-zero exit code (e.g. rev-parse existence checks that
+  use the exit code as a boolean). Returns the exit code either way.
+
+.OUTPUTS
+  [int] the git exit code. git's own output streams to the host as it runs.
+#>
+function Invoke-CW1Git {
+	[CmdletBinding()]
+	param(
+		[Parameter(Mandatory, Position = 0)]
+		[string[]]$GitArgs,
+
+		[switch]$AllowFailure
+	)
+
+	$previousPreference = $ErrorActionPreference
+	$ErrorActionPreference = 'Continue'
+	try {
+		# Merge stderr into stdout so git's normal progress (written to stderr)
+		# streams to the host live instead of raising NativeCommandError under
+		# EAP='Stop'. Write-Host keeps it off the pipeline so only the exit code
+		# is returned.
+		& git @GitArgs 2>&1 | ForEach-Object { Write-Host $_ }
+	}
+	finally {
+		$ErrorActionPreference = $previousPreference
+	}
+
+	if (-not $AllowFailure -and $LASTEXITCODE -ne 0) {
+		throw "git $($GitArgs -join ' ') failed (exit code $LASTEXITCODE)"
+	}
+
+	return $LASTEXITCODE
+}
+
+<#
+.SYNOPSIS
   Creates a set of sibling git worktrees for a Customs task, including a
   worktree of cargowise-allagents, so Claude (or any allagents-managed
   client) gets full CLAUDE.md/.claude/.agents skill coverage when started
@@ -113,7 +164,7 @@ function New-CargowiseAgentsWorktree {
 
 		# Drop stale worktree registrations (e.g. the folder was deleted manually
 		# after a previous partial run) so branch/path checks below are accurate.
-		& git -C $sourceRepo worktree prune 2>$null | Out-Null
+		Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'prune') -AllowFailure | Out-Null
 
 		$dest = Join-Path $taskRoot $RepoName
 		if (Test-Path $dest) {
@@ -123,20 +174,19 @@ function New-CargowiseAgentsWorktree {
 
 		$repoBaseBranch = Get-DefaultBranch -RepoName $RepoName
 		$branch = $branchName
-		& git -C $sourceRepo rev-parse --verify --quiet "refs/heads/$branch" 2>$null | Out-Null
-		$branchExists = $LASTEXITCODE -eq 0
+		$branchExists = (Invoke-CW1Git @('-C', $sourceRepo, 'rev-parse', '--verify', '--quiet', "refs/heads/$branch") -AllowFailure) -eq 0
 
 		if ($branchExists) {
 			# Branch survived a previous partial run (e.g. it succeeded but a
 			# later step in the script failed). Reuse it instead of failing on
 			# "branch already exists".
 			Write-Host "Creating worktree: $RepoName -> $dest (reusing existing branch $branch)" -ForegroundColor Cyan
-			& git -C $sourceRepo worktree add $dest $branch
+			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'add', $dest, $branch) | Out-Null
 		}
 		else {
 			Write-Host "Creating worktree: $RepoName -> $dest (branch $branch, from $repoBaseBranch)" -ForegroundColor Cyan
-			& git -C $sourceRepo fetch origin $repoBaseBranch 2>$null | Out-Null
-			& git -C $sourceRepo worktree add -b $branch $dest "origin/$repoBaseBranch"
+			Invoke-CW1Git @('-C', $sourceRepo, 'fetch', 'origin', $repoBaseBranch) | Out-Null
+			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'add', '-b', $branch, $dest, "origin/$repoBaseBranch") | Out-Null
 		}
 	}
 
@@ -253,8 +303,8 @@ function Remove-CargowiseAgentsWorktree {
 			Write-Host "Removing worktree: $($repoFolder.FullName)" -ForegroundColor Cyan
 			$removeArgs = @('-C', $sourceRepo, 'worktree', 'remove', $repoFolder.FullName)
 			if ($Force) { $removeArgs += '--force' }
-			& git @removeArgs
-			& git -C $sourceRepo worktree prune 2>$null | Out-Null
+			Invoke-CW1Git $removeArgs | Out-Null
+			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'prune') -AllowFailure | Out-Null
 		}
 	}
 
