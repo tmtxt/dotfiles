@@ -25,8 +25,12 @@
   `npx allagents update` inside the new cargowise-allagents worktree to
   regenerate the skill files for that sibling layout.
 
-.PARAMETER Task
-  Short task id used as the branch suffix and worktree folder name, e.g. WI00123456.
+.PARAMETER WorkItem
+  Work item number, e.g. WI00123456. Used in the branch name and folder name.
+
+.PARAMETER Description
+  Short slug describing the feature so worktrees are easy to tell apart, e.g.
+  fix-duty-calc. Used in the branch name and folder name.
 
 .PARAMETER Repos
   Repo folder names (siblings of cargowise-allagents under WorkspaceRoot) to
@@ -47,10 +51,10 @@
   Launch `claude` in the new cargowise-allagents worktree once set up.
 
 .EXAMPLE
-  New-CargowiseAgentsWorktree -Task WI00123456
+  New-CargowiseAgentsWorktree -WorkItem WI00123456 -Description fix-duty-calc
 
 .EXAMPLE
-  New-CargowiseAgentsWorktree -Task WI00123456 -Repos CargoWise,CargoWise.Customs -StartClaude
+  New-CargowiseAgentsWorktree -WorkItem WI00123456 -Description fix-duty-calc -Repos CargoWise,CargoWise.Customs -StartClaude
 
 .NOTES
   After this, if you build/test inside the CargoWise or CargoWise.Shared
@@ -59,9 +63,13 @@
 function New-CargowiseAgentsWorktree {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(
-		[Parameter(Mandatory)]
+		[Parameter(Mandatory, Position = 0)]
 		[ValidatePattern('^[A-Za-z0-9_.-]+$')]
-		[string]$Task,
+		[string]$WorkItem,
+
+		[Parameter(Mandatory, Position = 1)]
+		[ValidatePattern('^[A-Za-z0-9_.-]+$')]
+		[string]$Description,
 
 		[string[]]$Repos = @('CargoWise', 'CargoWise.Shared', 'CargoWise.Customs', 'Customs.Specifications', 'Customs.Content'),
 
@@ -88,7 +96,10 @@ function New-CargowiseAgentsWorktree {
 		return 'main'
 	}
 
-	$taskRoot = Join-Path $WorkspaceRoot 'worktrees' $Task
+	$branchName = "TT7/$WorkItem/$Description"
+	# Nested Join-Path for Windows PowerShell 5.1 compatibility: its Join-Path
+	# only takes -Path/-ChildPath (no third segment like PowerShell 7).
+	$taskRoot = Join-Path (Join-Path $WorkspaceRoot 'worktrees') "$WorkItem-$Description"
 	New-Item -ItemType Directory -Path $taskRoot -Force | Out-Null
 
 	function Add-RepoWorktree {
@@ -111,7 +122,7 @@ function New-CargowiseAgentsWorktree {
 		}
 
 		$repoBaseBranch = Get-DefaultBranch -RepoName $RepoName
-		$branch = "$Task/$RepoName"
+		$branch = $branchName
 		& git -C $sourceRepo rev-parse --verify --quiet "refs/heads/$branch" 2>$null | Out-Null
 		$branchExists = $LASTEXITCODE -eq 0
 
