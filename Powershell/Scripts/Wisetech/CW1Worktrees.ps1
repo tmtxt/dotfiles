@@ -2,57 +2,6 @@
 
 <#
 .SYNOPSIS
-  Runs git and treats only a non-zero exit code as failure.
-
-.DESCRIPTION
-  git writes normal progress/info (e.g. "From https://github.com/...") to
-  stderr. Under $ErrorActionPreference = 'Stop' - and Windows PowerShell 5.1 in
-  particular - native stderr surfaces as a terminating NativeCommandError even
-  for a successful command. This helper relaxes the error preference for the
-  native call and merges stderr into the captured output, so only a real
-  non-zero exit code raises an error.
-
-.PARAMETER GitArgs
-  Full git argument list, e.g. @('-C', $repo, 'fetch', 'origin', 'main').
-
-.PARAMETER AllowFailure
-  Do not throw on a non-zero exit code (e.g. rev-parse existence checks that
-  use the exit code as a boolean). Returns the exit code either way.
-
-.OUTPUTS
-  [int] the git exit code. git's own output streams to the host as it runs.
-#>
-function Invoke-CW1Git {
-	[CmdletBinding()]
-	param(
-		[Parameter(Mandatory, Position = 0)]
-		[string[]]$GitArgs,
-
-		[switch]$AllowFailure
-	)
-
-	$previousPreference = $ErrorActionPreference
-	$ErrorActionPreference = 'Continue'
-	try {
-		# Merge stderr into stdout so git's normal progress (written to stderr)
-		# streams to the host live instead of raising NativeCommandError under
-		# EAP='Stop'. Write-Host keeps it off the pipeline so only the exit code
-		# is returned.
-		& git @GitArgs 2>&1 | ForEach-Object { Write-Host $_ }
-	}
-	finally {
-		$ErrorActionPreference = $previousPreference
-	}
-
-	if (-not $AllowFailure -and $LASTEXITCODE -ne 0) {
-		throw "git $($GitArgs -join ' ') failed (exit code $LASTEXITCODE)"
-	}
-
-	return $LASTEXITCODE
-}
-
-<#
-.SYNOPSIS
   Creates a set of sibling git worktrees for a Customs task, including a
   worktree of cargowise-allagents, so Claude (or any allagents-managed
   client) gets full CLAUDE.md/.claude/.agents skill coverage when started
@@ -132,6 +81,35 @@ function NewCW1Worktree {
 	)
 
 	$ErrorActionPreference = 'Stop'
+
+	# Local git wrapper (nested so it stays out of the dot-sourced session).
+	# git writes normal progress to stderr, which under EAP='Stop' - especially
+	# Windows PowerShell 5.1 - surfaces as a terminating NativeCommandError even
+	# on success. Relax the preference for the native call, stream stderr to the
+	# host, and fail only on a non-zero exit code.
+	function Invoke-CW1Git {
+		param(
+			[Parameter(Mandatory, Position = 0)]
+			[string[]]$GitArgs,
+
+			[switch]$AllowFailure
+		)
+
+		$previousPreference = $ErrorActionPreference
+		$ErrorActionPreference = 'Continue'
+		try {
+			& git @GitArgs 2>&1 | ForEach-Object { Write-Host $_ }
+		}
+		finally {
+			$ErrorActionPreference = $previousPreference
+		}
+
+		if (-not $AllowFailure -and $LASTEXITCODE -ne 0) {
+			throw "git $($GitArgs -join ' ') failed (exit code $LASTEXITCODE)"
+		}
+
+		return $LASTEXITCODE
+	}
 
 	# CargoWise, CargoWise.Shared, and CargoWise.Customs default to 'master';
 	# every other repo (cargowise-allagents, Customs.Specifications,
@@ -247,6 +225,35 @@ function RemoveCW1Worktree {
 	)
 
 	$ErrorActionPreference = 'Stop'
+
+	# Local git wrapper (nested so it stays out of the dot-sourced session).
+	# git writes normal progress to stderr, which under EAP='Stop' - especially
+	# Windows PowerShell 5.1 - surfaces as a terminating NativeCommandError even
+	# on success. Relax the preference for the native call, stream stderr to the
+	# host, and fail only on a non-zero exit code.
+	function Invoke-CW1Git {
+		param(
+			[Parameter(Mandatory, Position = 0)]
+			[string[]]$GitArgs,
+
+			[switch]$AllowFailure
+		)
+
+		$previousPreference = $ErrorActionPreference
+		$ErrorActionPreference = 'Continue'
+		try {
+			& git @GitArgs 2>&1 | ForEach-Object { Write-Host $_ }
+		}
+		finally {
+			$ErrorActionPreference = $previousPreference
+		}
+
+		if (-not $AllowFailure -and $LASTEXITCODE -ne 0) {
+			throw "git $($GitArgs -join ' ') failed (exit code $LASTEXITCODE)"
+		}
+
+		return $LASTEXITCODE
+	}
 
 	$worktreesRoot = Join-Path $WorkspaceRoot 'worktrees'
 	if (-not (Test-Path $worktreesRoot)) {
