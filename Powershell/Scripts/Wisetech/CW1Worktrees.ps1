@@ -158,3 +158,102 @@ function New-CargowiseAgentsWorktree {
 		try { & claude } finally { Pop-Location }
 	}
 }
+
+<#
+.SYNOPSIS
+  Interactively selects a task folder under the worktrees root and removes all
+  git worktrees inside it, leaving the branches intact.
+
+.DESCRIPTION
+  Lists the task folders created by New-CargowiseAgentsWorktree (each folder
+  under <WorkspaceRoot>\worktrees\ holds one sibling worktree per repo). You
+  pick one; every repo worktree inside it is removed via
+  `git worktree remove` against its source repo under WorkspaceRoot. Branches
+  are NOT deleted - only the worktree working directories and their
+  registrations. The now-empty task folder is removed at the end.
+
+.PARAMETER WorkspaceRoot
+  Parent folder containing the source repo checkouts and the worktrees
+  directory. Default: C:\git\GitHub\WiseTechGlobal.
+
+.PARAMETER Force
+  Pass through to `git worktree remove --force` so worktrees with
+  uncommitted/untracked changes are still removed.
+
+.EXAMPLE
+  Remove-CargowiseAgentsWorktree
+
+.EXAMPLE
+  Remove-CargowiseAgentsWorktree -Force
+#>
+function Remove-CargowiseAgentsWorktree {
+	[CmdletBinding(SupportsShouldProcess)]
+	param(
+		[string]$WorkspaceRoot = 'C:\git\GitHub\WiseTechGlobal',
+
+		[switch]$Force
+	)
+
+	$ErrorActionPreference = 'Stop'
+
+	$worktreesRoot = Join-Path $WorkspaceRoot 'worktrees'
+	if (-not (Test-Path $worktreesRoot)) {
+		Write-Warning "No worktrees folder found at: $worktreesRoot"
+		return
+	}
+
+	$taskFolders = @(Get-ChildItem -Path $worktreesRoot -Directory | Sort-Object Name)
+	if ($taskFolders.Count -eq 0) {
+		Write-Host "No task folders under: $worktreesRoot" -ForegroundColor DarkGray
+		return
+	}
+
+	Write-Host "Task folders under $worktreesRoot" -ForegroundColor Cyan
+	for ($i = 0; $i -lt $taskFolders.Count; $i++) {
+		Write-Host ("  [{0}] {1}" -f ($i + 1), $taskFolders[$i].Name)
+	}
+
+	$choice = Read-Host "Select a folder to remove (1-$($taskFolders.Count), or blank to cancel)"
+	if ([string]::IsNullOrWhiteSpace($choice)) {
+		Write-Host 'Cancelled.' -ForegroundColor DarkGray
+		return
+	}
+
+	$index = 0
+	if (-not [int]::TryParse($choice, [ref]$index) -or $index -lt 1 -or $index -gt $taskFolders.Count) {
+		Write-Warning "Invalid selection: $choice"
+		return
+	}
+
+	$taskFolder = $taskFolders[$index - 1]
+	$repoFolders = @(Get-ChildItem -Path $taskFolder.FullName -Directory | Sort-Object Name)
+	if ($repoFolders.Count -eq 0) {
+		Write-Host "No repo worktrees inside: $($taskFolder.FullName)" -ForegroundColor DarkGray
+	}
+
+	foreach ($repoFolder in $repoFolders) {
+		$sourceRepo = Join-Path $WorkspaceRoot $repoFolder.Name
+		if (-not (Test-Path (Join-Path $sourceRepo '.git'))) {
+			Write-Warning "Source repo not found for '$($repoFolder.Name)' at $sourceRepo - skipping"
+			continue
+		}
+
+		if ($PSCmdlet.ShouldProcess($repoFolder.FullName, 'git worktree remove')) {
+			Write-Host "Removing worktree: $($repoFolder.FullName)" -ForegroundColor Cyan
+			$removeArgs = @('-C', $sourceRepo, 'worktree', 'remove', $repoFolder.FullName)
+			if ($Force) { $removeArgs += '--force' }
+			& git @removeArgs
+			& git -C $sourceRepo worktree prune 2>$null | Out-Null
+		}
+	}
+
+	# Remove the task folder if it's now empty (git worktree remove deletes the
+	# worktree dirs; this cleans up any leftover scaffolding).
+	if ((Test-Path $taskFolder.FullName) -and
+		(@(Get-ChildItem -Path $taskFolder.FullName -Force).Count -eq 0) -and
+		$PSCmdlet.ShouldProcess($taskFolder.FullName, 'Remove empty task folder')) {
+		Remove-Item -Path $taskFolder.FullName -Force
+	}
+
+	Write-Host "`nDone. Branches were left intact." -ForegroundColor Green
+}
