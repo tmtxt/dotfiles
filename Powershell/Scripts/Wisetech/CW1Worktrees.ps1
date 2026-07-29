@@ -122,7 +122,7 @@ function New-CargowiseAgentsWorktree {
 		[ValidatePattern('^[A-Za-z0-9_.-]+$')]
 		[string]$Description,
 
-		[string[]]$Repos = @('CargoWise', 'CargoWise.Shared', 'CargoWise.Customs', 'Customs.Specifications', 'Customs.Content'),
+		[string[]]$Repos = @('CargoWise'),
 
 		[string]$BaseBranch,
 
@@ -237,22 +237,13 @@ function New-CargowiseAgentsWorktree {
   Parent folder containing the source repo checkouts and the worktrees
   directory. Default: C:\git\GitHub\WiseTechGlobal.
 
-.PARAMETER Force
-  Pass through to `git worktree remove --force` so worktrees with
-  uncommitted/untracked changes are still removed.
-
 .EXAMPLE
   Remove-CargowiseAgentsWorktree
-
-.EXAMPLE
-  Remove-CargowiseAgentsWorktree -Force
 #>
 function Remove-CargowiseAgentsWorktree {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(
-		[string]$WorkspaceRoot = 'C:\git\GitHub\WiseTechGlobal',
-
-		[switch]$Force
+		[string]$WorkspaceRoot = 'C:\git\GitHub\WiseTechGlobal'
 	)
 
 	$ErrorActionPreference = 'Stop'
@@ -301,9 +292,7 @@ function Remove-CargowiseAgentsWorktree {
 
 		if ($PSCmdlet.ShouldProcess($repoFolder.FullName, 'git worktree remove')) {
 			Write-Host "Removing worktree: $($repoFolder.FullName)" -ForegroundColor Cyan
-			$removeArgs = @('-C', $sourceRepo, 'worktree', 'remove', $repoFolder.FullName)
-			if ($Force) { $removeArgs += '--force' }
-			Invoke-CW1Git $removeArgs | Out-Null
+			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'remove', '--force', $repoFolder.FullName) | Out-Null
 			Invoke-CW1Git @('-C', $sourceRepo, 'worktree', 'prune') -AllowFailure | Out-Null
 		}
 	}
