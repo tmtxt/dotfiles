@@ -336,3 +336,133 @@ function RemoveCW1Worktree {
 
 	Write-Host "`nDone. Branches were left intact." -ForegroundColor Green
 }
+
+<#
+.SYNOPSIS
+  Interactively selects a task folder under the worktrees root and refreshes
+  CargoWise Bin/ and packages/ in that worktree from the main CargoWise repo.
+
+.DESCRIPTION
+  Lists task folders created by NewCW1Worktree (each folder under
+  <WorkspaceRoot>\worktrees\). You pick one; this function finds that folder's
+  CargoWise worktree, removes its Bin/ and packages/ folders, then copies fresh
+  Bin/ and packages/ from <WorkspaceRoot>\CargoWise.
+
+.PARAMETER WorkspaceRoot
+  Parent folder containing the source repo checkouts and the worktrees
+  directory. Default: C:\git\GitHub\WiseTechGlobal.
+
+.EXAMPLE
+  UpdateCW1Worktree
+#>
+function UpdateCW1Worktree {
+	[CmdletBinding(SupportsShouldProcess)]
+	param(
+		[string]$WorkspaceRoot = 'C:\git\GitHub\WiseTechGlobal'
+	)
+
+	$ErrorActionPreference = 'Stop'
+
+	# Local git wrapper (nested so it stays out of the dot-sourced session).
+	# git writes normal progress to stderr, which under EAP='Stop' - especially
+	# Windows PowerShell 5.1 - surfaces as a terminating NativeCommandError even
+	# on success. Relax the preference for the native call, stream stderr to the
+	# host, and fail only on a non-zero exit code.
+	function Invoke-CW1Git {
+		param(
+			[Parameter(Mandatory, Position = 0)]
+			[string[]]$GitArgs,
+
+			[switch]$AllowFailure
+		)
+
+		$previousPreference = $ErrorActionPreference
+		$ErrorActionPreference = 'Continue'
+		try {
+			& git @GitArgs 2>&1 | ForEach-Object { Write-Host $_ }
+		}
+		finally {
+			$ErrorActionPreference = $previousPreference
+		}
+
+		if (-not $AllowFailure -and $LASTEXITCODE -ne 0) {
+			throw "git $($GitArgs -join ' ') failed (exit code $LASTEXITCODE)"
+		}
+
+		return $LASTEXITCODE
+	}
+
+	$worktreesRoot = Join-Path $WorkspaceRoot 'worktrees'
+	if (-not (Test-Path $worktreesRoot)) {
+		Write-Warning "No worktrees folder found at: $worktreesRoot"
+		return
+	}
+
+	$taskFolders = @(Get-ChildItem -Path $worktreesRoot -Directory | Sort-Object Name)
+	if ($taskFolders.Count -eq 0) {
+		Write-Host "No task folders under: $worktreesRoot" -ForegroundColor DarkGray
+		return
+	}
+
+	Write-Host "Task folders under $worktreesRoot" -ForegroundColor Cyan
+	for ($i = 0; $i -lt $taskFolders.Count; $i++) {
+		Write-Host ("  [{0}] {1}" -f ($i + 1), $taskFolders[$i].Name)
+	}
+
+	$choice = Read-Host "Select a folder to update (1-$($taskFolders.Count), or blank to cancel)"
+	if ([string]::IsNullOrWhiteSpace($choice)) {
+		Write-Host 'Cancelled.' -ForegroundColor DarkGray
+		return
+	}
+
+	$index = 0
+	if (-not [int]::TryParse($choice, [ref]$index) -or $index -lt 1 -or $index -gt $taskFolders.Count) {
+		Write-Warning "Invalid selection: $choice"
+		return
+	}
+
+	$taskFolder = $taskFolders[$index - 1]
+	$sourceCargoWise = Join-Path $WorkspaceRoot 'CargoWise'
+	if (-not (Test-Path $sourceCargoWise)) {
+		Write-Warning "Main CargoWise folder not found at: $sourceCargoWise"
+		return
+	}
+
+	$destCargoWise = Join-Path $taskFolder.FullName 'CargoWise'
+	if (-not (Test-Path $destCargoWise)) {
+		Write-Warning "CargoWise worktree not found in selected task folder: $destCargoWise"
+		return
+	}
+
+	if ($PSCmdlet.ShouldProcess($destCargoWise, 'Merge local master into current branch')) {
+		Write-Host 'Merging local master into current branch...' -ForegroundColor Cyan
+		Invoke-CW1Git @('-C', $destCargoWise, 'merge', '--no-edit', 'master') | Out-Null
+	}
+
+	foreach ($folder in @('Bin', 'packages')) {
+		$copySource = Join-Path $sourceCargoWise $folder
+		if (-not (Test-Path $copySource)) {
+			Write-Warning "$folder not found in $sourceCargoWise - skipping"
+			continue
+		}
+
+		$copyDest = Join-Path $destCargoWise $folder
+
+		if ((Test-Path $copyDest) -and $PSCmdlet.ShouldProcess($copyDest, 'Remove existing folder')) {
+			Write-Host "Removing existing $folder from worktree: $copyDest" -ForegroundColor Cyan
+			Remove-Item -Path $copyDest -Recurse -Force
+		}
+
+		if ($PSCmdlet.ShouldProcess($copyDest, "Copy $folder from main CargoWise")) {
+			Write-Host "Copying $folder -> $copyDest" -ForegroundColor Cyan
+			# robocopy is much faster than Copy-Item for large trees.
+			# Exit codes 0-7 indicate success; 8+ is a real error.
+			robocopy $copySource $copyDest /E /MT /NFL /NDL /NJH /NJS /NP 2>&1 | Out-Null
+			if ($LASTEXITCODE -ge 8) {
+				throw "robocopy failed copying $folder to the worktree (exit code $LASTEXITCODE)"
+			}
+		}
+	}
+
+	Write-Host "`nDone. CargoWise Bin/packages refreshed for: $($taskFolder.Name)" -ForegroundColor Green
+}
