@@ -10,6 +10,24 @@ function BuildRefDataRepo {
   & 'C:\Program Files (x86)\WiseTech Global\CrikeyMonitor\QGL\QuickGetLatest.exe' -GitTarget:c:\git\GitHub\WiseTechGlobal\RefDataRepo -BuildAll
 }
 
+function PullMasterCustomsRepo {
+  Set-Location "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared"
+  git checkout master
+  git pull origin master
+
+  Set-Location "C:\git\GitHub\WiseTechGlobal\CargoWise.Customs"
+  git checkout master
+  git pull origin master
+
+  Set-Location "C:\git\GitHub\WiseTechGlobal\Customs.Specifications"
+  git checkout main
+  git pull origin main
+
+  Set-Location "C:\git\GitHub\WiseTechGlobal\Customs.Content"
+  git checkout main
+  git pull origin main
+}
+
 function CopyDbUpgrader {
   Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\Enterprise.DbUpgrader.Resource.dll" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\Enterprise.DbUpgrader.Resource.dll" -Force
   Copy-Item -Path "C:\git\GitHub\WiseTechGlobal\CargoWise.Shared\CargoWise.DbUpgrader\Bin\net472\Enterprise.DbUpgrader.Resource.pdb" -Destination "c:\git\GitHub\WiseTechGlobal\CargoWise\Bin\Enterprise.DbUpgrader.Resource.pdb" -Force
