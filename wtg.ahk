@@ -201,6 +201,9 @@ F10::
 !z::^z
 ^!+f::^!+f
 
+; ------------------------------------------------------------
+; Application specific key bindings
+
 #HotIf WinActive("ahk_exe emacs.exe")
 !x::!x
 !s::!s
@@ -221,6 +224,14 @@ F10::
 #+t::^+t
 #HotIf
 
+#HotIf WinActive("ahk_exe chrome.exe")
+#r::^r
+#t::^t
+#w::^w
+!w::^w
+#+t::^+t
+#HotIf
+
 #HotIf WinActive("ahk_exe rider64.exe")
 #n::!Insert
 #w::!w
@@ -228,6 +239,7 @@ F10::
 ^!+f::^!+f
 #HotIf
 
+; Not use datagrip anymore, so temporarily disable these keys
 ; #HotIf WinActive("ahk_exe datagrip64.exe")
 ; #n::!Insert
 ; #w::!w
@@ -289,6 +301,8 @@ F10::
 }
 #HotIf
 
+; ------------------------------------------------------------
+; Other global scripts
 ^!g::
 {
     psScript := "
