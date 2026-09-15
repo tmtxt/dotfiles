@@ -149,6 +149,75 @@ function CopyGitBranchName {
   Write-Output "Current branch name '$branchName' copied to clipboard."
 }
 
+function Select-BuildTargetFile {
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory)]
+    [System.IO.FileInfo[]]$ProjectFile
+  )
+
+  if ([Console]::IsInputRedirected -or [Console]::IsOutputRedirected) {
+    Write-Host "Multiple solution or project files found:"
+    for ($index = 0; $index -lt $ProjectFile.Count; $index++) {
+      Write-Host "$($index + 1). $($ProjectFile[$index].Name)"
+    }
+
+    $selectedProjectIndex = 0
+    do {
+      if ([Console]::IsInputRedirected) {
+        Write-Host "Select solution or project to build (1-$($ProjectFile.Count)): " -NoNewline
+        $selectedProject = [Console]::In.ReadLine()
+      }
+      else {
+        $selectedProject = Read-Host "Select solution or project to build (1-$($ProjectFile.Count))"
+      }
+      $isValidSelection = [int]::TryParse($selectedProject, [ref]$selectedProjectIndex) -and $selectedProjectIndex -ge 1 -and $selectedProjectIndex -le $ProjectFile.Count
+      if (-not $isValidSelection) {
+        Write-Host "Please enter a number between 1 and $($ProjectFile.Count)."
+      }
+    } until ($isValidSelection)
+
+    return $ProjectFile[$selectedProjectIndex - 1].FullName
+  }
+
+  Write-Host "Multiple solution or project files found. Press Tab or Down Arrow to cycle, Up Arrow to go back, Enter to build, Esc to cancel."
+  $selectedProjectIndex = 0
+  $top = [Console]::CursorTop
+
+  while ($true) {
+    for ($index = 0; $index -lt $ProjectFile.Count; $index++) {
+      [Console]::SetCursorPosition(0, $top + $index)
+      $prefix = if ($index -eq $selectedProjectIndex) { '> ' } else { '  ' }
+      $line = "$prefix$($ProjectFile[$index].Name)"
+      $paddingLength = [Math]::Max(0, [Console]::BufferWidth - $line.Length - 1)
+      $line += ' ' * $paddingLength
+
+      if ($index -eq $selectedProjectIndex) {
+        Write-Host $line -NoNewline -ForegroundColor Black -BackgroundColor Gray
+      }
+      else {
+        Write-Host $line -NoNewline
+      }
+    }
+
+    $key = [Console]::ReadKey($true)
+    if ($key.Key -eq [ConsoleKey]::Enter) {
+      Write-Host ""
+      return $ProjectFile[$selectedProjectIndex].FullName
+    }
+    elseif ($key.Key -eq [ConsoleKey]::Escape) {
+      Write-Host ""
+      throw "Build selection cancelled."
+    }
+    elseif ($key.Key -eq [ConsoleKey]::Tab -or $key.Key -eq [ConsoleKey]::DownArrow) {
+      $selectedProjectIndex = ($selectedProjectIndex + 1) % $ProjectFile.Count
+    }
+    elseif ($key.Key -eq [ConsoleKey]::UpArrow) {
+      $selectedProjectIndex = ($selectedProjectIndex + $ProjectFile.Count - 1) % $ProjectFile.Count
+    }
+  }
+}
+
 function BuildNoDeps {
   [CmdletBinding()]
   param (
@@ -162,21 +231,7 @@ function BuildNoDeps {
       $buildPath = $projectFiles[0].FullName
     }
     elseif ($projectFiles.Count -gt 1) {
-      Write-Host "Multiple solution or project files found:"
-      for ($index = 0; $index -lt $projectFiles.Count; $index++) {
-        Write-Host "$($index + 1). $($projectFiles[$index].Name)"
-      }
-
-      $selectedProjectIndex = 0
-      do {
-        $selectedProject = Read-Host "Select solution or project to build (1-$($projectFiles.Count))"
-        $isValidSelection = [int]::TryParse($selectedProject, [ref]$selectedProjectIndex) -and $selectedProjectIndex -ge 1 -and $selectedProjectIndex -le $projectFiles.Count
-        if (-not $isValidSelection) {
-          Write-Host "Please enter a number between 1 and $($projectFiles.Count)."
-        }
-      } until ($isValidSelection)
-
-      $buildPath = $projectFiles[$selectedProjectIndex - 1].FullName
+      $buildPath = Select-BuildTargetFile -ProjectFile $projectFiles
     }
   }
 
