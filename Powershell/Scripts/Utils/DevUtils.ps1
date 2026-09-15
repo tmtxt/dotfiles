@@ -148,3 +148,40 @@ function CopyGitBranchName {
 
   Write-Output "Current branch name '$branchName' copied to clipboard."
 }
+
+function BuildNoDeps {
+  [CmdletBinding()]
+  param (
+    [string]$Path = '.'
+  )
+
+  $buildPath = $Path
+  if (Test-Path -LiteralPath $Path -PathType Container) {
+    $projectFiles = @(Get-ChildItem -LiteralPath $Path -Include '*.sln', '*.csproj' | Sort-Object Name)
+    if ($projectFiles.Count -eq 1) {
+      $buildPath = $projectFiles[0].FullName
+    }
+    elseif ($projectFiles.Count -gt 1) {
+      Write-Host "Multiple solution or project files found:"
+      for ($index = 0; $index -lt $projectFiles.Count; $index++) {
+        Write-Host "$($index + 1). $($projectFiles[$index].Name)"
+      }
+
+      $selectedProjectIndex = 0
+      do {
+        $selectedProject = Read-Host "Select solution or project to build (1-$($projectFiles.Count))"
+        $isValidSelection = [int]::TryParse($selectedProject, [ref]$selectedProjectIndex) -and $selectedProjectIndex -ge 1 -and $selectedProjectIndex -le $projectFiles.Count
+        if (-not $isValidSelection) {
+          Write-Host "Please enter a number between 1 and $($projectFiles.Count)."
+        }
+      } until ($isValidSelection)
+
+      $buildPath = $projectFiles[$selectedProjectIndex - 1].FullName
+    }
+  }
+
+  dotnet build $buildPath --configuration Debug --no-dependencies /p:ProduceReferenceAssembly=false
+  if ($LASTEXITCODE -ne 0) {
+    throw "dotnet build failed with exit code $LASTEXITCODE."
+  }
+}
