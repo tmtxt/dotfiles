@@ -157,7 +157,7 @@ function BuildNoDeps {
 
   $buildPath = $Path
   if (Test-Path -LiteralPath $Path -PathType Container) {
-    $projectFiles = @(Get-ChildItem -LiteralPath $Path -Include '*.sln', '*.csproj' | Sort-Object Name)
+    $projectFiles = @(Get-ChildItem -LiteralPath $Path -File | Where-Object { $_.Extension -in '.sln', '.csproj' } | Sort-Object Name)
     if ($projectFiles.Count -eq 1) {
       $buildPath = $projectFiles[0].FullName
     }
