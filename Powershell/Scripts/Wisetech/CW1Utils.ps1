@@ -133,3 +133,57 @@ function KillNodeProcesses {
     Write-Host "No Node.js processes found"
   }
 }
+
+function RenameRefDatabase {
+  $serverInstance = "localhost"
+  $baseName = "CW-RefDatabase"
+  $fullName = "$baseName-Full"
+  $emptyName = "$baseName-Empty"
+
+  $listQuery = "SELECT name FROM sys.databases WHERE name LIKE '$baseName%' ORDER BY name"
+  $databases = Invoke-Sqlcmd -ServerInstance $serverInstance -Database "master" -Query $listQuery -ErrorAction Stop | Select-Object -ExpandProperty name
+
+  Write-Host "Databases found matching '$baseName*':"
+  $databases | ForEach-Object { Write-Host " - $_" }
+
+  $hasBase = $databases -contains $baseName
+  $hasFull = $databases -contains $fullName
+  $hasEmpty = $databases -contains $emptyName
+
+  # Rename the plain-named DB first to free up $baseName for the other one
+  if ($hasBase -and $hasFull -and -not $hasEmpty) {
+    $renameSteps = @(
+      @{ Old = $baseName; New = $emptyName },
+      @{ Old = $fullName; New = $baseName }
+    )
+  }
+  elseif ($hasBase -and $hasEmpty -and -not $hasFull) {
+    $renameSteps = @(
+      @{ Old = $baseName; New = $fullName },
+      @{ Old = $emptyName; New = $baseName }
+    )
+  }
+  else {
+    Write-Error "Unexpected database state - requires human intervention. Expected exactly '$baseName' plus one of '$fullName'/'$emptyName'. Found: $($databases -join ', ')"
+    return
+  }
+
+  Write-Host "`nThe following renames will be performed:"
+  foreach ($step in $renameSteps) {
+    Write-Host "  '$($step.Old)' -> '$($step.New)'"
+  }
+
+  $confirmation = Read-Host "`nPress Enter to confirm, or type anything else to cancel"
+  if ($confirmation -ne '') {
+    Write-Host "Cancelled."
+    return
+  }
+
+  foreach ($step in $renameSteps) {
+    $renameQuery = "ALTER DATABASE [$($step.Old)] MODIFY NAME = [$($step.New)]"
+    Invoke-Sqlcmd -ServerInstance $serverInstance -Database "master" -Query $renameQuery -ErrorAction Stop
+    Write-Host "Renamed '$($step.Old)' -> '$($step.New)'"
+  }
+
+  Write-Host "Done."
+}
