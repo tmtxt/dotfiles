@@ -71,7 +71,7 @@ function NewCW1Worktree {
 		[ValidatePattern('^[A-Za-z0-9_.-]+$')]
 		[string]$Description,
 
-		[string[]]$Repos = @('CargoWise'),
+		[string[]]$Repos = @('CargoWise', 'CargoWise.Shared', 'Customs.Specifications'),
 
 		[string]$BaseBranch,
 
