@@ -283,10 +283,15 @@ F10::
 #HotIf
 
 #HotIf WinActive("ahk_exe EXCEL.EXE")
-; ^+p::
-; {
-;     Send("<CustomsInstruction.ContentOfCustomsInstruction")
-; }
+^+p::
+{
+    Send("<DraftDeclaration.")
+}
+
+^+o::
+{
+    Send("<ModifiableField(")
+}
 
 ^+e::
 {
