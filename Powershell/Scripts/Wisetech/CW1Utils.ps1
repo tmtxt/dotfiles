@@ -213,3 +213,118 @@ function RenameRefDatabase {
 
   Write-Host "Done."
 }
+
+function BuildNoDepsCargoWiseGitBranch {
+  param (
+    [string]$CargoWiseRepoPath = "c:\git\GitHub\WiseTechGlobal\CargoWise",
+    [bool]$IncludeWinzorProjects = $false
+  )
+
+  # Native stderr (e.g. git info output) must not become a terminating error under EAP='Stop'
+  function Invoke-Git {
+    param ([string[]]$GitArgs)
+    $previousPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+      $output = & git -C $CargoWiseRepoPath @GitArgs 2>&1
+      $exitCode = $LASTEXITCODE
+    }
+    finally {
+      $ErrorActionPreference = $previousPreference
+    }
+    if ($exitCode -ne 0) {
+      throw "git $($GitArgs -join ' ') failed (exit $exitCode): $($output -join "`n")"
+    }
+    return @($output | ForEach-Object { "$_" })
+  }
+
+  if (-not (Test-Path -LiteralPath $CargoWiseRepoPath)) {
+    throw "Repo path not found: $CargoWiseRepoPath"
+  }
+
+  $currentBranch = (Invoke-Git @('rev-parse', '--abbrev-ref', 'HEAD') | Select-Object -First 1).Trim()
+  if ($currentBranch -eq 'master') {
+    throw "Current branch is 'master'. Switch to a feature branch first."
+  }
+
+  $repoRoot = (Invoke-Git @('rev-parse', '--show-toplevel') | Select-Object -First 1).Trim()
+  $repoRoot = [System.IO.Path]::GetFullPath($repoRoot)
+
+  # Three-dot diff: only changes made on this branch since it diverged from master
+  $changedFiles = Invoke-Git @('diff', '--name-only', 'master...HEAD') | Where-Object { $_ }
+
+  $projects = [System.Collections.Generic.List[string]]::new()
+  foreach ($file in $changedFiles) {
+    $dir = Split-Path -Parent ([System.IO.Path]::GetFullPath((Join-Path $repoRoot $file)))
+
+    # Deleted files may have no directory anymore; keep walking up until we find one
+    while ($dir -and $dir.Length -ge $repoRoot.Length) {
+      if (Test-Path -LiteralPath $dir -PathType Container) {
+        $csprojFiles = @(Get-ChildItem -LiteralPath $dir -Filter '*.csproj' -File)
+        if ($csprojFiles.Count -gt 0) {
+          foreach ($csproj in $csprojFiles) {
+            $isWinzor = $csproj.Name -like '*.Winzor.csproj'
+            if ($isWinzor -and -not $IncludeWinzorProjects) { continue }
+            if (-not $projects.Contains($csproj.FullName)) { $projects.Add($csproj.FullName) }
+          }
+          break
+        }
+      }
+      $dir = Split-Path -Parent $dir
+    }
+  }
+
+  if ($projects.Count -eq 0) {
+    Write-Host "No affected .csproj files found on branch '$currentBranch'."
+    return
+  }
+
+  $waiting = [System.Collections.Generic.List[string]]::new($projects)
+  $built = [System.Collections.Generic.List[string]]::new()
+
+  function Format-Project {
+    param ([string]$Path)
+    '{0} ({1})' -f (Split-Path -Leaf $Path), (Split-Path -Parent $Path)
+  }
+
+  while ($waiting.Count -gt 0) {
+    Write-Host "`nBuilt:" -ForegroundColor Green
+    if ($built.Count -eq 0) { Write-Host "  (none)" }
+    foreach ($item in $built) { Write-Host "  [done] $(Format-Project $item)" -ForegroundColor Green }
+
+    Write-Host "`nWaiting to build:" -ForegroundColor Yellow
+    for ($i = 0; $i -lt $waiting.Count; $i++) {
+      Write-Host ("  {0}. {1}" -f ($i + 1), (Format-Project $waiting[$i]))
+    }
+
+    $choice = Read-Host "`nChoose a project to build (1-$($waiting.Count)), or 'q' to quit"
+    if ($choice -eq 'q') { return }
+
+    $index = 0
+    if (-not [int]::TryParse($choice, [ref]$index) -or $index -lt 1 -or $index -gt $waiting.Count) {
+      Write-Host "Invalid choice: '$choice'" -ForegroundColor Red
+      continue
+    }
+
+    $csprojFile = $waiting[$index - 1]
+    Push-Location (Split-Path -Parent $csprojFile)
+    try {
+      dotnet build $csprojFile --configuration Debug --no-dependencies /p:ProduceReferenceAssembly=false
+      $buildSucceeded = ($LASTEXITCODE -eq 0)
+    }
+    finally {
+      Pop-Location
+    }
+
+    if ($buildSucceeded) {
+      $waiting.RemoveAt($index - 1)
+      $built.Add($csprojFile)
+    }
+    else {
+      Write-Host "Build failed for $csprojFile; it stays in the waiting list." -ForegroundColor Red
+    }
+  }
+
+  Write-Host "`nAll projects built:" -ForegroundColor Green
+  foreach ($item in $built) { Write-Host "  [done] $(Format-Project $item)" -ForegroundColor Green }
+}
