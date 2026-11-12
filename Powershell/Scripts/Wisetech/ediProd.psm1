@@ -135,3 +135,5 @@ function CopyWorkitemLink {
 		Start-Process $url
 	}
 }
+
+Export-ModuleMember -Function CopyWorkitemLink
