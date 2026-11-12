@@ -7,6 +7,9 @@ Write-Host "Using profile: $profileFolder";
 oh-my-posh init pwsh --config "C:\projects\dotfiles\Powershell\ohmyposh.json" | Invoke-Expression
 Import-Module ZLocation
 
+# Ctrl+D exits the shell on an empty line, otherwise deletes the char under the cursor
+Set-PSReadLineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
+
 # Specific to work laptop
 $env:Path += ";C:\Users\tony.tran\AppData\Roaming\npm"
 $env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
