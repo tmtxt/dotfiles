@@ -46,21 +46,26 @@ function Get-WorkitemLinks {
 
 	try {
 		# Description is independent of the workflow/task chain, so fetch it concurrently
+		Write-Host "Fetching description of $workitemId..." -ForegroundColor DarkGray
 		$descriptionJob = Start-ThreadJob -ScriptBlock {
 			edi --format jsonl --fields description workitem get $using:workitemId
 		}
 
+		Write-Host "Listing workflows of $workitemId..." -ForegroundColor DarkGray
 		$workflowIds = @(edi --format jsonl --fields workflowId workflow list $workitemId |
 			ConvertFrom-Json | ForEach-Object { $_.workflowId })
 
+		Write-Host "Listing tasks of $($workflowIds.Count) workflows..." -ForegroundColor DarkGray
 		$taskIds = @($workflowIds | ForEach-Object -Parallel {
 				edi --format jsonl --fields id task list $_ | ConvertFrom-Json | ForEach-Object { $_.id }
 			} -ThrottleLimit 8)
 
+		Write-Host "Reading notes of $($taskIds.Count) tasks..." -ForegroundColor DarkGray
 		$notes = @($taskIds | ForEach-Object -Parallel {
 				(edi task notes read $_) -join "`n"
 			} -ThrottleLimit 8)
 
+		Write-Host "Waiting for description..." -ForegroundColor DarkGray
 		$descriptionJson = (Receive-Job -Job $descriptionJob -Wait -AutoRemoveJob) -join "`n"
 		$description = if ($descriptionJson) { ($descriptionJson | ConvertFrom-Json).description } else { $null }
 
