@@ -92,11 +92,14 @@ function CopyWorkitemLink {
 		"$name`t$($_.Url)"
 	}
 
-	$selected = $lines | fzf --delimiter "`t" --prompt "$workitemId link> "
-	if (-not $selected) { return }
+	# Re-show the picker after each selection; Esc (empty selection) exits
+	while ($true) {
+		$selected = $lines | fzf --delimiter "`t" --prompt "$workitemId link> "
+		if (-not $selected) { return }
 
-	$url = ($selected -split "`t")[-1]
-	Set-Clipboard -Value $url
-	Write-Host "Copied: $url"
-	Start-Process $url
+		$url = ($selected -split "`t")[-1]
+		Set-Clipboard -Value $url
+		Write-Host "Copied: $url"
+		Start-Process $url
+	}
 }
