@@ -37,17 +37,8 @@ function Get-HtmlLinks {
 	}
 }
 
-function CopyWorkitemLink {
-	[CmdletBinding()]
-	param(
-		[Parameter(Mandatory, Position = 0)]
-		[string]$workitemId
-	)
-
-	if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) {
-		Write-Error "fzf is not installed. Install with: winget install junegunn.fzf"
-		return
-	}
+function Get-WorkitemLinks {
+	param([string]$workitemId)
 
 	# edi emits UTF-8; without this, non-ASCII link names are garbled
 	$previousEncoding = [Console]::OutputEncoding
@@ -80,10 +71,51 @@ function CopyWorkitemLink {
 	}
 
 	$seen = [System.Collections.Generic.HashSet[string]]::new()
-	$links = @($links | Where-Object { $seen.Add($_.Url) })
-	if ($links.Count -eq 0) {
-		Write-Warning "No links found in $workitemId."
+	@($links | Where-Object { $seen.Add($_.Url) })
+}
+
+function CopyWorkitemLink {
+	[CmdletBinding()]
+	param(
+		[Parameter(Mandatory, Position = 0)]
+		[ValidatePattern('^[A-Za-z0-9_-]+$')]
+		[string]$workitemId,
+
+		[switch]$Refresh
+	)
+
+	if (-not (Get-Command fzf -ErrorAction SilentlyContinue)) {
+		Write-Error "fzf is not installed. Install with: winget install junegunn.fzf"
 		return
+	}
+
+	$workitemId = $workitemId.ToUpperInvariant()
+	$cacheFile = Join-Path (Join-Path $env:LOCALAPPDATA 'ediProd-cache') "$workitemId.json"
+	$cacheTtl = [timespan]::FromDays(1)
+
+	$links = $null
+	if (-not $Refresh -and (Test-Path $cacheFile)) {
+		$age = (Get-Date) - (Get-Item $cacheFile).LastWriteTime
+		if ($age -lt $cacheTtl) {
+			try {
+				$links = @(Get-Content $cacheFile -Raw | ConvertFrom-Json)
+				Write-Host ("Using cached links ({0:N0}m old). Use -Refresh to reload." -f $age.TotalMinutes)
+			}
+			catch {
+				$links = $null
+			}
+		}
+	}
+
+	if (-not $links) {
+		$links = Get-WorkitemLinks $workitemId
+		if ($links.Count -eq 0) {
+			Write-Warning "No links found in $workitemId."
+			return
+		}
+
+		New-Item -ItemType Directory -Path (Split-Path $cacheFile) -Force | Out-Null
+		ConvertTo-Json -InputObject @($links) | Set-Content -Path $cacheFile -Encoding utf8
 	}
 
 	$lines = $links | ForEach-Object {
