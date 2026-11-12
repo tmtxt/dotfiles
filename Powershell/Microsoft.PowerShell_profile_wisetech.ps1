@@ -4,7 +4,7 @@ $profilePath = if ($hardLinks.Count -gt 1) { $hardLinks[1] } else { $hardLinks[0
 $profileFolder = Split-Path -Parent $profilePath
 Write-Host "Using profile: $profileFolder";
 
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/minimal.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "C:\projects\dotfiles\Powershell\ohmyposh.json" | Invoke-Expression
 Import-Module ZLocation
 
 # Specific to work laptop
