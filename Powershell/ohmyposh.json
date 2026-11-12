@@ -25,14 +25,6 @@
           "style": "powerline",
           "template": " {{ .Path }} ",
           "type": "path"
-        },
-        {
-          "background": "#95ffa4",
-          "foreground": "#193549",
-          "powerline_symbol": "\ue0b0",
-          "style": "powerline",
-          "template": " {{ .HEAD }} ",
-          "type": "git"
         }
       ],
       "type": "prompt"
