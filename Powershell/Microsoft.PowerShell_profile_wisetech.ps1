@@ -19,4 +19,6 @@ $env:Path = "C:\Users\Tony.Tran\.local\bin;$env:Path"
 . "$profileFolder\Scripts\Utils\DevUtils.ps1"
 . "$profileFolder\Scripts\Wisetech\CW1Utils.ps1"
 . "$profileFolder\Scripts\Wisetech\CW1Worktrees.ps1"
-Import-Module "$profileFolder\Scripts\Wisetech\ediProd.psm1"
+if ($PSVersionTable.PSVersion.Major -ge 7) {
+	Import-Module "$profileFolder\Scripts\Wisetech\ediProd.psm1"
+}
